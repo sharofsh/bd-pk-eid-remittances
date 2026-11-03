@@ -6,7 +6,7 @@ Two questions:
 1. Are Eid al-Fitr and Eid al-Adha associated with changes in monthly workers' remittances in Bangladesh and Pakistan, and do the effects differ between the countries?
 2. Does including Eid regressors improve out-of-sample forecasts?
 
-The design is in [DESIGN.md](DESIGN.md). It is a draft and has not been frozen yet.
+The pre-specified analysis plan is in [DESIGN.md](DESIGN.md) (v1.0, date-stamped 4 Nov 2026). The 3 Nov working draft is in `docs/`.
 
 ## Data
 
