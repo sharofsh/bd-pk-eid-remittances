@@ -13,17 +13,24 @@ The design is in [DESIGN.md](DESIGN.md). It is a draft and has not been frozen y
 | File | Country | Period | Units | Source |
 |---|---|---|---|---|
 | `data/bd_remittances_monthly.csv` | Bangladesh | Jul 2009 to Jul 2026 | US$ million (`remittances_usd_mn`); Tk crore also given | Bangladesh Bank, *Monthly Economic Trends*, compiled across issues with vintage tracking (`n_vintages`, `source_issue`) |
-| `data/pk_remittances_monthly.csv` | Pakistan | Jul 2005 to Dec 2024 | US$ million, original (`remittances_usd_mn`) and SBP seasonally adjusted (`remittances_sa_usd_mn`) | State Bank of Pakistan, *Workers' Remittances (Credit), Seasonally Adjusted* (file "SA workers' Remittances Nov24.xlsx", printed 9 Jan 2025) |
+| `data/pk_remittances_monthly.csv` | Pakistan | Jul 2005 to Sep 2026 | US$ million, original (`remittances_usd_mn`); SBP seasonally adjusted (`remittances_sa_usd_mn`) to Dec 2024 only | State Bank of Pakistan: to Dec 2024, *Workers' Remittances (Credit), Seasonally Adjusted* (file "SA workers' Remittances Nov24.xlsx", printed 9 Jan 2025); from Jan 2025, SBP bulletins and press figures (per-row `source`; see DATA.md §1a) |
+
+| `data/eid_dates.csv` | both | Eid al-Fitr and Eid al-Adha, 1426–1447 AH | local national date, Umm al-Qura date, status, source | news reports of the national moon-sighting announcements; see DATA.md |
+| `data/eid_exposure_monthly.csv` | both | each country's span | share of each Eid window in the month (21-day primary; 10/30-day, day-before, Umm al-Qura variants) | built by `scripts/01_eid_exposure.R` |
+
+Data documentation, including the Eid-date verification, is in [DATA.md](DATA.md).
 
 Notes:
 - Use the original Pakistan series. The SBP seasonal adjustment method is not documented in the source file and may already remove Eid effects.
-- Pakistan data from Jan 2025 onward are published only on SBP EasyData and have not been added yet.
+- Pakistan Jan 2025 – Sep 2026 were appended from SBP bulletins and press figures, because EasyData is not reachable from the analysis workspace (DATA.md §1a).
 - Both series come from public central-bank publications. Check each source's terms of reuse before redistributing further.
 
 ## Layout
 
 ```
-data/      input series (and, later, Eid dates)
+data/      input series, Eid dates and exposure regressors
 scripts/   one script per analysis step
+           00_build_eid_dates.py  (Python, needs hijri-converter)
+           01_eid_exposure.R
 results/   tables and figures produced by the scripts
 ```
