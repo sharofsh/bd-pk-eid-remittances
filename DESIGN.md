@@ -1,257 +1,244 @@
-# Study design (draft, not yet frozen)
+# Pre-specified analysis plan v1.0
 
-Text below is the working design as drafted on 3 Nov 2026. Freeze it (date and commit) before running the confirmatory Pakistan analysis. Any later change goes in the deviations log at the end.
+**Date-stamped 4 Nov 2026.** This plan is fixed before any confirmatory model is fitted. The commit that introduces this version is the date stamp. Any later change goes in the deviations log at the end, with its date and reason. The 3 Nov working draft is kept in `docs/design_draft_2026-11-03.md`.
+
+**Title:** *Islamic-Calendar Effects and Remittance Forecasting: Comparative Evidence from Bangladesh and Pakistan*
+
+**Disclosure.** Exploratory analyses were run before this plan was fixed:
+- **Bangladesh:** the M.Sc. thesis plan v1.1 and its post hoc checks.
+- **Pakistan:** in-sample Eid estimates and a paired forecast comparison using airline SARIMA models.
+
+The Pakistan analysis is therefore a replication of a design informed by Bangladesh, by someone who had already seen some Pakistan results. The paper must say so. The focal horizons h = 1 and 3 are exploratory choices informed by the earlier Bangladesh results; they are not pre-specified in the strict sense.
 
 ---
 
-The cross-country differences in the effects of Islamic-calendar events on workers' remittances, and whether modelling those effects provides measurable forecasting value.
+## 1. Research questions
 
-This is a focused study, not two separate papers.
-1. Working title
-Eid Effects in Monthly Workers' Remittances: Estimation and Forecasting Value in Bangladesh and Pakistan
+**RQ1 — Effect estimation.**
+- Are Eid al-Fitr and Eid al-Adha associated with changes in monthly workers' remittances in Bangladesh (BD) and Pakistan (PK)?
+- Do the size and direction of these effects differ between the two countries?
 
-An alternative with a slightly stronger research emphasis:
+**RQ2 — Forecasting value.**
+- Do Eid regressors improve out-of-sample forecasts in each country?
+- Secondary: do the effects and the forecasting gains hold across periods and training-window strategies?
 
-Islamic-Calendar Effects and Remittance Forecasting: Comparative Evidence from Bangladesh and Pakistan
+## 2. Data
 
-I prefer the second title.
-2. Research questions
-RQ1 — Effect estimation
+Inputs are described in `DATA.md`.
 
-Are Eid al-Fitr and Eid al-Adha associated with changes in monthly workers' remittances in Bangladesh and Pakistan, and do the magnitude and direction of these effects differ between the countries?
+| | BD | PK |
+|---|---|---|
+| Series | `remittances_usd_mn`, US$ million, not seasonally adjusted | `remittances_usd_mn`, US$ million, original (not seasonally adjusted) |
+| Primary span | Jul 2009 – Jun 2026 (204 months) | Jul 2005 – Jun 2026 (252 months) |
+| Excluded from primary | Jul 2026 (single vintage) | Jul – Sep 2026 (first releases; Aug derived). Used in sensitivity S9 only |
+| Transformation | natural log | natural log |
 
-RQ2 — Forecasting value
+**Cross-country comparison window** (used only for sensitivity S10): Jul 2009 – Jun 2026, the span both countries share.
 
-Does incorporating Eid-related regressors improve out-of-sample forecasts of monthly workers' remittances in Bangladesh and Pakistan?
+Raw levels are never compared across countries. Comparisons use percentage effects and within-country forecasting performance.
 
-Secondary investigation: Are the estimated effects and forecasting improvements stable across different periods and training-window strategies?
+## 3. Eid regressors
 
-Two RQs are sufficient. Don't add a separate model-selection RQ.
-3. Data and study population
-Component	Bangladesh	Pakistan
-Outcome	Monthly workers' remittances	Monthly workers' remittances
-Frequency	Monthly	Monthly
-Historical period	2009–2026, subject to availability	Available comparable period
-Eid information	Historical local Eid dates	Historical local Eid dates
-Transformation	Natural logarithm	Natural logarithm
+Defined in `data/eid_exposure_monthly.csv`:
+- **Dates:** each country's own national Eid dates (`data/eid_dates.csv`). Events with no source use the Umm al-Qura date and are flagged.
+- **Primary regressors:** `fitr_w21` and `adha_w21`. Each is the share of the 21-day window ending on Eid day (inclusive) that falls in the month.
+- **Sensitivity variants:**
+  - 10-day and 30-day windows (`_w10`, `_w30`);
+  - 21 days ending the day before Eid (`_w21_pre`);
+  - Umm al-Qura dates (`_w21_uq`).
 
-Before analysis, document:
-- Source and definition of remittance series.
-- Currency and units.
-- Whether figures are revised or seasonally adjusted.
-- Missing observations and reporting changes.
-- Historical Eid-date sources and verification.
-Use each country's actual local Eid dates, not automatically the Saudi calendar. Public-holiday dates should not be mistaken for the actual religious dates.
+## 4. Model
 
-Do not compare raw remittance levels across countries. Compare percentage effects and within-country forecasting performance.
-4. RQ1: Estimation of Eid effects
-Use regression with seasonal ARIMA errors (RegARIMA).
+RegARIMA on `log Y_t`:
 
-A general specification is:
-\[
-\begin{aligned}
-\log(Y_t) ={}& \beta_0+\beta_1 Trend_t\\
-&+\beta_2 Fitr_t+\beta_3 Adha_t\\
-&+\boldsymbol{\gamma}'\mathbf{Z}_t+\varepsilon_t
-\end{aligned}
-\]
+```
+log Y_t = β0 + β_F · Fitr_t + β_A · Adha_t + γ'Z_t + ε_t,   ε_t ~ SARIMA(p,d,q)(P,D,Q)_12
+```
 
-where:
-- \(Y_t\): monthly workers' remittances.
-- \(Fitr_t\): monthly Eid al-Fitr exposure.
-- \(Adha_t\): monthly Eid al-Adha exposure.
-- \(\mathbf{Z}_t\): justified intervention variables.
-- \(\varepsilon_t\): seasonal ARIMA errors.
-Eid exposure construction
-Use a primary 21-day event window, with fractional monthly exposure.
+**Trend.** With differenced errors, the linear trend term is replaced by a drift. A drift is included only when d + D = 1; this is the default behaviour of `forecast::Arima` / `auto.arima`.
 
-For example, if an event window overlaps two calendar months, allocate exposure according to the number of event-window days falling in each month.
+**Interventions.** `Z_t` holds the intervention regressors. They are chosen by the rule in §5.
 
-Estimate Fitr and Adha separately.
+**The two models in each comparison:**
+- **Baseline:** `Z` only, with no Eid regressors.
+- **Model with Eid regressors:** `Z` plus `Fitr` and `Adha`, with identical orders, training data and interventions.
 
-Report:
-- Estimated coefficients.
-- Percentage effects, calculated as \(100[\exp(\beta)-1]\).
-- 95% confidence intervals.
-- Statistical significance.
-- Residual diagnostics.
-Use 10-day and 30-day windows as sensitivity analyses.
-Structural shocks and outliers
-Explicitly investigate COVID-related disruptions and major country-specific structural changes.
+**Order selection.** Orders are chosen with `auto.arima` on the baseline, given `Z`:
+- `stepwise = FALSE`, `approximation = FALSE`;
+- `max.p = 3`, `max.q = 3`, `max.P = 1`, `max.Q = 1`;
+- `d` chosen by the KPSS test and `D` by the default seasonal test;
+- information criterion: AICc.
 
-Distinguish additive outliers, temporary changes and persistent level shifts.
+Those orders are then applied to the model with Eid regressors.
 
-Do not automatically classify every unusual observation as an outlier. A persistent change in remittance behaviour may be economically meaningful.
-Cross-country effect comparison
-This is essential.
+**Software.** R with `forecast`, `sandwich` and `lmtest`. The package `tsoutliers` cannot be installed in the analysis environment (it has been removed from CRAN and CRAN is not reachable). Outlier detection is therefore implemented in `scripts/`, as described in §5.
 
-Test whether:
-\[
-H_0:\beta_{Fitr,BD}=\beta_{Fitr,PK}
-\]
+## 5. Intervention rule (common to both models in a pair)
 
-and
-\[
-H_0:\beta_{Adha,BD}=\beta_{Adha,PK}
-\]
+An intervention enters only if all three conditions hold:
+1. **External reason.** It belongs to the candidate list below, which is fixed now with a dated reason for each entry.
+2. **Support in the data.** It is detected on the **model with Eid regressors**, not on the baseline.
+3. **Inside the training window.** At least 3 observations after its date lie inside the training window.
 
-Use a suitable pooled interaction specification or an equivalent direct test of coefficient differences, accounting for the separate country-specific error structures.
+The selected set `Z` is then used in **both** models of the pair.
 
-A significant coefficient in one country and a nonsignificant coefficient in the other does not establish that their effects differ.
-5. RQ2: Does modelling Eid improve forecasting?
-This is the main forecasting experiment.
+### Candidate list
 
-Use one model family and construct a controlled pair:
-Model A — Baseline RegARIMA
+| ID | Country | Window (calendar month) | External reason |
+|---|---|---|---|
+| B1 | BD | Jul 2019 | 2% cash incentive on remittances through formal channels takes effect (FY20 budget) |
+| B2 | BD | Mar – Jul 2020 | COVID-19: lockdowns, migrant-job losses, then a shift to formal channels as informal (hundi) channels were disrupted |
+| B3 | BD | Jan 2022 | Incentive raised from 2% to 2.5% |
+| B4 | BD | Sep 2022 | Bankers' association (BAFEDA/ABB) caps the remittance exchange rate; the gap with the kerb market widens |
+| B5 | BD | Aug – Oct 2024 | Change of government (5 Aug 2024) followed by a sharp rise in remittances through formal channels |
+| P1 | PK | Oct 2008 – Jan 2009 | Global financial crisis shock to Gulf labour markets |
+| P2 | PK | Apr – Jun 2009 | Pakistan Remittance Initiative launched (Apr 2009) |
+| P3 | PK | Jul 2016 | Contraction of the Gulf labour market (Saudi construction-sector layoffs) |
+| P4 | PK | Mar – Jul 2020 | COVID-19 (as B2) |
+| P5 | PK | Sep 2022 | Gap between the interbank and open-market exchange rates widens; rate caps |
+| P6 | PK | Sep 2023 | Crackdown on currency smuggling and the kerb market; exchange-company reforms |
 
-Trend, interventions and seasonal ARIMA errors. No Eid regressors.
+### Detection and selection, at each forecast origin and for the full-sample fits
 
-Model B — Eid-aware RegARIMA
+1. **Provisional fit.** Fit the model with Eid regressors using the airline error model, (0,1,1)(0,1,1)_12, as X-13 does for outlier identification.
+2. **Test each candidate month.** For each month inside an eligible candidate window, add one regressor of each type and record its likelihood t-statistic from the Hessian:
+   - additive outlier (AO);
+   - temporary change (TC, decay 0.7);
+   - level shift (LS).
+3. **Critical value.** Use the same default as `tsoutliers`: `cval(n) = 3` for `n ≤ 50`, `4` for `n ≥ 450`, and linear in between (`3 + 0.0025·(n − 50)`), where `n` is the number of training observations.
+4. **Forward selection.** Add the (month, type) with the largest |t| ≥ cval. Refit and repeat until no remaining candidate passes. Each window contributes at most 2 interventions.
+5. **Choose orders.** Run `auto.arima` on the baseline with the selected `Z` (§4).
 
-Exactly the same specification, with Eid al-Fitr and Eid al-Adha exposure regressors added.
+### Sensitivities for the intervention rule
+- **S5:** no interventions at all.
+- **S6:** fully automatic detection with no external-reason requirement. Chen–Liu (1993) single-pass statistics for AO, TC and LS at every month, run on the model with Eid regressors, with the same cval and the same "apply to both models" rule.
 
-Compare out-of-sample forecast errors
+**The Aug 2024 BD break** (candidate B5) is tested by this rule. It is reported as a limitation only if it is not detected.
 
+## 6. RQ1: estimating the Eid effects
 
-Keep the following identical within each pair:
-- Training observations.
-- ARIMA orders.
-- Intervention/outlier treatment.
-- Forecast origins.
-- Forecast horizons.
-- Estimation and forecasting procedures.
-ARIMA orders should be selected using training data only. For each origin, select the orders using the baseline procedure and apply those orders to both members of the pair.
+**Full-sample fit.** One fit per country over the primary span, with orders and interventions chosen by §4–5 on the full sample. Report:
+- `β_F` and `β_A`;
+- percentage effects `100·(exp(β) − 1)`;
+- 95% confidence intervals from Hessian standard errors;
+- p-values;
+- residual diagnostics: Ljung–Box at lag 24 with fitdf equal to the number of ARMA parameters, a residual ACF plot, and a Jarque–Bera normality test;
+- the intervention set selected.
 
-Outlier-treatment warning: This is a major potential source of bias. If the baseline model identifies an Eid-related peak as an additive outlier but the Eid-aware model does not, the comparison is no longer isolating the Eid contribution. Use a common intervention-selection procedure and investigate the results with and without automatic outlier detection.
-Benchmarks
-Keep seasonal naïve as a basic reference.
+**Cross-country test.** For each Eid, H0: β_BD = β_PK.
+- **Primary:** `z = (β̂_BD − β̂_PK) / sqrt(se_BD² + se_PK²)`, using the full-span fits and treating the two country fits as independent.
+- **Sensitivity S10:**
+  - both fits re-estimated on the common window Jul 2009 – Jun 2026;
+  - the variance of the difference adjusted for correlated shocks: `se_BD² + se_PK² − 2·ρ̂·se_BD·se_PK`, where ρ̂ is the contemporaneous correlation of the two models' innovations;
+  - this is an approximation and is reported as one.
+- **Interpretation rule:** a significant effect in one country and a non-significant one in the other is not evidence that the effects differ.
 
-I would also retain one diagnostic SARIMA model developed using ACF/PACF as a supplementary forecasting benchmark. This addresses your interest in conventional Box–Jenkins identification without turning the paper into a large model competition.
+**Temporal stability.**
+- Add `Fitr×Post` and `Adha×Post` with Post = 1 from Jul 2020 (start of FY21). This is the same split used in the BD thesis and follows the shift to formal channels during COVID.
+- Report the Wald test of the two interaction terms.
+- A change in the level of remittances (captured by the interventions) is kept separate from a change in the Eid effect (captured by the interactions).
+- No other break date is searched for.
 
-For this benchmark:
-1. Examine ACF/PACF using training observations only.
-2. Identify plausible seasonal and nonseasonal orders.
-3. Estimate candidate models.
-4. Check AICc and residual diagnostics.
-5. Evaluate its forecasts at the same origins as the RegARIMA models.
-It is a benchmark, not a third central research question. Do not claim RegARIMA is the best forecasting model unless you actually conduct a sufficiently broad and fair model comparison.
-6. Forecast evaluation protocol
-Use rolling-origin evaluation with an expanding training window as the primary design.
+## 7. RQ2: forecasting value
 
-At each forecast origin:
-1. Fit the baseline model using available historical observations.
-2. Select the ARIMA orders and intervention specification using training data only.
-3. Fit the Eid-aware model using the same orders and intervention specification.
-4. Generate forecasts from both models.
-5. Calculate forecast errors.
-6. Advance the origin and repeat.
-Forecast horizons
-Horizon	Role
-1 month	Focal
-3 months	Focal
-6 months	Supplementary
-12 months	Supplementary
+### Design
+- **Rolling-origin evaluation with an expanding training window.**
+- **First origin:** Jun 2017, for both countries. BD then has 96 training months and PK 144. Both countries are therefore evaluated on the **same target months**, Jul 2017 – Jun 2026.
+- **Last origin:** Jun 2026 − h.
+- **At each origin:** select interventions (§5), then orders on the baseline (§4), then fit both models, then forecast h = 1, …, 12 months ahead.
 
-Because your earlier analysis identified stronger gains at short horizons, describe h=1 and h=3 as exploratory focal horizons. Do not retrospectively call them pre-specified.
-Metrics
-- MAE
-- RMSE
-- MASE
-- MAPE as a supplementary measure
-Report relative improvement as well as absolute error. For example:
-\[
-Improvement(\%) =
-100\frac{Loss_{base}-Loss_{Eid}}{Loss_{base}}
-\]
+### Horizons
+- Focal (exploratory): h = 1 and 3.
+- Supplementary: h = 6 and 12.
 
-Positive values indicate improvement from including Eid information.
-Statistical testing
-- Clark–West: primary inferential test for nested models under squared-error loss.
-- Diebold–Mariano: secondary comparison using explicitly specified loss differentials, such as absolute errors.
-- Confidence intervals for forecast-loss differences.
-- HAC adjustments where required for serial dependence and overlapping multi-step forecasts.
-Do not interpret 11 significant Clark–West results and zero significant DM results as proof that one test is correct and the other is wrong. They test different formulations of predictive performance. Investigate the loss functions, forecast biases and magnitude of improvements.
+### Errors and loss
+- **Primary errors are on the log scale:** `e = log y − log ŷ`. These are approximately percentage errors and are comparable across countries.
+- **Level-scale errors are also reported,** using `exp(log ŷ)` as the point forecast. This is the median forecast; no bias adjustment is made.
 
-Correct for multiple testing across the genuinely designated primary comparisons. Report the full horizon results, not only significant ones.
-7. Training-window sensitivity and later-period errors
-I would definitely retain your observation that later evaluation windows appear to have lower errors.
+### Metrics
+- MAE and RMSE (log scale and level scale);
+- MASE, scaled by the in-sample seasonal-naive MAE of each training window;
+- MAPE (supplementary);
+- mean error, to show bias;
+- improvement % = `100·(Loss_base − Loss_Eid)/Loss_base`, where positive means the Eid regressors help.
 
-But make it a secondary analysis within RQ2, rather than another research question.
+### Inference
 
-Compare:
-Strategy	Training observations
-Expanding window	All available observations since the beginning
-Rolling 96-month window	Most recent 96 observations
+| Test | Role | Details |
+|---|---|---|
+| Clark–West | **Primary.** The models are nested. | Squared error on the log scale; one-sided; HAC (Newey–West) variance with `h − 1` lags. **Holm correction over the 4 primary tests** (BD and PK × h = 1 and 3) at α = 0.05. |
+| Diebold–Mariano | Secondary | Absolute-error loss; Harvey–Leybourne–Newbold correction; two-sided; HAC with `h − 1` lags; reported without correction |
+| 95% CI | Descriptive | Mean loss difference (squared and absolute), HAC variance |
 
-Evaluate both strategies on identical target months.
+All horizons are reported, not only the significant ones. If Clark–West and Diebold–Mariano disagree, this is read as the two tests asking different questions, not as one being right. Bias and the size of the loss differences are examined either way.
 
-Use the same model pair and forecast horizons.
+### Benchmarks
+These are reported alongside the main comparison; they do not answer a research question.
+- **Seasonal naive.**
+- **SARIMA identified by ACF/PACF** (Box–Jenkins):
+  - orders identified once, from the training data available at the first origin (to Jun 2017), using ACF/PACF plots, AICc and residual checks;
+  - the identification is documented in a script before any forecast is made;
+  - coefficients are re-estimated at every origin with those orders fixed.
 
-Investigate:
-1. Whether rolling windows outperform expanding windows.
-2. Whether forecast errors decline in later evaluation periods.
-3. Whether the difference becomes larger following structural changes.
-4. Whether Eid-related forecasting gains depend on the training-window strategy.
-For sensitivity, you can examine rolling windows of 60 and 120 months, if the data permit.
+No claim is made that RegARIMA is the best forecasting model.
 
-Important distinction: Lower forecast errors in later periods do not necessarily mean recent training data are superior. Later periods might simply be easier to predict. The expanding-versus-rolling comparison on identical target months is the stronger evidence.
+## 8. Training-window and later-period analysis (secondary, within RQ2)
 
-Also, distinguish two questions:
-- Does the training-window strategy change overall forecast accuracy?
-- Does the training-window strategy change the incremental benefit of Eid regressors?
-The second is particularly interesting for your paper.
-8. Robustness analysis
-Keep the robustness analysis focused.
-Robustness check	Purpose
-Eid windows: 10, 21 and 30 days	Exposure definition
-With and without automatic outlier detection	Intervention sensitivity
-Alternative plausible intervention specifications	Structural-shock sensitivity
-Rolling windows: 60, 96 and 120 months	Training-window sensitivity
-Pre-/post-structural-change estimates	Temporal stability
-Alternative forecast horizons	Horizon dependence
+**Window strategies:**
+- Expanding window, against rolling windows of 60 and 96 months.
+- All three are compared on the same target months (Jul 2017 – Jun 2026).
+- A 120-month rolling window is possible only from origin Jun 2019 for BD. It is therefore compared with the expanding window on targets from Jul 2019 onward, for both countries.
 
-For temporal stability, test changes in the Eid coefficients directly using interaction terms or a suitable coefficient-stability procedure.
+**Questions:**
+1. Do rolling windows beat the expanding window?
+2. Are errors smaller for targets from Jul 2020 onward than for targets before Jul 2020?
+3. Does the gap grow after the selected interventions?
+4. **Does the window strategy change how much the Eid regressors add?** This is the key question here. It is answered by comparing improvement % and the Clark–West statistics across strategies on the same targets.
 
-Do not confuse a change in the average remittance level with a change in the Eid effect.
+Smaller errors in later periods are not read as evidence that recent data are better, because later periods may simply be easier to forecast. The stronger evidence is the comparison of strategies on the same target months.
 
-For the historical split, avoid choosing a breakpoint merely because it produces the most interesting result. Use an economically justified date and, where appropriate, supplement it with formal break analysis.
-9. Bangladesh–Pakistan comparative analysis
-Apply the same conceptual methodology to both countries, but allow country-specific ARIMA orders and intervention dates.
+## 9. Sensitivity analyses
 
-The comparison should answer:
-Question	Evidence
-Are Eid effects present in both countries?	Coefficients and confidence intervals
-Do effect magnitudes differ?	Direct country-interaction tests
-Does Eid improve forecasting in both?	Paired forecast-loss differences
-Does recent training data help?	Expanding vs rolling comparison
-Are findings stable?	Window and intervention sensitivity
+| ID | Change | Purpose |
+|---|---|---|
+| S1 | Eid windows of 10 and 30 days | Exposure length |
+| S2 | 21 days ending the day before Eid | Window position |
+| S3 | Umm al-Qura dates | Local vs Umm al-Qura calendar |
+| S4 | Fixed airline orders (0,1,1)(0,1,1)_12 at every origin | Order selection |
+| S5 | No interventions | Intervention rule |
+| S6 | Fully automatic detection (Chen–Liu), no external-reason requirement | Intervention rule |
+| S7 | Rolling windows of 60, 96 and 120 months | Training window (§8) |
+| S8 | Pre/post Jul 2020 interaction (§6) and split-period evaluation (§8) | Stability over time |
+| S9 | PK span extended to Sep 2026 | Sample end |
+| S10 | Common window Jul 2009 – Jun 2026, with the ρ̂-adjusted cross-country test | Cross-country comparability |
 
-Do not force identical model parameters on both countries. Comparability of the research procedure is more important than identical numerical specifications.
+Sensitivity results are reported in full. They are not used to choose a "best" specification after the fact.
 
-Pakistan is an independent replication setting only to the extent that you do not use its results to keep changing the methodology until the desired result appears. Freeze the primary specification before examining its confirmatory results.
-10. Final paper structure
-One paper, two countries, two research questions
+## 10. Order of work and reporting
+
+**Stop points:**
+1. Phase 1 (done): data and Eid dates.
+2. This plan.
+3. One confirmatory run.
+
+**Order inside the run:**
+- BD and PK are run with identical code.
+- The PK results are produced by the same run and the specification is not changed after seeing them.
+- If a coding error is found after the run, it is fixed and logged as a deviation. The before/after difference is reported.
+
+**Results are reported in three parts:**
+- **Observed:** numbers only.
+- **Interpretation.**
+- **Unresolved.**
+
+**Paper structure:**
 1. Introduction and literature review
-   
-   Remittance forecasting, moving holidays, Islamic-calendar effects and research gap.
-2. Data and methodology
-   
-   Data sources, Eid exposure construction, RegARIMA, interventions and forecasting protocol.
-3. RQ1: Eid effect estimation
-   
-   Country-specific estimates, cross-country coefficient comparisons and temporal stability.
-4. RQ2: Forecasting value
-   
-   Paired forecasts, benchmarks, forecast-loss comparisons and statistical tests.
+2. Data and method
+3. RQ1
+4. RQ2
 5. Robustness and training-window analysis
-   
-   Alternative event windows, interventions and expanding-versus-rolling evaluation.
 6. Discussion
-   
-   Explain similarities and differences between Bangladesh and Pakistan without unsupported causal claims.
 7. Conclusion
-   
-   Implications for remittance forecasting and the treatment of moving-calendar effects.
 
 ---
 
@@ -259,9 +246,8 @@ One paper, two countries, two research questions
 
 | Date | Note |
 |---|---|
-| 2026-11-03 | Exploratory runs on both countries were done before this design was frozen (Bangladesh: registered plan v1.1 and post hoc checks; Pakistan: in-sample Eid estimates and a paired airline SARIMA forecast comparison). Pakistan is therefore a replication of a Bangladesh-informed design whose results were seen before freezing. This must be disclosed. |
-| 2026-11-03 | Open decisions: local vs Umm al-Qura Eid dates; fixed airline orders vs per-origin selection on the baseline; common intervention rule for the forecasting pair; exposure definition (share of the event window falling in each month, as used so far). |
-| 2026-11-03 | Wording to fix before freezing: replace "Eid-aware" with "with Eid regressors"; with differenced ARIMA errors the linear trend term becomes a drift. |
-| 2026-11-04 | Decisions taken before freezing (from Sharof's answers of 4 Nov). (1) Eid dates: local national dates with a source per event; where none is found, Umm al-Qura is used and the row is flagged (`data/eid_dates.csv`). (2) Window: 21 days ending on Eid day, as in all earlier BD results; "ending the day before Eid" is a sensitivity variant. (3) Sample: each country's full span is primary (BD Jul 2009 – Jun 2026; PK Jul 2005 – Dec 2024). The common window (Jul 2009 – Dec 2024) is used only as a sensitivity check for the cross-country coefficient test. This reverses an earlier instruction to restrict all analysis to the common period. (4) Interventions: an event is included only if it has both an external reason and support in the data, and only once its date is inside the training window. Automatic outlier detection runs on the model with Eid regressors (not the baseline), and the resulting interventions are applied to both models in the pair. (5) ARIMA orders are re-selected on the baseline at each origin; fixed airline orders are a sensitivity check. (6) Holm correction over the 4 primary Clark–West tests (BD, PK × h = 1, 3). (7) Wording fixes listed on 3 Nov are accepted. (8) The Aug 2024 BD break is tested with the full BD sample; it is reported as a limitation only if it is not detectable. |
-| 2026-11-04 | Phase 1 delivered: Eid date table, data documentation (DATA.md), exposure regressors. In-sample Umm al-Qura fallbacks: BD 2 of 36 events, PK 10 of 40 (mostly 2005–2009). The design text above has not yet been edited to reflect the 4 Nov decisions; that is part of freezing (Phase 2). |
-| 2026-11-04 | PK series extended to Sep 2026 from SBP bulletins and press figures (DATA.md §1a); reconciles with SBP cumulative totals. Recommended PK primary end: Jun 2026 (same as BD), with Jul–Sep 2026 as sensitivity only. To be confirmed at freezing. With this extension, the common window for the cross-country sensitivity check becomes Jul 2009 – Jun 2026. |
+| 2026-11-03 | Exploratory runs on both countries were done before this design was fixed (Bangladesh: registered plan v1.1 and post hoc checks; Pakistan: in-sample Eid estimates and a paired airline SARIMA forecast comparison). Pakistan is therefore a replication of a Bangladesh-informed design whose results were seen before fixing it. This must be disclosed. |
+| 2026-11-03 | Open decisions: local vs Umm al-Qura Eid dates; fixed airline orders vs per-origin selection on the baseline; common intervention rule for the forecasting pair; exposure definition. All are resolved in v1.0 (§3–5). |
+| 2026-11-04 | Decisions taken before fixing the plan (from Sharof's answers of 4 Nov). (1) Eid dates: local national dates with a source per event; Umm al-Qura fallback flagged. (2) Window: 21 days ending on Eid day; "day before" is a sensitivity variant. (3) Sample: each country's full span is primary; the common window is a sensitivity check for the cross-country test. This reverses an earlier instruction to restrict all analysis to the common period. (4) Interventions: external reason plus support in the data, entered only once inside the training window; detection on the model with Eid regressors; the same interventions are applied to both models. (5) Orders re-selected on the baseline at each origin; fixed airline orders as sensitivity. (6) Holm correction over 4 Clark–West tests. (7) Wording: "with Eid regressors"; trend becomes drift under differencing. (8) The Aug 2024 BD break is tested, not assumed. |
+| 2026-11-04 | Phase 1 delivered: Eid date table, `DATA.md`, exposure regressors. In-sample Umm al-Qura fallbacks: BD 2 of 36 events, PK 10 of 44. PK series extended to Sep 2026 from SBP bulletins and press figures (`DATA.md` §1a). |
+| 2026-11-04 | v1.0 fixed. Choices made by Claude where the 4 Nov answers left details open (all listed here so they can be reviewed): PK primary end Jun 2026; the 3 caption-sourced BD Eid dates kept; first origin Jun 2017 for both countries, so they share target months; candidate intervention list B1–B5 and P1–P6; detection on the airline model with tsoutliers-style cval(n) and at most 2 interventions per window; minimum 3 post-event observations before an intervention can enter; log-scale loss as primary; ρ̂-adjusted variance for the common-window cross-country test; stability split at Jul 2020; ACF/PACF benchmark identified once on data to Jun 2017. Outlier detection is implemented in-house because `tsoutliers` cannot be installed. |
