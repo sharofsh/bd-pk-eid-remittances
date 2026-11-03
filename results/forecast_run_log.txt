@@ -1,0 +1,26 @@
+primary BD: 108 origins, 1230 rows, 0 failed origins, 4.4 min
+primary PK: 108 origins, 1230 rows, 0 failed origins, 4.1 min
+roll60 BD: 108 origins, 1230 rows, 0 failed origins, 2.9 min
+roll60 PK: 108 origins, 1230 rows, 0 failed origins, 3.2 min
+roll96 BD: 108 origins, 1230 rows, 0 failed origins, 3.1 min
+roll96 PK: 108 origins, 1230 rows, 0 failed origins, 3.4 min
+roll120 BD: 84 origins, 942 rows, 0 failed origins, 2.8 min
+roll120 PK: 84 origins, 942 rows, 0 failed origins, 2.8 min
+S4_airline BD: 108 origins, 1230 rows, 0 failed origins, 0.2 min
+S4_airline PK: 108 origins, 1230 rows, 0 failed origins, 0.3 min
+S5_none BD: 108 origins, 1230 rows, 0 failed origins, 2.3 min
+S5_none PK: 108 origins, 1230 rows, 0 failed origins, 2.5 min
+S1_w10 BD: 108 origins, 1230 rows, 0 failed origins, 0.4 min
+S1_w10 PK: 108 origins, 1230 rows, 0 failed origins, 1.1 min
+S1_w30 BD: 108 origins, 1230 rows, 0 failed origins, 0.5 min
+S1_w30 PK: 108 origins, 1230 rows, 0 failed origins, 0.6 min
+S2_pre BD: 108 origins, 1230 rows, 0 failed origins, 0.4 min
+S2_pre PK: 108 origins, 1230 rows, 0 failed origins, 0.6 min
+S3_uq BD: 108 origins, 1230 rows, 0 failed origins, 0.4 min
+S3_uq PK: 108 origins, 1230 rows, 0 failed origins, 0.6 min
+origin 2020-08-01: cannot open the connection
+S6_auto BD: 108 origins, 1218 rows, 0 failed origins, 19.6 min
+S6_auto PK: 108 origins, 1230 rows, 0 failed origins, 9.4 min
+S9_pk_sep26 PK: 111 origins, 1266 rows, 0 failed origins (0 model failures, 0 errors), 0.4 min
+ALL_DONE
+S6_auto BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 6.2 min
