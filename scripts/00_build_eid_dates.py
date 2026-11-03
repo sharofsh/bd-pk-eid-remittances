@@ -29,7 +29,7 @@ holiday = {
  ('BD','Fitr',1430):'FE 2009-09-20: Eid Mon 21 Sep if moon sighted that evening, else Tue 22 Sep https://today.thefinancialexpress.com.bd/print/moon-sighting-committee-meets-this-evening',
 }
 # sample coverage: BD Jul 2009-Jun 2026 (+Jul 2026); PK Jul 2005-Dec 2024
-samples={'BD':(date(2009,7,1),date(2026,7,31)),'PK':(date(2005,7,1),date(2024,12,31))}
+samples={'BD':(date(2009,7,1),date(2026,7,31)),'PK':(date(2005,7,1),date(2026,9,30))}
 out=[]
 for c in ['BD','PK']:
   for y in range(1426,1448):

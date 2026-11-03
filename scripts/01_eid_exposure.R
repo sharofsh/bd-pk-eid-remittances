@@ -15,7 +15,7 @@ dates$eid_date    <- as.Date(dates$eid_date)
 dates$umm_al_qura <- as.Date(dates$umm_al_qura)
 
 span <- list(BD = c(as.Date("2009-07-01"), as.Date("2026-07-01")),
-             PK = c(as.Date("2005-07-01"), as.Date("2024-12-01")))
+             PK = c(as.Date("2005-07-01"), as.Date("2026-09-01")))
 
 month_start <- function(d) as.Date(format(d, "%Y-%m-01"))
 

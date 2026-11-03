@@ -10,10 +10,10 @@ Prepared 4 Nov 2026. This file covers the "document before analysis" list in DES
 | Series used | `remittances_usd_mn` | `remittances_usd_mn` (original, not seasonally adjusted) |
 | Definition | Remittances as printed in Bangladesh Bank, *Monthly Economic Trends* (Tables XX, XXI and XVIII in different issues) | State Bank of Pakistan, Workers' Remittances (Credit) |
 | Currency, units | US$ million (Tk crore column also present, not used) | US$ million, rounded to whole millions |
-| Span in file | Jul 2009 – Jul 2026 (205 months) | Jul 2005 – Dec 2024 (234 months) |
-| Primary analysis span | Jul 2009 – Jun 2026 (204 months). Jul 2026 is excluded: single vintage, preliminary | Jul 2005 – Dec 2024 (234 months) |
+| Span in file | Jul 2009 – Jul 2026 (205 months) | Jul 2005 – Sep 2026 (255 months) |
+| Primary analysis span | Jul 2009 – Jun 2026 (204 months). Jul 2026 is excluded: single vintage, preliminary | To be fixed at freezing. Recommended: Jul 2005 – Jun 2026 (252 months), the same end as BD; Jul–Sep 2026 are first releases and partly news-derived (see §1a) |
 | Seasonal adjustment | None (raw) | None in the column used. The file also has SBP's SA series (`remittances_sa_usd_mn`); it is not used because SBP does not document its method and it may already remove Eid effects |
-| Revisions | Each month is taken from the latest issue that prints it. `n_vintages` counts how many issues printed it (1–6); `source_issue` gives the issue used. 24 months (Jul 2024 onward) have ≤2 vintages and may still be revised | One vintage: SBP file "SA workers' Remittances Nov24.xlsx", printed 9 Jan 2025 |
+| Revisions | Each month is taken from the latest issue that prints it. `n_vintages` counts how many issues printed it (1–6); `source_issue` gives the issue used. 24 months (Jul 2024 onward) have ≤2 vintages and may still be revised | Jul 2005 – Dec 2024: one vintage, SBP file "SA workers' Remittances Nov24.xlsx" (printed 9 Jan 2025). Jan 2025 onward: appended from later SBP releases; per-row `source` column (see §1a) |
 | Missing months / duplicates / non-positive | 0 / 0 / 0 | 0 / 0 / 0 |
 | Provisional or revised flags | None printed (`flag_P` = "none printed" for all rows; `flag_R_printed` empty) | None in source |
 
@@ -22,7 +22,38 @@ Observations:
 - **Unrounded values (BD).** Six recent BD values carry long decimals (Sep 2025, Jan–Mar 2026, May 2026, Jul 2026), which suggests they were computed in the source workbook rather than typed. Other long decimals in the file are floating-point artefacts (e.g. 1230.5700000000002). None of this needs action.
 - **Rounding difference.** PK values are whole US$ millions, BD values have two decimals. On the log scale the rounding error is under 0.1% for PK, which is negligible.
 - **Spans differ by design.** Per the decision of 4 Nov 2026, each country uses its full span. The common window (Jul 2009 – Dec 2024, 186 months) is used only as a sensitivity check for the cross-country coefficient test.
-- **PK after Dec 2024.** Data from Jan 2025 onward exist on SBP EasyData but have not been added. Adding them would change the PK sample and has to be decided before the design is frozen.
+- **PK after Dec 2024.** Appended on 4 Nov 2026; see §1a.
+
+## 1a. Pakistan extension, Jan 2025 – Sep 2026
+
+The direct sources (EasyData, the ecodata Excel files) cannot be reached from this workspace. The 21 new months were therefore taken from SBP publications and from news reports that quote SBP. The source of each month is given in the `source` column of `data/pk_remittances_monthly.csv`.
+
+| Months | Source | Precision |
+|---|---|---|
+| Jan – Apr 2025 | SBP *Monthly Statistical Bulletin*, Jan 2026 (chart data labels) | whole US$ mn |
+| May 2025 – May 2026 | SBP *Monthly Statistical Bulletin*, Jun 2026 (chart data labels; later vintage, so it replaces the Jan 2026 labels for overlapping months) | whole US$ mn |
+| Jun 2026 | Business Recorder quoting SBP (US$ 3.474 bn); SBP press release gives US$ 3.5 bn | US$ mn |
+| Jul 2026 | SBP press release (US$ 3.6 bn); news quoting SBP gives US$ 3.631 bn | US$ mn |
+| Aug 2026 | **Derived:** Q1 FY27 total minus Jul and Sep (= 3,656; reported as US$ 3.66 bn) | US$ mn |
+| Sep 2026 | ARY News quoting SBP (US$ 3.588 bn) | US$ mn |
+
+**Reconciliation with SBP cumulative totals:**
+
+| Period | Sum of monthly values | SBP total |
+|---|---|---|
+| Jul 2024 – May 2025 | 34,893 | 34,893 |
+| FY25 (Jul 2024 – Jun 2025) | 38,299 | 38.3 bn |
+| Jul 2025 – May 2026 | 38,108 | 38,109 |
+| FY26 | 41,582 | 41.58 bn |
+| Q1 FY26 | 9,537 | 9,535 |
+| Q1 FY27 | 10,875 | 10,875 |
+
+Individual months were also checked against SBP press figures. These matched: May 2025 (3.686 bn), Sep 2025 (3.183 bn), Dec 2025 (3.59 bn), Mar 2026 (3.83 bn), Apr 2026 (3.537 bn) and May 2026 (4.251 bn).
+
+**Caveats:**
+- **Vintage break at Jan 2025.** Earlier months come from the Jan 2025 vintage; later months come from 2026 vintages. The Jan 2026 bulletin prints Dec 2024 as 3,080, against 3,079 in the original file. Revisions of this size (≤0.3%) are immaterial on the log scale, but the break should be stated in the paper.
+- **Jun–Sep 2026 are first releases.** Aug 2026 is derived, not printed. This is the reason for recommending Jun 2026 as the PK primary end (same end as BD), with Jul–Sep 2026 used only in a sensitivity check.
+- **Replacing with EasyData.** If you can download the EasyData series yourself, replacing §1a with it removes both caveats. The rest of the pipeline reads the file unchanged.
 
 ## 2. Eid dates
 
@@ -42,10 +73,10 @@ Two things are deliberately not used:
 
 | status | Meaning | In-sample BD | In-sample PK |
 |---|---|---|---|
-| `sourced` | Date taken from a contemporaneous news report of the official announcement, or from the ICOP official list | 31 | 30 |
+| `sourced` | Date taken from a contemporaneous news report of the official announcement, or from the ICOP official list | 31 | 34 |
 | `sourced_secondary` | Weaker source: photojournalist captions (BD Fitr 2011, 2012; BD Adha 2011) | 3 | 0 |
 | `fallback_umm_al_qura` | No announcement-level source found; Umm al-Qura date used and flagged | 2 | 10 |
-| **Total in-sample events** | | **36** | **40** |
+| **Total in-sample events** | | **36** | **44** |
 
 **In-sample fallbacks:**
 - BD: Fitr 1430 (Sep 2009), Adha 1433 (Oct 2012).
@@ -55,7 +86,7 @@ The PK fallbacks are concentrated in 2005–2009. For most of them an SBP holida
 
 **Checks done:**
 - *Weekday check.* Every source that names a weekday matches the weekday of the recorded date. The two apparent mismatches are notes naming a different day, e.g. the Saudi Eid day.
-- *Distance from Umm al-Qura.* Among sourced dates, the local Eid falls 0 days after Umm al-Qura (5 PK cases), 1 day after (59 cases) or 2 days after (8 cases).
+- *Distance from Umm al-Qura.* Among sourced dates, the local Eid falls 0 days after Umm al-Qura (5 PK cases), 1 day after (60 cases) or 2 days after (8 cases).
   - All +2 cases are years when Saudi Arabia itself departed from the Umm al-Qura calendar: Fitr 2006, Adha 2014, 2015 and 2016.
   - In those years the BD and PK sources agree with each other.
 - *Implication.* An Umm al-Qura fallback can therefore be off by up to 2 days, not only 1.
