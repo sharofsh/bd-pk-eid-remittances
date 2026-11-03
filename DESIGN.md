@@ -71,7 +71,7 @@ log Y_t = β0 + β_F · Fitr_t + β_A · Adha_t + γ'Z_t + ε_t,   ε_t ~ SARIMA
 
 Those orders are then applied to the model with Eid regressors.
 
-**Software.** R with `forecast`, `sandwich` and `lmtest`. The package `tsoutliers` cannot be installed in the analysis environment (it has been removed from CRAN and CRAN is not reachable). Outlier detection is therefore implemented in `scripts/`, as described in §5.
+**Software.** R with `forecast`, `sandwich` and `lmtest`. Outlier detection uses `scripts/lib_outliers.R`, an independent implementation of the Chen–Liu procedure with the same stages and defaults as `tsoutliers::tso`. It reproduces a `tso` 0.6-10 run made in RStudio exactly (6 of 6 outliers, same types, coefficients and t-statistics to 3 decimals; `scripts/check_outliers_vs_tsoutliers.R`). `tsoutliers` itself cannot be installed in the analysis environment.
 
 ## 5. Intervention rule (common to both models in a pair)
 
@@ -111,7 +111,7 @@ The selected set `Z` is then used in **both** models of the pair.
 
 ### Sensitivities for the intervention rule
 - **S5:** no interventions at all.
-- **S6:** fully automatic detection with no external-reason requirement. Chen–Liu (1993) single-pass statistics for AO, TC and LS at every month, run on the model with Eid regressors, with the same cval and the same "apply to both models" rule.
+- **S6:** fully automatic detection with no external-reason requirement. `detect_outliers()` (the tso-equivalent procedure: AO, TC, LS; airline errors; Eid regressors included; default cval), applied to both models.
 
 **The Aug 2024 BD break** (candidate B5) is tested by this rule. It is reported as a limitation only if it is not detected.
 
@@ -251,3 +251,4 @@ Sensitivity results are reported in full. They are not used to choose a "best" s
 | 2026-11-04 | Decisions taken before fixing the plan (from Sharof's answers of 4 Nov). (1) Eid dates: local national dates with a source per event; Umm al-Qura fallback flagged. (2) Window: 21 days ending on Eid day; "day before" is a sensitivity variant. (3) Sample: each country's full span is primary; the common window is a sensitivity check for the cross-country test. This reverses an earlier instruction to restrict all analysis to the common period. (4) Interventions: external reason plus support in the data, entered only once inside the training window; detection on the model with Eid regressors; the same interventions are applied to both models. (5) Orders re-selected on the baseline at each origin; fixed airline orders as sensitivity. (6) Holm correction over 4 Clark–West tests. (7) Wording: "with Eid regressors"; trend becomes drift under differencing. (8) The Aug 2024 BD break is tested, not assumed. |
 | 2026-11-04 | Phase 1 delivered: Eid date table, `DATA.md`, exposure regressors. In-sample Umm al-Qura fallbacks: BD 2 of 36 events, PK 10 of 44. PK series extended to Sep 2026 from SBP bulletins and press figures (`DATA.md` §1a). |
 | 2026-11-04 | v1.0 fixed. Choices made by Claude where the 4 Nov answers left details open (all listed here so they can be reviewed): PK primary end Jun 2026; the 3 caption-sourced BD Eid dates kept; first origin Jun 2017 for both countries, so they share target months; candidate intervention list B1–B5 and P1–P6; detection on the airline model with tsoutliers-style cval(n) and at most 2 interventions per window; minimum 3 post-event observations before an intervention can enter; log-scale loss as primary; ρ̂-adjusted variance for the common-window cross-country test; stability split at Jul 2020; ACF/PACF benchmark identified once on data to Jun 2017. Outlier detection is implemented in-house because `tsoutliers` cannot be installed. |
+| 2026-11-04 | Outlier code validated against `tsoutliers::tso` 0.6-10 run by Sharof in RStudio (full primary spans, airline errors, Eid regressors). Exact match: BD 2017-09 AO, 2020-03 TC, 2020-06 LS, 2023-09 AO; PK 2008-10 AO, 2022-10 LS. These results were seen **after** the v1.0 commit (683f560) and do not change the plan. In particular, the PK Oct 2022 level shift lies outside candidate window P5 (Sep 2022); the candidate list is **not** widened because of it. That shift enters only in S6. |

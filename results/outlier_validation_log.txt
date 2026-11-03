@@ -1,0 +1,29 @@
+BD n = 204 cval = 3.38 
+PK n = 252 cval = 3.5 
+
+-- tsoutliers (Sharof, RStudio) --
+ country   month type coefhat  tstat
+      BD 2017-09   AO -0.2860 -3.694
+      BD 2020-03   TC -0.3162 -3.872
+      BD 2020-06   LS  0.3564  4.713
+      BD 2023-09   AO -0.2810 -3.638
+      PK 2008-10   AO -0.2971 -3.693
+      PK 2022-10   LS -0.2288 -3.706
+
+-- in-house --
+ country   month type coefhat  tstat
+      BD 2017-09   AO -0.2860 -3.694
+      BD 2020-03   TC -0.3162 -3.872
+      BD 2020-06   LS  0.3564  4.713
+      BD 2023-09   AO -0.2810 -3.638
+      PK 2008-10   AO -0.2971 -3.693
+      PK 2022-10   LS -0.2288 -3.706
+
+-- merged --
+ country   month type.tso coefhat.tso tstat.tso type.own coefhat.own tstat.own
+      BD 2017-09       AO     -0.2860    -3.694       AO     -0.2860    -3.694
+      BD 2020-03       TC     -0.3162    -3.872       TC     -0.3162    -3.872
+      BD 2020-06       LS      0.3564     4.713       LS      0.3564     4.713
+      BD 2023-09       AO     -0.2810    -3.638       AO     -0.2810    -3.638
+      PK 2008-10       AO     -0.2971    -3.693       AO     -0.2971    -3.693
+      PK 2022-10       LS     -0.2288    -3.706       LS     -0.2288    -3.706
