@@ -17,7 +17,13 @@ CFG <- list(
   S4_airline = list(win = Inf, variant = "w21",     rule = "cand", orders = "airline"),
   S5_none    = list(win = Inf, variant = "w21",     rule = "none", orders = "auto"),
   S6_auto    = list(win = Inf, variant = "w21",     rule = "auto", orders = "auto"),
-  S9_pk_sep26= list(win = Inf, variant = "w21",     rule = "cand", orders = "auto", span = SPANS_S9$PK))
+  S9_pk_sep26= list(win = Inf, variant = "w21",     rule = "cand", orders = "auto", span = SPANS_S9$PK),
+  # Post hoc (4 Nov 2026, not pre-specified): force the BD Aug 2024 break into the intervention set once it has
+  # >= 3 post-event observations in the training window (same entry rule as the candidates).
+  X_B5_LS    = list(win = Inf, variant = "w21",     rule = "cand", orders = "auto",
+                    force = data.frame(month = as.Date("2024-08-01"), type = "LS")),
+  X_B5_AO_LS = list(win = Inf, variant = "w21",     rule = "cand", orders = "auto",
+                    force = data.frame(month = as.Date(c("2024-07-01", "2024-08-01")), type = c("AO", "LS"))))
 cfg <- CFG[[config]]; stopifnot(!is.null(cfg))
 H <- 12
 D <- load_country(cc, if (!is.null(cfg$span)) cfg$span else SPANS[[cc]])
@@ -49,6 +55,12 @@ one_origin <- function(T) {
     cand = cached(paste0("int_cand_", cfg$variant, "_", tkey), select_interventions(y, E, months, cc)),
     auto = cached(paste0("int_auto_", cfg$variant, "_", tkey), select_auto(y, E, months)),
     none = data.frame(ind = integer(0), type = character(0), win = character(0), t = numeric(0), label = character(0)))
+  if (!is.null(cfg$force)) for (k in seq_len(nrow(cfg$force))) {
+    i <- match(cfg$force$month[k], months)
+    if (!is.na(i) && i <= n - 3 && !i %in% Z$ind)
+      Z <- rbind(Z, data.frame(ind = i, type = cfg$force$type[k], win = "forced", t = NA, label = format(months[i], "%Y%m")))
+  }
+  Z <- Z[order(Z$ind), ]
   Zall <- int_matrix(Z, n + H); Ztr <- if (is.null(Zall)) NULL else Zall[1:n, , drop = FALSE]
   Zf <- if (is.null(Zall)) NULL else Zall[n + 1:H, , drop = FALSE]
   zsig <- if (nrow(Z)) paste(paste0(Z$type, Z$label), collapse = "+") else "none"

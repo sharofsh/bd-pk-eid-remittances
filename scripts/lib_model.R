@@ -72,6 +72,9 @@ last_t <- function(fit, k) { cf <- coef(fit); se <- sqrt(diag(fit$var.coef)); j 
 # at most 2 interventions per candidate window.
 select_interventions <- function(y, E, months, cc, cval = round(cval_default(length(y)), 2)) {
   T <- length(y)
+  # Deviation 2026-11-04 (coding error): y must carry frequency 12, otherwise Arima() silently drops the
+  # seasonal part of the airline model. Before this fix the candidate tests ran on a non-seasonal ARIMA(0,1,1).
+  y <- ts(as.numeric(y), frequency = 12)
   cand <- CANDIDATES[CANDIDATES$country == cc, ]
   elig <- NULL
   for (i in seq_len(nrow(cand))) {

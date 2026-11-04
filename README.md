@@ -8,7 +8,7 @@ Two questions:
 
 The pre-specified analysis plan is in [DESIGN.md](DESIGN.md) (v1.0, date-stamped 4 Nov 2026). The 3 Nov working draft is in `docs/`.
 
-**Results of the confirmatory run (4 Nov 2026): [results/REPORT.md](results/REPORT.md).**
+**Results of the confirmatory run (4 Nov 2026, corrected after deviation 2): [results/REPORT.md](results/REPORT.md).** Analysis chronology and disclosure: [docs/CHRONOLOGY.md](docs/CHRONOLOGY.md).
 
 ## Data
 
@@ -40,6 +40,7 @@ scripts/   one script per analysis step
            04_forecast_run.R <config> <country>   (rolling-origin forecasts)
            run_all_forecasts.sh          (all configs)
            05_evaluate.R                 (accuracy, Clark-West, Diebold-Mariano, windows, periods)
+           06-09 (post hoc)              Aug 2024 BD break; PK inference; forecast-test HAC and Jul 2020 checks
 results/   tables and figures produced by the scripts; REPORT.md
 ```
 
@@ -50,8 +51,11 @@ Run from the repo root (in RStudio: set the working directory to the repo first;
 ```
 Rscript scripts/02_identify_sarima_benchmark.R
 Rscript scripts/03_rq1_estimation.R
-sh scripts/run_all_forecasts.sh      # about 1.5 h on 2 cores; per-origin selections are cached in results/cache/
+sh scripts/run_all_forecasts.sh      # about 2.5-3 h on 2 cores; per-origin selections are cached in results/cache/
+Rscript scripts/04_forecast_run.R X_B5_LS BD; Rscript scripts/04_forecast_run.R X_B5_AO_LS BD   # post hoc
 Rscript scripts/05_evaluate.R
+Rscript scripts/06_bd_2024_break.R; Rscript scripts/07_pk_inference.R
+Rscript scripts/08_forecast_inference_checks.R; Rscript scripts/09_bd_b5_forecast_compare.R
 ```
 
 On Windows, `mclapply` runs on one core: expect a few hours.

@@ -24,3 +24,47 @@ S6_auto PK: 108 origins, 1230 rows, 0 failed origins, 9.4 min
 S9_pk_sep26 PK: 111 origins, 1266 rows, 0 failed origins (0 model failures, 0 errors), 0.4 min
 ALL_DONE
 S6_auto BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 6.2 min
+=== rerun after fix 1 (Wed Nov  4 05:54:54 +06 2026)
+primary BD (0,1,1)(0,0,1) 
+primary PK (3,1,1)(1,0,0)+drift 
+S1_w10 BD (0,1,1)(0,0,1) 
+S1_w10 PK (0,1,1)(1,0,0)+drift 
+S1_w30 BD (0,1,1)(0,0,1) 
+S1_w30 PK (3,1,1)(1,0,0)+drift 
+S2_pre BD (0,1,1)(0,0,1) 
+S2_pre PK (3,1,1)(1,0,0)+drift 
+S3_uq BD (0,1,1)(0,0,1) 
+S3_uq PK (3,1,1)(1,0,0)+drift 
+S4_airline BD (0,1,1)(0,1,1) 
+S4_airline PK (0,1,1)(0,1,1) 
+S5_none BD (2,1,1)(0,0,1)+drift 
+S5_none PK (0,1,1)(1,0,0)+drift 
+S6_auto BD (1,1,1)(0,0,1) 
+S6_auto PK (0,1,1)(1,0,0)+drift 
+RQ1 done
+primary BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 11.2 min
+primary PK: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 21.2 min
+=== reordered continuation (Wed Nov  4 06:35:59 +06 2026)
+X_B5_LS BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 1.9 min
+X_B5_AO_LS BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 2.4 min
+S4_airline BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 0.3 min
+S4_airline PK: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 0.4 min
+S9_pk_sep26 PK: 111 origins, 1266 rows, 0 failed origins (0 model failures, 0 errors), 1.6 min
+roll60 BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 3.3 min
+roll60 PK: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 3.6 min
+roll96 BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 6.9 min
+roll96 PK: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 5.3 min
+roll120 BD: 84 origins, 942 rows, 0 failed origins (0 model failures, 0 errors), 8.4 min
+roll120 PK: 84 origins, 942 rows, 0 failed origins (0 model failures, 0 errors), 7.8 min
+S1_w10 BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 6.9 min
+=== container restarted; remaining configs (Wed Nov  4 07:45:10 +06 2026)
+S1_w10 PK: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 1.9 min
+S1_w30 BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 5.6 min
+S1_w30 PK: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 9.1 min
+S2_pre BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 5.7 min
+=== container restarted again; remaining configs (Wed Nov  4 08:14:44 +06 2026)
+S2_pre PK: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 5.6 min
+S3_uq BD: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 5.8 min
+S3_uq PK: 108 origins, 1230 rows, 0 failed origins (0 model failures, 0 errors), 18.3 min
+evaluation done: 25 forecast files
+ALL_DONE
