@@ -8,7 +8,7 @@ Two questions:
 
 The pre-specified analysis plan is in [DESIGN.md](DESIGN.md) (v1.0, date-stamped 4 Nov 2026). The 3 Nov working draft is in `docs/`.
 
-**Results of the confirmatory run (4 Nov 2026, corrected after deviation 2): [results/REPORT.md](results/REPORT.md).** Analysis chronology and disclosure: [docs/CHRONOLOGY.md](docs/CHRONOLOGY.md).
+**Results of the confirmatory run (4 Nov 2026, corrected after deviation 2): [results/REPORT.md](results/REPORT.md).** Analysis chronology and disclosure: [docs/CHRONOLOGY.md](docs/CHRONOLOGY.md). Draft paper sections (RQs, data and methods, results): [docs/paper_sections.md](docs/paper_sections.md).
 
 ## Data
 
