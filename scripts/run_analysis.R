@@ -8,7 +8,8 @@
 #                     written to results_w30/ (results/ is not touched)
 #
 #   SCOPE = "core" -> RQ1 + the expanding-window forecasts + evaluation  (about 1-2 h on Windows)
-#   SCOPE = "full" -> also rolling windows and sensitivities S1-S6, S9    (several hours on Windows)
+#   SCOPE = "full" -> also rolling windows, sensitivities S1-S6, S9 and the post hoc checks
+#                     (Aug 2024 break, PK robust SEs, Jul 2020)        (about 6-8 h on Windows)
 #
 # From a terminal instead: Rscript scripts/run_analysis.R 30 core
 
@@ -41,8 +42,13 @@ run("scripts/01_eid_exposure.R")                                   # Eid regress
 if (!file.exists("results/benchmark_orders.csv")) run("scripts/02_identify_sarima_benchmark.R")
 run("scripts/03_rq1_estimation.R")                                 # RQ1: effects, cross-country, stability
 for (cfg in cfgs) for (cc in c("BD", "PK")) run("scripts/04_forecast_run.R", cfg, cc)
-if (SCOPE == "full") run("scripts/04_forecast_run.R", "S9_pk_sep26", "PK")
+if (SCOPE == "full") {
+  run("scripts/04_forecast_run.R", "S9_pk_sep26", "PK")
+  for (cfg in c("X_B5_LS", "X_B5_AO_LS")) run("scripts/04_forecast_run.R", cfg, "BD")   # post hoc: Aug 2024 break
+}
 run("scripts/05_evaluate.R")                                       # RQ2: accuracy and tests
+if (SCOPE == "full") for (s in c("06_bd_2024_break", "07_pk_inference", "08_forecast_inference_checks",
+                                 "09_bd_b5_forecast_compare")) run(sprintf("scripts/%s.R", s))   # post hoc checks
 
 if (WINDOW != "21") writeLines(c(
   sprintf("Main Eid window = %s days. POST HOC (5 Nov 2026): not the pre-specified analysis.", WINDOW),

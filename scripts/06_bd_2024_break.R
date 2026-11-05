@@ -2,10 +2,10 @@
 # Requested by Sharof on 4 Nov 2026 after the confirmatory run.
 # Output: results/posthoc/bd2024_scan.csv, bd2024_models.csv, bd2024_residuals.csv
 source("scripts/lib_model.R")
-dir.create("results/posthoc", showWarnings = FALSE)
+dir.create(file.path(OUT, "posthoc"), showWarnings = FALSE)
 
 D <- load_country("BD"); y <- D$y; months <- D$month; n <- length(y)
-E <- eid_future("BD", months, "w21")
+E <- eid_future("BD", months, VMAIN)
 yt <- ts(y, start = D$start, frequency = 12)
 Z <- select_interventions(y, E, months, "BD")            # the pre-specified rule (after the fix)
 Zm <- int_matrix(Z, n)
@@ -30,7 +30,7 @@ for (m in seq(as.Date("2023-01-01"), as.Date("2026-03-01"), by = "month")) {
   }
 }
 scan$cval <- cval
-write.csv(scan, "results/posthoc/bd2024_scan.csv", row.names = FALSE)
+write.csv(scan, file.path(OUT, "posthoc", "bd2024_scan.csv"), row.names = FALSE)
 
 ## 2. Competing descriptions of 2024-25, all on the primary orders with the rule's Z and Eid terms
 iJul <- idx("2024-07-01"); iAug <- idx("2024-08-01")
@@ -53,13 +53,13 @@ for (nm in names(specs)) {
     break_terms = if (length(k)) paste(sprintf("%s=%.3f (t %.2f)", k, cf[k], cf[k] / se[k]), collapse = "; ") else "",
     fitr = cf["Fitr"], fitr_se = se["Fitr"], adha = cf["Adha"], adha_se = se["Adha"]))
 }
-write.csv(mods, "results/posthoc/bd2024_models.csv", row.names = FALSE)
+write.csv(mods, file.path(OUT, "posthoc", "bd2024_models.csv"), row.names = FALSE)
 
 ## 3. Residuals of the primary model around the break (systematic sign = unmodelled level change)
 f0 <- fits[["none"]]; e <- as.numeric(residuals(f0))
 res <- data.frame(month = format(months, "%Y-%m"), resid = e)
 res <- res[months >= as.Date("2023-07-01"), ]
-write.csv(res, "results/posthoc/bd2024_residuals.csv", row.names = FALSE)
+write.csv(res, file.path(OUT, "posthoc", "bd2024_residuals.csv"), row.names = FALSE)
 w <- months >= as.Date("2024-08-01")
 cat(sprintf("primary-model residuals: mean Aug 2024-Jun 2026 = %.4f (n=%d, t=%.2f); mean Jul 2022-Jul 2024 = %.4f\n",
             mean(e[w]), sum(w), mean(e[w]) / (sd(e[w]) / sqrt(sum(w))),

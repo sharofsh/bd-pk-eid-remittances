@@ -3,11 +3,11 @@
 # Output: results/posthoc/pk_inference_models.csv, pk_inference_hac.csv, pk_inference_cross.csv
 source("scripts/lib_model.R")
 suppressMessages(library(sandwich))
-dir.create("results/posthoc", showWarnings = FALSE)
+dir.create(file.path(OUT, "posthoc"), showWarnings = FALSE)
 
 prep <- function(cc) {
   D <- load_country(cc); y <- D$y; months <- D$month; n <- length(y)
-  E <- eid_future(cc, months, "w21")
+  E <- eid_future(cc, months, VMAIN)
   Z <- select_interventions(y, E, months, cc); Zm <- int_matrix(Z, n)
   ord <- select_orders(y, Zm, D$start)
   list(D = D, E = E, Z = Z, Zm = Zm, ord = ord, yt = ts(y, start = D$start, frequency = 12), n = n)
@@ -110,8 +110,8 @@ block_boot <- function(P, B = 999, L = 24, seed = 20261104) {
 P <- list(BD = prep("BD"), PK = prep("PK"))
 alt <- rbind(alt_models(P$BD), alt_models(P$PK))
 hac <- rbind(hac_whitened(P$BD), block_boot(P$BD), hac_whitened(P$PK), block_boot(P$PK))
-write.csv(alt, "results/posthoc/pk_inference_models.csv", row.names = FALSE)
-write.csv(hac, "results/posthoc/pk_inference_hac.csv", row.names = FALSE)
+write.csv(alt, file.path(OUT, "posthoc", "pk_inference_models.csv"), row.names = FALSE)
+write.csv(hac, file.path(OUT, "posthoc", "pk_inference_hac.csv"), row.names = FALSE)
 
 ## 4. Cross-country test with each SE type (independent samples, as in the primary test)
 cross <- NULL
@@ -125,6 +125,6 @@ for (st in unique(hac$se_type)) {
 # worst case for PK: largest PK SE across all SE types and alternative models, BD model-based
 pk_max <- c(fitr = max(c(hac$fitr_se[hac$country == "PK"], alt$fitr_se[alt$country == "PK"])),
             adha = max(c(hac$adha_se[hac$country == "PK"], alt$adha_se[alt$country == "PK"])))
-write.csv(cross, "results/posthoc/pk_inference_cross.csv", row.names = FALSE)
+write.csv(cross, file.path(OUT, "posthoc", "pk_inference_cross.csv"), row.names = FALSE)
 print(alt, row.names = FALSE, digits = 3); print(hac, row.names = FALSE, digits = 3); print(cross, row.names = FALSE, digits = 3)
 cat("largest PK SE seen: Fitr", round(pk_max["fitr"], 4), " Adha", round(pk_max["adha"], 4), "\n")
