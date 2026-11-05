@@ -1,6 +1,8 @@
 # Forecast evaluation (DESIGN.md sections 7-9).
 # Output: results/eval_accuracy.csv, results/eval_tests.csv, results/eval_primary_holm.csv,
-#         results/eval_windows.csv, results/eval_periods.csv
+#         results/eval_windows.csv, results/eval_periods.csv   (results_w30/ when EID_WINDOW=30)
+EID_WINDOW <- as.integer(Sys.getenv("EID_WINDOW", "21"))
+OUT <- if (EID_WINDOW == 21) "results" else paste0("results_w", EID_WINDOW)
 
 nw_var <- function(x, L) {  # Newey-West long-run variance of the mean
   x <- x - mean(x); T <- length(x); v <- sum(x^2) / T
@@ -8,7 +10,7 @@ nw_var <- function(x, L) {  # Newey-West long-run variance of the mean
   v / T
 }
 
-files <- list.files("results/forecasts", pattern = "\\.csv$", full.names = TRUE)
+files <- list.files(file.path(OUT, "forecasts"), pattern = "\\.csv$", full.names = TRUE)
 F <- do.call(rbind, lapply(files, read.csv))
 F <- F[!is.na(F$f_base) & !is.na(F$f_eid), ]
 F$tdate <- as.Date(paste0(F$target, "-01"))
@@ -49,14 +51,14 @@ for (i in seq_len(nrow(grid))) {
   g <- grid[i, ]; d <- F[F$config == g$config & F$country == g$country & F$h == g$h, ]
   ACC <- rbind(ACC, cbind(g, acc_one(d))); TST <- rbind(TST, cbind(g, tests_one(d, g$h)))
 }
-write.csv(ACC, "results/eval_accuracy.csv", row.names = FALSE)
-write.csv(TST, "results/eval_tests.csv", row.names = FALSE)
+write.csv(ACC, file.path(OUT, "eval_accuracy.csv"), row.names = FALSE)
+write.csv(TST, file.path(OUT, "eval_tests.csv"), row.names = FALSE)
 
 ## primary: Holm over BD/PK x h = 1, 3 (Clark-West)
 P <- TST[TST$config == "primary" & TST$h %in% c(1, 3), ]
 P$holm_p <- p.adjust(P$CW_p_one_sided, method = "holm")
 P$reject_5pct <- P$holm_p < 0.05
-write.csv(P, "results/eval_primary_holm.csv", row.names = FALSE)
+write.csv(P, file.path(OUT, "eval_primary_holm.csv"), row.names = FALSE)
 
 ## training-window strategies on identical targets
 W <- NULL
@@ -73,7 +75,7 @@ for (cc in unique(F$country)) for (h in c(1, 3, 6, 12)) {
   W <- rbind(W, cbind(data.frame(country = cc, h = h, strategy = "primary", target_set = "targets from Jul 2019 (origin >= Jun 2019)"),
                       acc_one(d)[1:2, c("model", "n", "RMSE_log", "MAE_log")], tests_one(d, h)[, c("CW_t", "CW_p_one_sided", "impr_RMSE_pct")]))
 }
-write.csv(W, "results/eval_windows.csv", row.names = FALSE)
+write.csv(W, file.path(OUT, "eval_windows.csv"), row.names = FALSE)
 
 ## later-period errors: targets before vs from Jul 2020
 PER <- NULL
@@ -86,5 +88,5 @@ for (cfg in c("primary", "roll60", "roll96")) for (cc in unique(F$country)) for 
                             acc_one(d)[1:2, c("model", "n", "RMSE_log", "MAE_log")], tests_one(d, h)[, c("CW_t", "impr_RMSE_pct")]))
   }
 }
-write.csv(PER, "results/eval_periods.csv", row.names = FALSE)
+write.csv(PER, file.path(OUT, "eval_periods.csv"), row.names = FALSE)
 cat("evaluation done:", length(files), "forecast files\n")

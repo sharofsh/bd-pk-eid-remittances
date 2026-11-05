@@ -44,6 +44,10 @@ scripts/   one script per analysis step
 results/   tables and figures produced by the scripts; REPORT.md
 ```
 
+## Running the whole analysis in RStudio
+
+Open the repository folder as the working directory, open `scripts/run_analysis.R`, set `WINDOW` (`"21"` = pre-specified primary, written to `results/`; `"30"` = same pipeline with a 30-day main Eid window, post hoc, written to `results_w30/`) and `SCOPE` (`"core"` or `"full"`), then click Source.
+
 ## Reproducing (R 4.3+, packages forecast, sandwich, lmtest, strucchange, digest)
 
 Run from the repo root (in RStudio: set the working directory to the repo first; on Windows run the 04 loop from R instead of the shell script):

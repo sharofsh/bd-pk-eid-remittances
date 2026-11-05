@@ -32,7 +32,9 @@ exposure <- function(ends, months, L, offset = 0) {
   unname(out)
 }
 
-specs <- list(w21 = c(21, 0), w10 = c(10, 0), w30 = c(30, 0), w21_pre = c(21, 1))
+specs <- list(w21 = c(21, 0), w10 = c(10, 0), w30 = c(30, 0), w21_pre = c(21, 1),
+              # added 5 Nov 2026 for the 30-day analysis (EID_WINDOW = 30): its S1/S2 variants
+              w45 = c(45, 0), w30_pre = c(30, 1))
 
 rows <- list()
 for (cc in names(span)) {
@@ -44,6 +46,7 @@ for (cc in names(span)) {
       df[[paste0(tolower(ev), "_", nm)]] <- exposure(d$eid_date, months, specs[[nm]][1], specs[[nm]][2])
     }
     df[[paste0(tolower(ev), "_w21_uq")]] <- exposure(d$umm_al_qura, months, 21, 0)
+    df[[paste0(tolower(ev), "_w30_uq")]] <- exposure(d$umm_al_qura, months, 30, 0)
   }
   rows[[cc]] <- df
 }

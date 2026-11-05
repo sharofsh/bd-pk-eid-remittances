@@ -27,7 +27,20 @@ load_country <- function(cc, span = SPANS[[cc]]) {
 # Eid regressors for a variant; also needs exposure beyond the sample for forecasting
 eid_cols <- list(w21 = c("fitr_w21", "adha_w21"), w10 = c("fitr_w10", "adha_w10"),
                  w30 = c("fitr_w30", "adha_w30"), w21_pre = c("fitr_w21_pre", "adha_w21_pre"),
-                 w21_uq = c("fitr_w21_uq", "adha_w21_uq"))
+                 w21_uq = c("fitr_w21_uq", "adha_w21_uq"),
+                 w45 = c("fitr_w45", "adha_w45"), w30_pre = c("fitr_w30_pre", "adha_w30_pre"),
+                 w30_uq = c("fitr_w30_uq", "adha_w30_uq"))
+
+## ---- main Eid window ---------------------------------------------------------
+## Default 21 days = the pre-specified primary (DESIGN.md v1.0), written to results/.
+## EID_WINDOW=30 runs the same pipeline with a 30-day main window (post hoc, 5 Nov 2026),
+## written to results_w30/. S1 then uses 21 and 45 days; S2/S3 use the 30-day _pre/_uq variants.
+EID_WINDOW <- as.integer(Sys.getenv("EID_WINDOW", "21"))
+stopifnot(EID_WINDOW %in% c(21, 30))
+VMAIN  <- paste0("w", EID_WINDOW)
+S1_ALT <- if (EID_WINDOW == 21) c("w10", "w30") else c("w21", "w45")
+OUT    <- if (EID_WINDOW == 21) "results" else paste0("results_w", EID_WINDOW)
+dir.create(file.path(OUT, "forecasts"), recursive = TRUE, showWarnings = FALSE)
 eid_future <- function(cc, months, variant) {
   ex <- read.csv("data/eid_exposure_monthly.csv"); ex$month <- as.Date(ex$month)
   ex <- ex[ex$country == cc, ]

@@ -8,7 +8,7 @@ jarque_bera <- function(e) { e <- e[is.finite(e)]; n <- length(e); m <- e - mean
   s <- mean(m^3) / mean(m^2)^1.5; k <- mean(m^4) / mean(m^2)^2
   jb <- n / 6 * (s^2 + (k - 3)^2 / 4); c(JB = jb, p = 1 - pchisq(jb, 2)) }
 
-fit_full <- function(cc, span = SPANS[[cc]], variant = "w21", rule = "cand", orders = "auto") {
+fit_full <- function(cc, span = SPANS[[cc]], variant = VMAIN, rule = "cand", orders = "auto") {
   D <- load_country(cc, span); y <- D$y; months <- D$month; n <- length(y)
   E <- eid_future(cc, months, variant)
   Z <- switch(rule, cand = select_interventions(y, E, months, cc), auto = select_auto(y, E, months),
@@ -32,9 +32,10 @@ effects_row <- function(r, label) {
   }))
 }
 
-specs <- list(primary = list(), S1_w10 = list(variant = "w10"), S1_w30 = list(variant = "w30"),
-              S2_pre = list(variant = "w21_pre"), S3_uq = list(variant = "w21_uq"),
-              S4_airline = list(orders = "airline"), S5_none = list(rule = "none"), S6_auto = list(rule = "auto"))
+specs <- list(primary = list())
+for (a in S1_ALT) specs[[paste0("S1_", a)]] <- list(variant = a)
+specs <- c(specs, list(S2_pre = list(variant = paste0(VMAIN, "_pre")), S3_uq = list(variant = paste0(VMAIN, "_uq")),
+              S4_airline = list(orders = "airline"), S5_none = list(rule = "none"), S6_auto = list(rule = "auto")))
 fits <- list(); eff <- NULL
 for (nm in names(specs)) for (cc in c("BD", "PK")) {
   r <- do.call(fit_full, c(list(cc = cc), specs[[nm]]))
@@ -46,7 +47,7 @@ r <- fit_full("PK", span = SPANS_S9$PK); eff <- rbind(eff, effects_row(r, "S9_pk
 cw <- c("2009-07-01", "2026-06-01")
 r10 <- list(BD = fits[["primary BD"]], PK = fit_full("PK", span = cw))
 eff <- rbind(eff, effects_row(r10$PK, "S10_common_window"))
-write.csv(eff, "results/rq1_effects.csv", row.names = FALSE)
+write.csv(eff, file.path(OUT, "rq1_effects.csv"), row.names = FALSE)
 
 ## diagnostics (primary)
 diag <- NULL
@@ -56,10 +57,10 @@ for (cc in c("BD", "PK")) {
   jb <- jarque_bera(as.numeric(e))
   diag <- rbind(diag, data.frame(country = cc, orders = ord_str(r$ord), LB24 = lb$statistic, LB24_df = lb$parameter,
                                  LB24_p = lb$p.value, JB = jb["JB"], JB_p = jb["p"], sigma2 = r$fit$sigma2, aicc = r$fit$aicc))
-  png(sprintf("results/rq1_residual_acf_%s.png", cc), 1200, 500, res = 120)
+  png(file.path(OUT, sprintf("rq1_residual_acf_%s.png", cc)), 1200, 500, res = 120)
   par(mfrow = c(1, 2)); acf(e, 36, main = paste(cc, "residual ACF")); pacf(e, 36, main = paste(cc, "residual PACF")); dev.off()
 }
-write.csv(diag, "results/rq1_diagnostics.csv", row.names = FALSE)
+write.csv(diag, file.path(OUT, "rq1_diagnostics.csv"), row.names = FALSE)
 
 ## cross-country test
 cross <- NULL
@@ -77,7 +78,7 @@ for (v in c("Fitr", "Adha")) {
   cross <- rbind(cross, data.frame(test = "S10 common window, rho-adjusted", eid = v, diff = a[1] - b[1],
                                    se = s, z = z, p = 2 * pnorm(-abs(z)), rho = rho))
 }
-write.csv(cross, "results/rq1_crosscountry.csv", row.names = FALSE)
+write.csv(cross, file.path(OUT, "rq1_crosscountry.csv"), row.names = FALSE)
 
 ## temporal stability: Eid x Post (Post = Jul 2020 onward), same orders and interventions
 stab <- NULL
@@ -92,5 +93,5 @@ for (cc in c("BD", "PK")) {
                                  beta = cf[c("Fitr", "Adha", k)], se = sqrt(diag(V))[c("Fitr", "Adha", k)],
                                  wald_chi2_2 = W, wald_p = 1 - pchisq(W, 2)))
 }
-write.csv(stab, "results/rq1_stability.csv", row.names = FALSE)
+write.csv(stab, file.path(OUT, "rq1_stability.csv"), row.names = FALSE)
 cat("RQ1 done\n")
