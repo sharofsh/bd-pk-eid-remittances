@@ -63,3 +63,5 @@ Rscript scripts/08_forecast_inference_checks.R; Rscript scripts/09_bd_b5_forecas
 ```
 
 On Windows, `mclapply` runs on one core: expect a few hours.
+
+**Window choice.** The 30-day main window was selected by AICc on data up to June 2017 only (before the forecast evaluation period); see `scripts/10_window_training.R` and the DESIGN.md log entry of 11 Nov 2026.

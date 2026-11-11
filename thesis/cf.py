@@ -1,0 +1,20 @@
+import matplotlib; matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch
+fig, ax = plt.subplots(figsize=(10, 5.6), dpi=220); ax.axis("off"); ax.set_xlim(0,10); ax.set_ylim(0,6)
+def box(x,y,w,h,t,fc):
+    ax.add_patch(FancyBboxPatch((x,y),w,h,boxstyle="round,pad=0.05",fc=fc,ec="#333",lw=1))
+    ax.text(x+w/2,y+h/2,t,ha="center",va="center",fontsize=9.5,wrap=True)
+def arr(x1,y1,x2,y2): ax.annotate("",xy=(x2,y2),xytext=(x1,y1),arrowprops=dict(arrowstyle="->",lw=1.2,color="#333"))
+box(0.2,4.4,2.6,1.2,"Eid dates\n(national moon sighting)\nFitr, Adha","#dbe9f6")
+box(0.2,2.4,2.6,1.2,"Trend and Gregorian\nseasonality\n(SARIMA errors)","#eeeeee")
+box(0.2,0.4,2.6,1.2,"Documented shocks\n(COVID-19, policy, crises)\nAO / LS / TC","#f6e3d4")
+box(3.6,4.4,2.4,1.2,"Eid regressors\nshare of 30-day\npre-Eid window","#dbe9f6")
+box(3.6,0.4,2.4,1.2,"Intervention rule\nlisted reason +\nstatistical test","#f6e3d4")
+box(6.8,2.4,3.0,1.2,"log monthly workers'\nremittances\n(RegARIMA)","#d9f0d3")
+box(6.8,4.5,3.0,1.0,"RQ1: Eid effects (%)\nBD vs PK z-test","#fff2cc")
+box(6.8,0.5,3.0,1.0,"RQ2: forecasts with vs\nwithout Eid (Clark-West, DM)","#fff2cc")
+arr(2.8,5.0,3.6,5.0); arr(2.8,1.0,3.6,1.0); arr(2.8,3.0,6.8,3.0)
+arr(6.0,5.0,6.8,3.4); arr(6.0,1.0,6.8,2.6)
+arr(8.3,3.6,8.3,4.5); arr(8.3,2.4,8.3,1.5)
+plt.tight_layout(); plt.savefig("fig/fig_framework.png")
