@@ -61,7 +61,7 @@ Date: ____________________
 Acknowledgements
 :::
 
-I am grateful to my supervisor, Professor Dr. Mohammed Nazmul Huq, for his guidance and for accepting the change of thesis topic. I thank the Department of Statistics and Data Science, Jahangirnagar University, for its support throughout the Weekend M.Sc. programme. I thank Bangladesh Bank and the State Bank of Pakistan for making their remittance data publicly available. Finally, I thank my family for their patience and support.
+I am grateful to my supervisor, Professor Dr. Mohammed Nazmul Huq, for his guidance and support throughout this research. I thank the Department of Statistics and Data Science, Jahangirnagar University, for its support throughout the Weekend M.Sc. programme. I thank Bangladesh Bank and the State Bank of Pakistan for making their remittance data publicly available. Finally, I thank my family for their patience and support.
 
 ::: {custom-style="FrontHeading"}
 Abstract

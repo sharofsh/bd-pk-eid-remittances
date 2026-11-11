@@ -285,7 +285,7 @@ An earlier exploratory analysis of the Bangladesh series by the author found for
 
 ## 3.5 Software and Packages Used
 
-All analysis was done in R 4.3.3 (R Core Team). Models were fitted with the forecast package (Hyndman & Khandakar, 2008), HAC standard errors computed with sandwich and lmtest, and figures drawn in base R. Outlier detection follows the Chen–Liu procedure with the defaults of tsoutliers::tso (checked against tso on the full samples). Eid dates were compiled and converted with Python (hijri-converter). The code and data are kept in the repository github.com/sharofsh/bd-pk-eid-remittances (Appendix E). Chapter 4 presents the results of applying these methods.
+All analysis was done in R 4.3.3 (R Core Team, 2024). Models were fitted with the forecast package (Hyndman & Khandakar, 2008), HAC standard errors computed with sandwich and lmtest, and figures drawn in base R. Outlier detection follows the Chen–Liu procedure with the defaults of tsoutliers::tso (checked against tso on the full samples). Eid dates were compiled and converted with Python (hijri-converter). The code and data are kept in the repository github.com/sharofsh/bd-pk-eid-remittances (Appendix E). Chapter 4 presents the results of applying these methods.
 
 # Chapter 4`<w:r><w:br/></w:r>`{=openxml}Results and Discussion
 

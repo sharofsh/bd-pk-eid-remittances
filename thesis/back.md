@@ -55,6 +55,8 @@ Lucas, R. E. B., & Stark, O. (1985). Motivations to remit: Evidence from Botswan
 
 Paternoster, R., Brame, R., Mazerolle, P., & Piquero, A. (1998). Using the correct statistical test for the equality of regression coefficients. *Criminology, 36*(4), 859–866.
 
+R Core Team. (2024). *R: A language and environment for statistical computing* (Version 4.3.3). R Foundation for Statistical Computing. https://www.R-project.org/
+
 Qureshi, J. A. (2016). *The Pakistan Remittance Initiative and remittance flows to Pakistan* (PSSP Working Paper No. 35). International Food Policy Research Institute.
 
 Ratha, D., De, S., Kim, E. J., Plaza, S., Seshan, G., & Yameogo, N. D. (2020). *Phase II: COVID-19 crisis through a migration lens* (Migration and Development Brief No. 33). KNOMAD–World Bank.
