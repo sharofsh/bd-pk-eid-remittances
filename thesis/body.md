@@ -279,10 +279,6 @@ Table: Table 3.5: Sensitivity analyses
 | S2 | Fixed airline orders, SARIMA(0,1,1)(0,1,1)~12~, at every origin |
 | S3 | No interventions |
 
-### 3.4.7 Prior exploratory analyses
-
-An earlier exploratory analysis of the Bangladesh series by the author found forecast improvements at short horizons, which informed the choice of primary horizons. Exploratory Pakistan analyses, including an outlier search, were run before the candidate intervention list was finalised.
-
 ## 3.5 Software and Packages Used
 
 All analysis was done in R 4.3.3 (R Core Team, 2024). Models were fitted with the forecast package (Hyndman & Khandakar, 2008), HAC standard errors computed with sandwich and lmtest, and figures drawn in base R. Outlier detection follows the Chen–Liu procedure with the defaults of tsoutliers::tso (checked against tso on the full samples). Eid dates were compiled and converted with Python (hijri-converter). The code and data are kept in the repository github.com/sharofsh/bd-pk-eid-remittances (Appendix E). Chapter 4 presents the results of applying these methods.
@@ -497,8 +493,6 @@ This study examined whether the two Eid festivals are associated with changes in
 - **For seasonal adjustment.** Seasonal adjustment of remittances in both countries should consider Islamic-calendar regressors, as State Bank of Pakistan research recommends for monetary series.
 
 ## 5.3 Limitations of the Study
-
-- **Prior exploratory work.** Earlier exploratory work on the Bangladesh series informed the choice of horizons, and the Pakistan candidate interventions were listed after an exploratory outlier search.
 
 - **Post-Eid effects.** The model has only a pre-Eid window. Months holding less than half of the window are close to trend, and both Pakistan additive outliers fall in post-Eid months, which suggests a post-Eid fall that the model does not capture.
 
