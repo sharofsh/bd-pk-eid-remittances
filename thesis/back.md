@@ -47,15 +47,15 @@ Islam, T., Mohib, A. A., & Haque, S. Z. (2018). Econometric models for forecasti
 
 Khan, I., & Gunwant, D. F. (2024). Application of ARIMA model in forecasting remittance inflows: Evidence from Yemen. *International Journal of Economic Policy Studies, 18*(1), 283–303. https://doi.org/10.1007/s42495-023-00128-6
 
-Kpodar, K., Mlachila, M., Quayyum, S., & Gammadigbe, V. (2023). Defying the odds: Remittances during the COVID-19 pandemic. *The Journal of Development Studies*. https://doi.org/10.1080/00220388.2022.2154150
+Kpodar, K., Mlachila, M., Quayyum, S., & Gammadigbe, V. (2023). Defying the odds: Remittances during the COVID-19 pandemic. *The Journal of Development Studies, 59*(5), 673–690. https://doi.org/10.1080/00220388.2022.2154150
 
 Lin, J.-L., & Liu, T.-S. (2002). *Modeling lunar calendar holiday effects in Taiwan* [Working paper]. U.S. Census Bureau.
 
 Lucas, R. E. B., & Stark, O. (1985). Motivations to remit: Evidence from Botswana. *Journal of Political Economy, 93*(5), 901–918. https://doi.org/10.1086/261341
 
-Nyoni, T. (2019). *Modeling and forecasting remittances in Bangladesh using the Box-Jenkins ARIMA methodology* (MPRA Paper No. 92463). University Library of Munich.
-
 Paternoster, R., Brame, R., Mazerolle, P., & Piquero, A. (1998). Using the correct statistical test for the equality of regression coefficients. *Criminology, 36*(4), 859–866.
+
+Qureshi, J. A. (2016). *The Pakistan Remittance Initiative and remittance flows to Pakistan* (PSSP Working Paper No. 35). International Food Policy Research Institute.
 
 Ratha, D., De, S., Kim, E. J., Plaza, S., Seshan, G., & Yameogo, N. D. (2020). *Phase II: COVID-19 crisis through a migration lens* (Migration and Development Brief No. 33). KNOMAD–World Bank.
 
@@ -64,8 +64,6 @@ Riazuddin, R. (2012). *Construction and seasonal patterns of Islamic Hijri calen
 Riazuddin, R., & Khan, M. H. (2005). Detection and forecasting of Islamic calendar effects in time series data. *SBP Research Bulletin, 1*(1), 25–34.
 
 Saha, A., & Khanam, M. (2022). Forecasting the growth rate of GDP and its indicators remittance and labor force participation of Bangladesh using VECM and ARIMA models. *Dhaka University Journal of Science, 70*(2), 42–47.
-
-Shabbir, N. S. (2012, November 29). *Pakistan Remittance Initiative (PRI)*. World Bank People Move Blog.
 
 Stark, O., & Lucas, R. E. B. (1988). Migration, remittances, and the family. *Economic Development and Cultural Change, 36*(3), 465–481. https://doi.org/10.1086/451670
 
