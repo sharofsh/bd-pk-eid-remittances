@@ -20,7 +20,7 @@ WM-ASDS, 16th Batch
 :::
 
 ::: {custom-style="Centered"}
-Semester: [Semester, Year]
+3rd Semester
 :::
 
 ::: {custom-style="Centered"}
@@ -52,8 +52,8 @@ This is to certify that the thesis titled 'Eid Effects and Remittance Forecastin
 
 ::: {custom-style="SignBlock"}
 Signature of Supervisor\
-Name: ____________________\
-Designation: ____________________\
+Name: Dr. Mohammed Nazmul Huq\
+Designation: Professor, Department of Statistics and Data Science, Jahangirnagar University\
 Date: ____________________
 :::
 
@@ -61,7 +61,7 @@ Date: ____________________
 Acknowledgements
 :::
 
-I am grateful to my supervisor for guidance and for accepting the change of thesis topic. I thank the Department of Statistics and Data Science, Jahangirnagar University, for its support throughout the Weekend M.Sc. programme. I thank Bangladesh Bank and the State Bank of Pakistan for making their remittance data publicly available. Finally, I thank my family for their patience and support.
+I am grateful to my supervisor, Professor Dr. Mohammed Nazmul Huq, for his guidance and for accepting the change of thesis topic. I thank the Department of Statistics and Data Science, Jahangirnagar University, for its support throughout the Weekend M.Sc. programme. I thank Bangladesh Bank and the State Bank of Pakistan for making their remittance data publicly available. Finally, I thank my family for their patience and support.
 
 ::: {custom-style="FrontHeading"}
 Abstract
@@ -82,7 +82,7 @@ Table of Contents
 :::
 
 ```{=openxml}
-<w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \o "1-3" \h \z \u </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>Right-click and choose Update Field to build the table of contents.</w:t></w:r><w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>
+TOCMAIN
 ```
 
 ::: {custom-style="FrontHeading"}
@@ -90,7 +90,7 @@ List of Tables
 :::
 
 ```{=openxml}
-<w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \h \z \t "Table Caption,1" </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>Right-click and choose Update Field to build the list of tables.</w:t></w:r><w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>
+TOCTAB
 ```
 
 ::: {custom-style="FrontHeading"}
@@ -98,7 +98,7 @@ List of Figures
 :::
 
 ```{=openxml}
-<w:p><w:r><w:fldChar w:fldCharType="begin" w:dirty="true"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \h \z \t "Image Caption,1" </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>Right-click and choose Update Field to build the list of figures.</w:t></w:r><w:r><w:fldChar w:fldCharType="end"/></w:r></w:p>
+TOCFIG
 ```
 
 ::: {custom-style="FrontHeading"}

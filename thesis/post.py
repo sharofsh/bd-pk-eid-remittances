@@ -15,10 +15,4 @@ d = d[:d.rfind(final)] + main + d[d.rfind(final) + len(final):]
 d = d.replace('<w:pPr><w:pStyle w:val="Heading1" /></w:pPr><w:r><w:t xml:space="preserve">Chapter 1</w:t>',
               '<w:pPr><w:pStyle w:val="Heading1" /><w:pageBreakBefore w:val="0"/></w:pPr><w:r><w:t xml:space="preserve">Chapter 1</w:t>', 1)
 open(p, 'w').write(d)
-s = open('word/settings.xml').read()
-if 'updateFields' not in s:
-    for tag in ['<w:hdrShapeDefaults','<w:footnotePr','<w:endnotePr','<w:compat','<w:docVars','<w:rsids','<m:mathPr','<w:themeFontLang','<w:clrSchemeMapping','<w:decimalSymbol','<w:listSeparator','</w:settings>']:
-        if tag in s:
-            s = s.replace(tag, '<w:updateFields w:val="true"/>' + tag, 1); break
-    open('word/settings.xml', 'w').write(s)
 print('post ok')
