@@ -7,6 +7,8 @@ Australian Bureau of Statistics. (2005). Estimating and removing the effects of 
 
 Badan Pusat Statistik. (2019). *Seasonal adjustment of Ramadan effect in GDP by expenditures*. BPS-Statistics Indonesia.
 
+bdnews24.com. (2025, April 6). *Bangladesh's inward remittance surge rakes in record \$3.29bn in March*. https://bdnews24.com/bangladesh/d9da21410ffe
+
 Bell, W. R., & Hillmer, S. C. (1983). Modeling time series with calendar variation. *Journal of the American Statistical Association, 78*(383), 526–534.
 
 Bokhari, S. M. H., & Ansari, I. A. (2009). Seasonal adjustment of some financial indicators of Pakistan. *IBT Journal of Business Studies, 5*(2), 107–123.
@@ -72,8 +74,6 @@ Stark, O., & Lucas, R. E. B. (1988). Migration, remittances, and the family. *Ec
 State Bank of Pakistan. (2024). External sector. In *Annual report FY24: The state of Pakistan's economy* (Chapter 6). State Bank of Pakistan.
 
 Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: An analysis and review. *International Journal of Forecasting, 16*(4), 437–450.
-
-The Business Standard. (2025, May 12). [Headline to be added: report on record FY2024-25 remittance inflows]. https://www.tbsnews.net/node/1140186
 
 World Bank. (2026). *Personal remittances, received (% of GDP) – Bangladesh* [Data set]. World Development Indicators. https://data.worldbank.org/indicator/BX.TRF.PWKR.DT.GD.ZS?locations=BD
 :::
