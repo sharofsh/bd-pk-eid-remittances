@@ -41,6 +41,8 @@ Findley, D. F., Wills, K. C., & Monsell, B. C. (2005). *Issues in estimating Eas
 
 Ghimire, B. N. (2026). Machine learning for remittance forecasting and macroeconomic dynamics in Nepal: An integrated analytical framework. *NPRC Journal of Multidisciplinary Research, 3*(2), 164–179. https://doi.org/10.3126/nprcjmr.v3i2.91275
 
+Goswami, G. G., Barai, M. K., Atique, M. A., & Rahman, M. (2023). Did remittance inflow in Bangladesh follow the gravity path during COVID-19? *Economies, 11*(11), 285. https://doi.org/10.3390/economies11110285
+
 Grun Rehomme, M., & Ben Rejeb, A. (2008). Modelling moving feasts determined by the Islamic calendar: Application to macroeconomic Tunisian time series. *Metodološki zvezki, 5*(2), 173–211.
 
 Harvey, D., Leybourne, S., & Newbold, P. (1997). Testing the equality of prediction mean squared errors. *International Journal of Forecasting, 13*(2), 281–291.
