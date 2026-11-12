@@ -71,7 +71,7 @@ Workers' remittances are a major source of foreign exchange for Bangladesh and P
 
 Monthly data from Bangladesh Bank (July 2009 – June 2026) and the State Bank of Pakistan (July 2005 – June 2026) were analysed with a regression model with seasonal ARIMA errors (RegARIMA). Eid regressors measure the share of a 30-day pre-Eid period falling in each month. Forecasts with and without the Eid regressors were compared for July 2017 – June 2026 using the Clark–West and Diebold–Mariano tests.
 
-A month containing the full pre-Eid period has about 15–21% higher remittances in both countries, and the effects do not differ significantly between them. Including Eid reduces one-month-ahead forecast errors by 9.8% in Bangladesh and 11.6% in Pakistan, and by about 20% in Eid months. In simple terms, migrants from both countries send about a fifth more money before each Eid, and forecasts that allow for this are clearly more accurate in the months around the festivals.
+A month containing the full pre-Eid period has about 15–21% higher remittances in both countries, and the effects do not differ significantly between them. Including Eid reduces one-month-ahead forecast errors by 9.8% in Bangladesh and 11.6% in Pakistan, and by about 20% in Eid months. In simple terms, migrants from both countries send about a fifth more money before each Eid, and forecasts that allow for this are more accurate in the months around the festivals.
 
 This is one of the first studies to measure the Eid effect on remittances to Bangladesh and Pakistan and to show that it can be used to improve remittance forecasts in both countries.
 
