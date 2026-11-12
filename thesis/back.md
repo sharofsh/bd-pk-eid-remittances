@@ -35,6 +35,8 @@ Eyerci, C., Toprak, A. Ö., & Demir, Ö. (2021). Ramadan effect on prices and pr
 
 Farabi, M. N. S., Al Mobin, M., & Khan, A. N. (2025). Assessing the efficacy of cash incentive policies in enhancing remittance inflows: Evidence from Bangladesh. *PLOS ONE, 20*(2), e0318342. https://doi.org/10.1371/journal.pone.0318342
 
+Faruq, M. O. (2025). Determinants and sustainability of remittances in Bangladesh: Do skilled or unskilled labor migrants matter? *Finance & Economics Review, 7*(1), 82–100. https://doi.org/10.38157/fer.v7i1.704
+
 Findley, D. F., Monsell, B. C., Bell, W. R., Otto, M. C., & Chen, B.-C. (1998). New capabilities and methods of the X-12-ARIMA seasonal-adjustment program. *Journal of Business & Economic Statistics, 16*(2), 127–152.
 
 Findley, D. F., Wills, K. C., & Monsell, B. C. (2005). *Issues in estimating Easter regressors using RegARIMA models with X-12-ARIMA* [Research report]. U.S. Census Bureau.
@@ -90,6 +92,8 @@ Stark, O., & Lucas, R. E. B. (1988). Migration, remittances, and the family. *Ec
 State Bank of Pakistan. (2024). External sector. In *Annual report FY24: The state of Pakistan's economy* (Chapter 6). State Bank of Pakistan.
 
 State Bank of Pakistan. (2026). *Workers' remittances* [Data set and monthly releases]. State Bank of Pakistan. https://www.sbp.org.pk
+
+Suhartono, Rahayu, S. P., Prastyo, D. D., Wijayanti, D. G. P., & Juliyanto. (2017). Hybrid model for forecasting time series with trend, seasonal and calendar variation patterns. *Journal of Physics: Conference Series, 890*, 012160. https://doi.org/10.1088/1742-6596/890/1/012160
 
 Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: An analysis and review. *International Journal of Forecasting, 16*(4), 437–450.
 
