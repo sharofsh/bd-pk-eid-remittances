@@ -7,7 +7,7 @@ Australian Bureau of Statistics. (2005). Estimating and removing the effects of 
 
 Badan Pusat Statistik. (2019). *Seasonal adjustment of Ramadan effect in GDP by expenditures*. BPS-Statistics Indonesia.
 
-bdnews24.com. (2025, April 6). *Bangladesh's inward remittance surge rakes in record \$3.29bn in March*. https://bdnews24.com/bangladesh/d9da21410ffe
+Bangladesh Bank. (2026). *Monthly economic trends* (various issues, 2009–2026). Bangladesh Bank. https://www.bb.org.bd
 
 Bell, W. R., & Hillmer, S. C. (1983). Modeling time series with calendar variation. *Journal of the American Statistical Association, 78*(383), 526–534.
 
@@ -16,8 +16,6 @@ Bokhari, S. M. H., & Ansari, I. A. (2009). Seasonal adjustment of some financial
 Box, G. E. P., & Tiao, G. C. (1975). Intervention analysis with applications to economic and environmental problems. *Journal of the American Statistical Association, 70*(349), 70–79.
 
 Bukhari, S., Jalil, A., & Rao, N. H. (2011). *Detection and forecasting of Islamic calendar effects in time series data: Revisited* (SBP Working Paper No. 39). State Bank of Pakistan.
-
-Business Recorder. (2024, April 15). *Ramazan and the remittance rush*. https://www.brecorder.com/news/40298497
 
 Chen, C., & Liu, L.-M. (1993). Joint estimation of model parameters and outlier effects in time series. *Journal of the American Statistical Association, 88*(421), 284–297.
 
@@ -61,6 +59,8 @@ R Core Team. (2024). *R: A language and environment for statistical computing* (
 
 Qureshi, J. A. (2016). *The Pakistan Remittance Initiative and remittance flows to Pakistan* (PSSP Working Paper No. 35). International Food Policy Research Institute.
 
+Rapoport, H., & Docquier, F. (2006). The economics of migrants' remittances. In S.-C. Kolm & J. Mercier Ythier (Eds.), *Handbook of the economics of giving, altruism and reciprocity* (Vol. 2, pp. 1135–1198). Elsevier.
+
 Ratha, D., De, S., Kim, E. J., Plaza, S., Seshan, G., & Yameogo, N. D. (2020). *Phase II: COVID-19 crisis through a migration lens* (Migration and Development Brief No. 33). KNOMAD–World Bank.
 
 Riazuddin, R. (2012). *Construction and seasonal patterns of Islamic Hijri calendar monthly time series: An application to CPI in Pakistan* (SBP Working Paper No. 50). State Bank of Pakistan.
@@ -73,9 +73,11 @@ Stark, O., & Lucas, R. E. B. (1988). Migration, remittances, and the family. *Ec
 
 State Bank of Pakistan. (2024). External sector. In *Annual report FY24: The state of Pakistan's economy* (Chapter 6). State Bank of Pakistan.
 
+State Bank of Pakistan. (2026). *Workers' remittances* [Data set and monthly releases]. State Bank of Pakistan. https://www.sbp.org.pk
+
 Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: An analysis and review. *International Journal of Forecasting, 16*(4), 437–450.
 
-World Bank. (2026). *Personal remittances, received (% of GDP) – Bangladesh* [Data set]. World Development Indicators. https://data.worldbank.org/indicator/BX.TRF.PWKR.DT.GD.ZS?locations=BD
+World Bank. (2026). *Personal remittances, received (% of GDP)* [Data set]. World Development Indicators. https://data.worldbank.org/indicator/BX.TRF.PWKR.DT.GD.ZS
 :::
 
 # Appendices

@@ -2,21 +2,23 @@
 
 ## 1.1 Background
 
-Workers' remittances are one of the largest sources of foreign exchange for Bangladesh and Pakistan. Each country now receives more than US\$30 billion a year through formal channels (Bangladesh Bank; State Bank of Pakistan). Personal remittances were 6.1% of Bangladesh's GDP in 2024 (World Bank, 2026). Because remittances finance a large part of import payments and support foreign-exchange reserves, central banks and finance ministries need reliable short-term forecasts of monthly inflows.
+Workers' remittances are one of the largest sources of foreign exchange for Bangladesh and Pakistan. In fiscal year 2024–25, Bangladesh received US\$30.3 billion and Pakistan US\$38.3 billion through formal channels (Bangladesh Bank, 2026; State Bank of Pakistan, 2026). In 2024, personal remittances were 6.1% of GDP in Bangladesh and 9.4% in Pakistan (World Bank, 2026). Remittances finance a large share of import payments and support foreign-exchange reserves (State Bank of Pakistan, 2024). Central banks and finance ministries therefore need reliable short-term forecasts of monthly inflows.
 
-Monthly remittances to both countries rise sharply before the two Eid festivals, Eid al-Fitr and Eid al-Adha. Migrants send money to cover festival spending, gifts, zakat and, for Eid al-Adha, the sacrificial animal. Bangladesh's record monthly inflow of March 2025 came in the month of Eid al-Fitr, and the Pakistani press regularly attributes spring surges to Ramadan and Eid (Business Recorder, 2024; bdnews24.com, 2025).
+The amount of money migrants send home each month is not constant through the year. It increases in the weeks before the two main Muslim festivals, Eid al-Fitr and Eid al-Adha. In Pakistan, Islamic-holiday regressors are significant in seasonal models of workers' remittances (Bokhari & Ansari, 2009). Official data show the same pattern in recent years. Bangladesh's highest monthly inflow on record, US\$3.30 billion in March 2025, came in the month of Eid al-Fitr (Bangladesh Bank, 2026). In Pakistan, inflows rose by 31% from February to March 2024, the month before Eid al-Fitr (State Bank of Pakistan, 2026).
 
-The two Eids follow the lunar Hijri calendar. The Hijri year is about 11 days shorter than the Gregorian year, so each Eid falls about 11 days earlier every year and passes through every Gregorian month over roughly 33 years. A forecasting model that captures seasonality by Gregorian month, such as a seasonal ARIMA model, cannot follow a festival that changes month from year to year.
+The timing of this increase is what makes it hard to forecast. The two Eids follow the lunar Hijri calendar, whose year is about 11 days shorter than the Gregorian year (Riazuddin, 2012; Grun Rehomme & Ben Rejeb, 2008). Each Eid therefore falls about 11 days earlier every year and moves through every Gregorian month over roughly 33 years. As a result, the extra transfers arrive in a different calendar month from year to year. Most forecasting models, including seasonal ARIMA models, treat seasonality as a fixed pattern by Gregorian month. They cannot follow a festival that moves in this way, and this is the problem the study addresses.
 
 ## 1.2 Problem Statement and Motivation
 
-Standard forecasting models for monthly remittances treat seasonality as a fixed pattern by Gregorian month. When an Eid moves from one month to the previous one, such a model attributes the resulting jump to noise or to a change in trend. This has two consequences. First, the size of the Eid effect is not measured, even though press reports suggest it is large. Second, forecasts for Eid months are systematically too low, and forecasts for the months the Eid has left are too high.
+Moving holidays are a known problem in economic time series. Statistical agencies model holidays such as Easter by adding calendar regressors to a regression model with ARIMA errors, known as RegARIMA (Bell & Hillmer, 1983; Findley et al., 1998). Similar methods have been applied to Islamic holidays in Tunisia, Turkey and Pakistan (Grun Rehomme & Ben Rejeb, 2008; Aruoba & Alper, 2004; Riazuddin & Khan, 2005). For remittances, however, three gaps remain. No study has yet estimated the effect of Eid on Bangladesh's monthly remittances. No study has tested whether accounting for Eid makes remittance forecasts more accurate. No study has compared the Eid effect between Bangladesh and Pakistan.
 
-Statistical agencies handle moving holidays such as Easter with regression variables inside a regression model with ARIMA errors, known as RegARIMA (Bell & Hillmer, 1983; Findley et al., 1998). Similar methods have been applied to Islamic holidays in Tunisia, Turkey and Pakistan (Grun Rehomme & Ben Rejeb, 2008; Aruoba & Alper, 2004; Riazuddin & Khan, 2005). However, the literature reviewed in Chapter 2 found no study that estimates Eid effects on Bangladesh's remittances, and none that tests whether Eid regressors improve remittance forecasts. This study fills that gap, with Bangladesh as the main case and Pakistan, a similar remittance-dependent economy, as the comparison.
+This study addresses these gaps. It estimates separate Eid al-Fitr and Eid al-Adha effects for both countries with RegARIMA models, tests whether the effects differ between them, and compares forecasts made with and without Eid regressors.
+
+The rationale is practical as well as academic. If the Eid effect is ignored, forecasts are too low in Eid months and too high in the months the festival has left. Errors of this kind affect reserve planning, and a rise caused only by Eid can be mistaken for a change in trend. Because Eid dates are known years in advance, the effect can be built into forecasts at almost no cost, if its size is known. Pakistan is included as a comparison because it is a large remittance-dependent economy with a similar festival calendar.
 
 ## 1.3 Research Questions and Objectives
 
-The study asks two research questions.
+The study will address the following research questions.
 
 **RQ1 (effect estimation).**
 
@@ -28,7 +30,7 @@ The study asks two research questions.
 
 - Do Eid regressors improve out-of-sample forecasts of monthly workers' remittances in each country?
 
-**Objectives.** The objectives are to:
+**Objectives.** The objectives of this study are to:
 
 - construct monthly Eid regressors for each country from its own national Eid dates;
 
@@ -36,29 +38,33 @@ The study asks two research questions.
 
 - test whether the Eid effects differ between Bangladesh and Pakistan;
 
-- compare out-of-sample forecasts from a baseline model and the same model with Eid regressors, at horizons of 1 to 12 months; and
+- assess whether including Eid regressors improves the accuracy of remittance forecasts from 1 to 12 months ahead; and
 
-- compare both models with a seasonal naive forecast and a Box–Jenkins SARIMA model.
+- assess how forecasts that account for Eid perform against commonly used forecasting methods.
 
 ## 1.4 Hypotheses
 
-The research questions translate into the following null hypotheses, each tested against the stated alternative.
+The study tests the following null hypotheses.
 
-- **H1 (Eid effects).** For each country and each Eid, H₀: β = 0 against H₁: β ≠ 0, where β is the coefficient of the Eid regressor in the RegARIMA model.
+- **H₀₁:** Eid al-Fitr and Eid al-Adha have no effect on monthly workers' remittances in Bangladesh or Pakistan.
 
-- **H2 (cross-country difference).** For each Eid, H₀: β_BD = β_PK against H₁: β_BD ≠ β_PK.
+- **H₀₂:** The Eid effects on remittances are the same in Bangladesh and Pakistan.
 
-- **H3 (forecasting value).** For each country and horizon, H₀: the Eid regressors add no predictive content, so the baseline and the model with Eid regressors have equal expected squared forecast error, against the one-sided alternative that the model with Eid regressors has lower expected squared forecast error.
+- **H₀₃:** Including Eid regressors does not improve the accuracy of remittance forecasts.
+
+The alternative hypotheses are that Eid is associated with a change in remittances (H₁₁), that the effects differ between the two countries (H₁₂), and that Eid regressors improve forecast accuracy (H₁₃). Chapter 3 gives the statistical form of each test.
 
 ## 1.5 Significance of the Study
 
-The study contributes in three ways. First, it is one of the first studies to estimate separate Eid al-Fitr and Eid al-Adha effects on Bangladesh's monthly remittances. Second, it tests formally, with tests designed for nested models, whether Eid regressors improve out-of-sample forecasts; previous remittance forecasting studies for Bangladesh compared models on in-sample fit or raw error measures only. Third, it compares the Eid effects between two large remittance recipients with similar festival calendars.
+The study is significant for research and for practice in both countries.
 
-The results have practical value for Bangladesh Bank and the State Bank of Pakistan. The Eid regressors can be added to an existing ARIMA forecasting model at almost no cost, because Eid dates are known years ahead.
+For research, it is one of the first studies to measure how much Eid al-Fitr and Eid al-Adha raise monthly remittances to Bangladesh and Pakistan, and to compare the two countries. It also applies formal forecast-comparison tests to remittance forecasting. Earlier remittance forecasting studies for Bangladesh compared models only by how well they fitted past data, so they could not show whether a new model genuinely forecasts better.
+
+For practice, the results can be used directly by Bangladesh Bank and the State Bank of Pakistan. Both banks plan foreign-exchange reserves and exchange-rate policy partly on expected remittance inflows. A forecast that does not allow for Eid will under-predict the months before the festival and over-predict the months after it. A model with Eid regressors corrects this. Because Eid dates are known years ahead, the correction can be added to an existing ARIMA forecasting model without new data. The estimated effect sizes also help analysts read monthly figures correctly. A sharp rise in an Eid month, or a fall in the month after, can then be separated from a genuine change in the trend of remittances.
 
 ## 1.6 Organization of the Thesis
 
-Chapter 2 reviews the literature on remittances, Islamic-calendar effects, moving-holiday models, remittance forecasting and forecast evaluation, and states the research gap. Chapter 3 describes the data, the Eid regressors, the RegARIMA model, the intervention rule and the forecast evaluation design. Chapter 4 presents descriptive statistics, the estimated Eid effects and the forecast comparison, and discusses them against previous studies. Chapter 5 summarises the findings, their practical implications, the limitations of the study and directions for future research. The appendices give the data dictionary, the Eid dates, the full forecast test results, residual diagnostics and the code.
+The thesis has five chapters. Chapter 2 reviews the literature and Chapter 3 describes the data and methods. Chapter 4 presents and discusses the results, and Chapter 5 concludes. The appendices contain supporting tables, diagnostics and the code.
 
 # Chapter 2`<w:r><w:br/></w:r>`{=openxml}Literature Review
 
@@ -68,31 +74,35 @@ This chapter reviews the literature on remittances in Bangladesh and Pakistan, w
 
 ## 2.2 Remittances in Bangladesh and Pakistan
 
-Remittances are a major source of foreign exchange for both countries, so short-term forecasts of them matter for reserve and exchange-rate management. In Bangladesh, personal remittances were 6.1% of GDP in 2024, against a long-run peak of 10.6% in 2012 (World Bank, 2026). Hundi, an informal and illegal transfer channel, carries a substantial further share that recorded data miss (Farabi et al., 2025).
+Remittances are a major source of foreign exchange for both countries and support their balance of payments (State Bank of Pakistan, 2024; World Bank, 2026). In 2024, personal remittances were 6.1% of GDP in Bangladesh, below a peak of 10.6% in 2012, and 9.4% in Pakistan (World Bank, 2026). Recorded figures understate the true flow. Part of the money is sent through hundi, an informal and illegal channel that official statistics do not capture (Farabi et al., 2025).
 
-Recorded remittances in both countries respond to policy as well as to migrants' incomes. Three kinds of event recur.
+Because part of the flow can switch between informal and formal channels, the recorded series also responds to policy. The literature identifies three kinds of policy-related event that have shifted recorded remittances in the two countries.
 
-- **Incentives for formal channels.** Bangladesh introduced a 2% cash incentive on remittances received through formal channels in July 2019, raised to 2.5% in January 2022. Using interrupted time-series analysis, Farabi et al. (2025) estimate that the incentive caused an immediate, sustained 6.68% rise in inflows, with a further 0.25% each month. Pakistan launched the Pakistan Remittance Initiative in 2009. Qureshi (2016) finds that it moved remittances from informal to formal channels, but that it is unclear whether it raised the total amount received.
+- **Incentives for formal channels.** Bangladesh introduced a 2% cash incentive on remittances received through formal channels in July 2019. Using interrupted time-series analysis, Farabi et al. (2025) estimate that the incentive caused an immediate, sustained 6.68% rise in inflows, with a further 0.25% each month. Pakistan launched the Pakistan Remittance Initiative in 2009. Qureshi (2016) finds that it moved remittances from informal to formal channels, but that it is unclear whether it raised the total amount received.
 
 - **COVID-19.** Recorded remittances fell in early 2020, then rose. Using monthly data for 52 countries, Kpodar et al. (2023) find that a shift from informal to formal channels, caused by travel restrictions, contributed to the surge in formal remittances. The World Bank reached the same conclusion for South Asia and warned that incentives in Bangladesh and Pakistan could make part of the increase more apparent than real (Ratha et al., 2020).
 
-- **Exchange-market reforms.** The State Bank of Pakistan credits reforms of exchange companies, under the 2023–24 IMF Stand-By Arrangement, with improving Pakistan's external position in FY24 (State Bank of Pakistan, 2024). In Bangladesh, record formal inflows followed the change of government in August 2024; so far this has been documented only in the press, which attributes it to a fall in hundi activity (bdnews24.com, 2025).
+- **Exchange-market reforms.** The State Bank of Pakistan credits reforms of exchange companies, under the 2023–24 IMF Stand-By Arrangement, with improving Pakistan's external position in FY24 (State Bank of Pakistan, 2024). In Bangladesh, recorded inflows rose sharply after the change of government in August 2024 (Bangladesh Bank, 2026); no published study has yet examined the cause.
 
 Taken together, these studies show that policy and channel shifts move the level of the recorded series. A model that ignores them can mistake a policy shift for a festival effect, or forecast from the wrong level.
 
 ## 2.3 Theoretical Background: Why Remittances Rise Before Festivals
 
-Policy explains shifts in the level of remittances, but not their timing within the year. The migration literature explains remittances mainly as support for the family at home, which predicts that transfers rise when household spending needs peak. Lucas and Stark (1985) set out three motives: altruism towards the family; self-interest, for example protecting an inheritance or assets at home; and an implicit contract in which migrant and family insure each other. Stark and Lucas (1988) describe remittances as part of a longer-term family arrangement covering education, migration costs and support in bad times.
+Policy explains shifts in the level of remittances, but not their timing within the year. The migration literature explains remittances mainly as support for the family at home, which predicts that transfers rise when household spending needs peak (Lucas & Stark, 1985; Rapoport & Docquier, 2006). Lucas and Stark (1985) set out three motives: altruism towards the family; self-interest, for example protecting an inheritance or assets at home; and an implicit contract in which migrant and family insure each other. Stark and Lucas (1988) describe remittances as part of a longer-term family arrangement covering education, migration costs and support in bad times.
 
-The two Eids are the largest spending occasions of the year in both countries: new clothes, gifts, travel and, for Eid al-Adha, the sacrificial animal. Ramadan also brings zakat and other religious giving. Under the altruism and family-contract motives, migrants should send more money in the weeks before each Eid. The financial press reports this pattern regularly. In Pakistan, inflows in March 2024 were about US\$2.95 billion, up more than 31% from the previous month, which Business Recorder (2024) attributed to Ramadan, zakat and Eid spending. In Bangladesh, the record monthly inflow of March 2025 came in the month of Eid al-Fitr (bdnews24.com, 2025).
+Household spending in Muslim-majority countries rises sharply around Ramadan and the two Eids. In Pakistan, currency in circulation rises and bank deposits fall before these festivals, reflecting higher cash spending (Riazuddin & Khan, 2005; Bukhari et al., 2011). Under the altruism and family-contract motives, migrants should therefore send more money in the weeks before each Eid. Bokhari and Ansari (2009) found significant Ramadan and Dul-Haj effects in Pakistan's workers' remittances, which supports this view.
 
-Festival peaks are also known in other remittance corridors; Philippine remittances, for example, peak in December. The difference is that Christmas falls on a fixed date, so ordinary monthly seasonal terms absorb it. The Eids move about 11 days earlier each Gregorian year, so the surge falls in a different month over time, and fixed monthly seasonality cannot capture it. This is the motivation for modelling Eid explicitly.
+The timing of the festivals matters for modelling. Holidays on fixed Gregorian dates, such as Christmas, fall in the same month every year, so ordinary monthly seasonal terms absorb their effect (Bell & Hillmer, 1983). The Eids move about 11 days earlier each Gregorian year, so the extra transfers fall in a different month over time, and fixed monthly seasonality cannot capture them (Grun Rehomme & Ben Rejeb, 2008). This is the motivation for modelling Eid explicitly.
 
 ## 2.4 Related Empirical Studies: Islamic-Calendar Effects in Economic Time Series
 
-If festivals drive remittances, the effect should appear in monthly data, as it does in other economic series. Studies across Muslim-majority economies agree that Islamic holidays shift economic activity between calendar months and that ignoring this distorts seasonal adjustment and forecasts. In Pakistan, Ramadan and Eid raise currency holdings, lower deposits and coincide with higher prices (Riazuddin & Khan, 2005; Bukhari et al., 2011; Riazuddin, 2012). Similar effects are found in Tunisian trade, employment and money supply (Grun Rehomme & Ben Rejeb, 2008), Turkish macroeconomic series (Aruoba & Alper, 2004), Indonesian GDP (Badan Pusat Statistik, 2019) and visitor arrivals from Indonesia to Australia (Australian Bureau of Statistics, 2005). The same holds for Chinese New Year in Taiwan, another lunar holiday (Lin & Liu, 2002).
+If festivals drive remittances, the effect should appear in monthly data, as it does in other economic series. Studies across Muslim-majority economies agree that Islamic holidays shift economic activity between calendar months and that ignoring this distorts seasonal adjustment and forecasts. They differ in the series studied and in how they define the holiday period.
 
-The studies differ mainly in how they define the holiday period. Some use windows only before the holiday; others add windows during and after it (Australian Bureau of Statistics, 2005; Grun Rehomme & Ben Rejeb, 2008; Lin & Liu, 2002). Most concern money, prices, trade and output rather than transfers. The one exception is Bokhari and Ansari (2009), who included Ramadan and Dul-Haj regressors when seasonally adjusting Pakistan's workers' remittances with X-12-ARIMA. Their aim was seasonal adjustment, not forecasting: they did not test whether the holiday terms improve out-of-sample forecasts, did not model Eid al-Fitr separately, and did not cover Bangladesh.
+The most relevant evidence comes from the State Bank of Pakistan. Riazuddin and Khan (2005) added fractional Islamic-calendar indicators to ARIMA models of Pakistan's currency in circulation. They found strong Ramadan and Eid effects and showed that conventional seasonal adjustment gives distorted results in Islamic countries. Bukhari et al. (2011) extended this work to deposits and consumer prices. They found that Ramadan and Zilhaj raise currency holdings, lower deposits and coincide with higher prices, and that monthly forecasts are biased when these effects are ignored. These studies show that Islamic holidays matter for Pakistan's monetary data, but they do not examine remittances.
+
+Studies outside South Asia mainly concern the choice of holiday window. Grun Rehomme and Ben Rejeb (2008) modelled Ramadan and both Eids in Tunisian imports, employment, energy and money supply, using separate windows before, during and after each feast. They chose the window lengths by AICc and forecast error, and the best Eid al-Fitr window ranged from 7 to 41 days across series. The Australian Bureau of Statistics (2005) used windows of 6 days before and 6 days after Ramadan and Eid for visitor arrivals from Indonesia, and Lin and Liu (2002) used before, around and after windows for Chinese New Year in Taiwan. Aruoba and Alper (2004) showed that Turkish series adjusted by standard methods still contain Hijri-holiday effects. Together, these studies show that the window length should be chosen from the data, which is the approach taken in this study.
+
+Only one study has applied holiday terms to remittances. Bokhari and Ansari (2009) seasonally adjusted five Pakistani financial series, including workers' remittances, with X-12-ARIMA and Ramadan and Dul-Haj regressors. They found a Dul-Haj effect of about 13.8%. Their aim was seasonal adjustment, not forecasting. They did not test whether the holiday terms improve out-of-sample forecasts, did not model Eid al-Fitr separately, and did not cover Bangladesh. These are the gaps this study fills.
 
 ## 2.5 Statistical Methods Applied in Similar Contexts
 
@@ -127,13 +137,13 @@ Diebold and Mariano (1995) test whether two forecasts have equal expected loss, 
 
 ## 2.6 Identified Research Gaps
 
-Studies of Islamic-calendar effects show that lunar holidays shift monthly economic activity and can be modelled with Bell–Hillmer regressors in RegARIMA models, and forecast-evaluation research provides tests suited to nested models. Yet the Eid surge in Bangladesh's remittances, though widely reported, has not been modelled. Bangladesh forecasting studies use annual data or Gregorian seasonality. The only study found that applies Islamic-holiday terms to remittances, Bokhari and Ansari (2009) for Pakistan, aimed at seasonal adjustment rather than forecasting. To our knowledge, no study has estimated separate Eid al-Fitr and Eid al-Adha effects on Bangladesh's monthly remittances, tested formally whether Eid regressors improve out-of-sample remittance forecasts, or compared Eid effects between Bangladesh and Pakistan. This study addresses these three gaps, with Bangladesh as the main case and Pakistan as the comparison. Chapter 3 describes the data and methods used to do so.
+Studies of Islamic-calendar effects show that lunar holidays shift monthly economic activity and can be modelled with Bell–Hillmer regressors in RegARIMA models, and forecast-evaluation research provides tests suited to nested models. No study has yet modelled the Eid effect on Bangladesh's remittances. Bangladesh forecasting studies use annual data or Gregorian seasonality. The only study found that applies Islamic-holiday terms to remittances, Bokhari and Ansari (2009) for Pakistan, aimed at seasonal adjustment rather than forecasting. To our knowledge, no study has estimated separate Eid al-Fitr and Eid al-Adha effects on Bangladesh's monthly remittances, tested formally whether Eid regressors improve out-of-sample remittance forecasts, or compared Eid effects between Bangladesh and Pakistan. This study addresses these three gaps, with Bangladesh as the main case and Pakistan as the comparison. Chapter 3 describes the data and methods used to do so.
 
 # Chapter 3`<w:r><w:br/></w:r>`{=openxml}Methods and Materials
 
 ## 3.1 Data Source and Description
 
-This chapter describes the data and methods used to answer RQ1 and RQ2. Both countries are analysed with identical code and evaluated on the same target months. The data are summarised in Table 3.1.
+Monthly data on workers' remittances were collected from the central banks of the two countries. For Bangladesh, the data were compiled from the issues of *Monthly Economic Trends* published on the Bangladesh Bank website. For Pakistan, they were taken from the State Bank of Pakistan's workers' remittances release file and its monthly releases. Both countries are analysed with identical code and evaluated on the same target months. The data are summarised in Table 3.1.
 
 Table: Table 3.1: Data sources
 
@@ -144,7 +154,7 @@ Table: Table 3.1: Data sources
 | Span | July 2009 – June 2026 (204 months) | July 2005 – June 2026 (252 months) |
 | Transformation | Natural log | Natural log |
 
-Each country's full span is used, and levels are never compared across countries. For Bangladesh, the monthly values were compiled from the issues of *Monthly Economic Trends* published on the Bangladesh Bank website. Each month's value is taken from the most recent issue that prints it, so revised figures replace first releases, and the issue used is recorded for every month. The August 2024 value equals Bangladesh Bank's first-released figure (US\$2.22 billion), and the FY2023-24 and FY2024-25 totals match the published figures. For Pakistan, values to December 2024 come from SBP's workers' remittances release file. Later months were not yet in that file, so they were collected from SBP monthly releases and from news reports quoting SBP, with the source of each month recorded.
+Each country's full span is used, and levels are never compared across countries. For Bangladesh, each month's value is taken from the most recent issue that prints it, so revised figures replace first releases, and the issue used is recorded for every month. The August 2024 value equals Bangladesh Bank's first-released figure (US\$2.22 billion), and the FY2023-24 and FY2024-25 totals match the published figures. For Pakistan, values to December 2024 come from SBP's workers' remittances release file. Later months were not yet in that file, so they were collected from SBP monthly releases and from news reports quoting SBP, with the source of each month recorded.
 
 **Eid dates.** Each country's national Eid dates were taken from news reports of the national moon-sighting announcements, with a source recorded for each event. Where no date could be sourced, the Umm al-Qura calendar date was used and flagged; this applied to 2 of 36 in-sample events for Bangladesh and 10 of 44 for Pakistan. National dates matter because Bangladesh and Pakistan often celebrate Eid one day after Saudi Arabia, and a one-day shift moves part of the window between months.
 
@@ -174,7 +184,7 @@ A window entirely inside one month gives 1 in that month; a window split across 
 
 ## 3.3 Conceptual Framework
 
-Figure 3.2 summarises the framework. Log remittances are explained by three components: the Eid regressors, built from national Eid dates; the trend and Gregorian seasonality, captured by the SARIMA errors; and documented one-off shocks, entered as intervention regressors only when they pass the intervention rule. The fitted model answers RQ1 through the Eid coefficients, and RQ2 through a comparison of forecasts from the model with and without the Eid regressors.
+Log remittances are explained by three components (Figure 3.2): the Eid regressors, built from national Eid dates; the trend and Gregorian seasonality, captured by the SARIMA errors; and documented one-off shocks, entered as intervention regressors only when they pass the intervention rule. The fitted model answers RQ1 through the Eid coefficients, and RQ2 through a comparison of forecasts from the model with and without the Eid regressors.
 
 ![Figure 3.2: Conceptual framework of the study](fig/fig_framework.png){width=6in}
 
@@ -462,7 +472,9 @@ Table: Table 4.12: Sensitivity of the forecast comparison (Clark–West t / RMSE
 
 Note: One-sided Clark–West tests, not corrected for multiplicity except where stated; the 45-day window was not evaluated for forecasting.
 
-## 4.3 Comparison with Previous Studies
+## 4.3 Discussion and Comparison with Previous Studies
+
+In plain terms, the results show three things. First, remittances to both countries rise by roughly a fifth in the month before each Eid, so migrants clearly send extra money for the festivals. Second, migrants from Bangladesh and Pakistan respond to Eid in a similar way. Third, a forecast that allows for Eid is noticeably more accurate one to three months ahead, especially for the months around the festivals.
 
 The estimates are in line with the few earlier studies of Islamic holidays in remittances and related series. Bokhari and Ansari (2009) found a Dul-Haj effect of about +13.8% in Pakistan's remittances using X-12-ARIMA. The Pakistan Eid al-Adha effect here, +14.9% with a 30-day window, is close to it despite the different method and sample. Grun Rehomme and Ben Rejeb (2008) found pre-Eid windows of 7 to 41 days for Tunisian series, so the 30-day window chosen here lies within the range found elsewhere, and window length appears to be series-specific. State Bank of Pakistan studies found that Islamic-calendar effects bias forecasts of money and prices (Riazuddin & Khan, 2005; Bukhari et al., 2011), and Lin and Liu (2002) found the same for Chinese New Year. The forecasting results here extend that finding to remittances, with formal out-of-sample tests. Unlike earlier Bangladesh forecasting studies, which used annual data or Gregorian seasonality (Islam et al., 2018; Saha & Khanam, 2022), this study shows a statistically significant forecast gain from a moving-holiday regressor. Farabi et al. (2025) estimated a 6.68% rise after the July 2019 incentive. That incentive (B1) was not selected by the intervention rule here, and the June 2020 level shift may absorb part of the move to formal channels.
 
@@ -472,25 +484,23 @@ The similar size of the Eid associations in the two countries is consistent with
 
 ## 5.1 Summary of Findings
 
-This study examined whether the two Eid festivals are associated with changes in monthly workers' remittances to Bangladesh and Pakistan, and whether accounting for them improves remittance forecasts. Eid regressors were built from each country's national Eid dates as the share of a pre-Eid window falling in each month, and included in a RegARIMA model with interventions. Forecasts with and without the Eid regressors were compared over 108 target months, July 2017 – June 2026.
+This study examined whether the two Eid festivals are associated with changes in monthly workers' remittances to Bangladesh and Pakistan, and whether accounting for them improves remittance forecasts. The main findings are as follows.
 
-- **Eid effects (RQ1).** Both Eids are associated with significantly higher remittances in both countries. A month containing the full 30-day window has 15–21% higher remittances than a month containing none of it; with a 21-day window the figure is 11–17%. The effects remain significant under all sensitivity checks and with robust standard errors.
+- **Eid effects.** Both Eids are associated with markedly higher remittances in both countries: about 15–21% more in a month containing the full pre-Eid period with the 30-day window, and 11–17% with a 21-day window.
 
-- **Cross-country comparison (RQ1).** There is no evidence that the effects differ between the two countries (p = 0.99 for Eid al-Fitr, p = 0.23 for Eid al-Adha), although small differences could not be detected.
+- **Cross-country comparison.** There is no evidence that the effects differ between Bangladesh and Pakistan.
 
-- **Forecasting (RQ2).** The Eid regressors have predictive content in both countries at 1 and 3 months ahead, after the Holm correction. One month ahead, RMSE falls by 9.8% in Bangladesh and 11.6% in Pakistan with the 30-day window, and by 6.7% and 5.2% with the 21-day window. At longer horizons the gain continues in Pakistan but disappears in Bangladesh.
-
-- **Eid months.** Forecast errors fall by about 20% in Eid months and by 2–4% in other months.
-
-- **Benchmarks.** At 1 and 3 months ahead, the model with Eid regressors has lower RMSE than a seasonal naive forecast and a Box–Jenkins SARIMA model in both countries.
+- **Forecasting.** Forecasts that include Eid are more accurate one and three months ahead in both countries, mainly in Eid months. At longer horizons the gain continues in Pakistan but not in Bangladesh.
 
 ## 5.2 Policy and Practical Implications
 
-- **For forecasters at Bangladesh Bank and the State Bank of Pakistan.** Eid dates are announced in advance and can be projected years ahead, so adding two Eid regressors to an existing ARIMA model is cheap. In this study it reduced one-month-ahead errors by about 5–12% overall and by about a fifth in Eid months.
+- **Reserve and exchange-rate planning.** Both central banks project remittance inflows when planning foreign-exchange reserves and interventions in the currency market. Including Eid regressors would make these projections more reliable around the festivals, when inflows are largest and errors are most costly. The gain is clearest one to three months ahead, which matches the horizon of monthly reserve planning; beyond three months, other sources of error, such as policy changes and trend growth, matter more than Eid.
 
-- **For interpreting monthly data.** Month-on-month and year-on-year comparisons of remittances are distorted when Eid moves between months. A rise in an Eid month, or a fall in the month after, should not be read as a change in the underlying trend. Publishing an Eid-adjusted series alongside the raw series would help.
+- **Reading monthly data.** Month-on-month and year-on-year comparisons of remittances are distorted when Eid moves between months. A strong figure in an Eid month, or a weak one in the month after, may say little about the underlying trend. This matters when monthly remittance figures are used to judge the effect of policies such as cash incentives or exchange-rate changes. Publishing an Eid-adjusted series alongside the raw figures would help policymakers and the public interpret them.
 
-- **For seasonal adjustment.** Seasonal adjustment of remittances in both countries should consider Islamic-calendar regressors, as State Bank of Pakistan research recommends for monetary series.
+- **Seasonal adjustment.** The State Bank of Pakistan has recommended Islamic-calendar regressors for monetary series (Riazuddin & Khan, 2005). The results suggest the same treatment for remittances in both countries, and Bangladesh Bank could adopt a similar approach for its own monthly series.
+
+- **Limits of the gain.** The improvement is modest overall, about 5–12% one month ahead, and depends on knowing the Eid dates correctly. The Eid regressors improve forecasts around the festivals but do not replace attention to policy shocks and structural change, which drove the largest forecast errors in this study.
 
 ## 5.3 Limitations of the Study
 
