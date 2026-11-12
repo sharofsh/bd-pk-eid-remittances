@@ -1,6 +1,8 @@
 # References
 
 ::: {custom-style="Reference"}
+Akter, J. (2022). The impact of COVID-19 on the remittance inflows in Bangladesh: An ARDL approach. *International Journal of Asian Social Science, 12*(5), 147–157. https://doi.org/10.55493/5007.v12i5.4486
+
 Aruoba, S. B., & Alper, C. E. (2004). Moving holidays and seasonal adjustment: The case of Turkey. *Review of Middle East Economics and Finance, 2*(3), 203–209. https://doi.org/10.2202/1475-3693.1047
 
 Australian Bureau of Statistics. (2005). Estimating and removing the effects of Chinese New Year and Ramadan to improve the seasonal adjustment process. *Australian Economic Indicators* (Cat. No. 1350.0), Technical Note, November 2005.
@@ -23,15 +25,21 @@ Clark, T. E., & West, K. D. (2007). Approximately normal tests for equal predict
 
 de Padua, D., Lanzafame, M., Qureshi, I., & Taniguchi, K. (2024). *Understanding the drivers of remittances to Pakistan* (ADB Economics Working Paper No. 733). Asian Development Bank.
 
+Devkota, B. P., & Pokhrel, S. (2023). Forecasting remittance inflow in Nepal using the Box–Jenkins ARIMA model. *Kathford Journal of Engineering and Management, 3*(1), 72–86.
+
 Diebold, F. X. (2015). Comparing predictive accuracy, twenty years later: A personal perspective on the use and abuse of Diebold–Mariano tests. *Journal of Business & Economic Statistics, 33*(1), 1–9.
 
 Diebold, F. X., & Mariano, R. S. (1995). Comparing predictive accuracy. *Journal of Business & Economic Statistics, 13*(3), 253–263.
+
+Eyerci, C., Toprak, A. Ö., & Demir, Ö. (2021). Ramadan effect on prices and production: Case of Turkey. *Statistika: Statistics and Economy Journal, 101*(2), 159–186.
 
 Farabi, M. N. S., Al Mobin, M., & Khan, A. N. (2025). Assessing the efficacy of cash incentive policies in enhancing remittance inflows: Evidence from Bangladesh. *PLOS ONE, 20*(2), e0318342. https://doi.org/10.1371/journal.pone.0318342
 
 Findley, D. F., Monsell, B. C., Bell, W. R., Otto, M. C., & Chen, B.-C. (1998). New capabilities and methods of the X-12-ARIMA seasonal-adjustment program. *Journal of Business & Economic Statistics, 16*(2), 127–152.
 
 Findley, D. F., Wills, K. C., & Monsell, B. C. (2005). *Issues in estimating Easter regressors using RegARIMA models with X-12-ARIMA* [Research report]. U.S. Census Bureau.
+
+Ghimire, B. N. (2026). Machine learning for remittance forecasting and macroeconomic dynamics in Nepal: An integrated analytical framework. *NPRC Journal of Multidisciplinary Research, 3*(2), 164–179. https://doi.org/10.3126/nprcjmr.v3i2.91275
 
 Grun Rehomme, M., & Ben Rejeb, A. (2008). Modelling moving feasts determined by the Islamic calendar: Application to macroeconomic Tunisian time series. *Metodološki zvezki, 5*(2), 173–211.
 
@@ -47,17 +55,21 @@ Islam, T., Mohib, A. A., & Haque, S. Z. (2018). Econometric models for forecasti
 
 Khan, I., & Gunwant, D. F. (2024). Application of ARIMA model in forecasting remittance inflows: Evidence from Yemen. *International Journal of Economic Policy Studies, 18*(1), 283–303. https://doi.org/10.1007/s42495-023-00128-6
 
+Khan, M. M., Khatun, R., Ahmed, A., & Das, S. R. (2022). Macroeconomic determinants of remittance for Bangladesh: A gravity model approach. *International Journal of Research and Innovation in Social Science, 6*(11), 140–147.
+
 Kpodar, K., Mlachila, M., Quayyum, S., & Gammadigbe, V. (2023). Defying the odds: Remittances during the COVID-19 pandemic. *The Journal of Development Studies, 59*(5), 673–690. https://doi.org/10.1080/00220388.2022.2154150
 
 Lin, J.-L., & Liu, T.-S. (2002). *Modeling lunar calendar holiday effects in Taiwan* [Working paper]. U.S. Census Bureau.
 
 Lucas, R. E. B., & Stark, O. (1985). Motivations to remit: Evidence from Botswana. *Journal of Political Economy, 93*(5), 901–918. https://doi.org/10.1086/261341
 
+Omer, M. (2025). Evaluating the impact of withdrawal of telegraphic transfer (TT) charges reimbursement on the remittances from the Kingdom of Saudi Arabia (KSA). *The Lahore Journal of Economics, 30*(2), 37–62. https://doi.org/10.35536/lje.2025.v30.i2.a2
+
 Paternoster, R., Brame, R., Mazerolle, P., & Piquero, A. (1998). Using the correct statistical test for the equality of regression coefficients. *Criminology, 36*(4), 859–866.
 
-R Core Team. (2024). *R: A language and environment for statistical computing* (Version 4.3.3). R Foundation for Statistical Computing. https://www.R-project.org/
-
 Qureshi, J. A. (2016). *The Pakistan Remittance Initiative and remittance flows to Pakistan* (PSSP Working Paper No. 35). International Food Policy Research Institute.
+
+R Core Team. (2024). *R: A language and environment for statistical computing* (Version 4.3.3). R Foundation for Statistical Computing. https://www.R-project.org/
 
 Rapoport, H., & Docquier, F. (2006). The economics of migrants' remittances. In S.-C. Kolm & J. Mercier Ythier (Eds.), *Handbook of the economics of giving, altruism and reciprocity* (Vol. 2, pp. 1135–1198). Elsevier.
 
@@ -69,6 +81,8 @@ Riazuddin, R., & Khan, M. H. (2005). Detection and forecasting of Islamic calend
 
 Saha, A., & Khanam, M. (2022). Forecasting the growth rate of GDP and its indicators remittance and labor force participation of Bangladesh using VECM and ARIMA models. *Dhaka University Journal of Science, 70*(2), 42–47.
 
+Saleh, S., Wardani, D. T. K., & Ivantri, M. A. (2019). Ramadhan, Eid ul Fitr, and inflation: Lesson from Indonesian subnational data. *Jurnal Ekonomi & Studi Pembangunan, 20*(2), 135–150.
+
 Stark, O., & Lucas, R. E. B. (1988). Migration, remittances, and the family. *Economic Development and Cultural Change, 36*(3), 465–481. https://doi.org/10.1086/451670
 
 State Bank of Pakistan. (2024). External sector. In *Annual report FY24: The state of Pakistan's economy* (Chapter 6). State Bank of Pakistan.
@@ -76,6 +90,8 @@ State Bank of Pakistan. (2024). External sector. In *Annual report FY24: The sta
 State Bank of Pakistan. (2026). *Workers' remittances* [Data set and monthly releases]. State Bank of Pakistan. https://www.sbp.org.pk
 
 Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: An analysis and review. *International Journal of Forecasting, 16*(4), 437–450.
+
+Tasnim, N., & Khanam, M. (2026). A comparison of the VAR model, ARIMA model and Holt's exponential smoothing approach in forecasting remittance and GDP for Bangladesh. *Dhaka University Journal of Science, 74*(2), 243–256. https://doi.org/10.3329/dujs.v74i2.84254
 
 World Bank. (2026). *Personal remittances, received (% of GDP)* [Data set]. World Development Indicators. https://data.worldbank.org/indicator/BX.TRF.PWKR.DT.GD.ZS
 :::
