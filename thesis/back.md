@@ -123,7 +123,7 @@ Table: Table A.1: Data dictionary
 | eid_exposure_monthly.csv | fitr_w30, adha_w30 | Share of the 30-day pre-Eid window in the month (main regressors) |
 | | fitr_w21, adha_w21, fitr_w45, adha_w45 | Regressors for the 21-day and 45-day sensitivity windows |
 
-Table: Table A.2: Fiscal-year totals of remittances (US\$ million; fiscal year ending June)
+Table: Table A.2: Fiscal-year totals of workers' remittances (US\$ million; fiscal year ending June)
 
 | Fiscal year | Bangladesh | Pakistan |
 |:---|---:|---:|
