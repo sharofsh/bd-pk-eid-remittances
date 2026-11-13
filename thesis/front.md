@@ -67,7 +67,7 @@ I am grateful to my supervisor, Professor Dr. Mohammed Nazmul Huq, for his guida
 Abstract
 :::
 
-Workers' remittances are a major source of foreign exchange for Bangladesh and Pakistan. Each month, migrants send more money home in the weeks before the two Eid festivals. The Eids follow the lunar calendar and fall about 11 days earlier each year, so this increase arrives in a different month from year to year. Standard forecasting models, which assume the same seasonal pattern every year, cannot capture it. This study asks whether Eid al-Fitr and Eid al-Adha are associated with changes in monthly remittances, whether the effects differ between the two countries, and whether accounting for Eid improves forecasts.
+Remittances from migrant workers are a major source of foreign exchange for Bangladesh and Pakistan. Each month, migrants send more money home in the weeks before the two Eid festivals. The Eids follow the lunar calendar and fall about 11 days earlier each year, so this increase arrives in a different month from year to year. Standard forecasting models, which assume the same seasonal pattern every year, cannot capture it. This study asks whether Eid al-Fitr and Eid al-Adha are associated with changes in monthly remittances, whether the effects differ between the two countries, and whether accounting for Eid improves forecasts.
 
 Monthly data from Bangladesh Bank (July 2009 – June 2026) and the State Bank of Pakistan (July 2005 – June 2026) were analysed with a regression model with seasonal ARIMA errors (RegARIMA). Eid regressors measure the share of a 30-day pre-Eid period falling in each month. Forecasts with and without the Eid regressors were compared for July 2017 – June 2026 using the Clark–West and Diebold–Mariano tests.
 

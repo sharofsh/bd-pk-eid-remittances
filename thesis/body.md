@@ -2,9 +2,9 @@
 
 ## 1.1 Background
 
-Workers' remittances are one of the largest sources of foreign exchange for Bangladesh and Pakistan. In fiscal year 2024–25, Bangladesh received US\$30.3 billion and Pakistan US\$38.3 billion through formal channels (Bangladesh Bank, 2026; State Bank of Pakistan, 2026). In 2024, personal remittances were 6.1% of GDP in Bangladesh and 9.4% in Pakistan (World Bank, 2026). Remittances finance a large share of import payments and support foreign-exchange reserves (State Bank of Pakistan, 2024). Central banks and finance ministries need reliable short-term forecasts of monthly inflows.
+Remittances from migrant workers are one of the largest sources of foreign exchange for Bangladesh and Pakistan. In fiscal year 2024–25, Bangladesh received US\$30.3 billion and Pakistan US\$38.3 billion through formal channels (Bangladesh Bank, 2026; State Bank of Pakistan, 2026). In 2024, personal remittances were 6.1% of GDP in Bangladesh and 9.4% in Pakistan (World Bank, 2026). Remittances finance a large share of import payments and support foreign-exchange reserves (State Bank of Pakistan, 2024). Central banks and finance ministries need reliable short-term forecasts of monthly inflows.
 
-The amount of money migrants send home each month is not constant through the year. It increases in the weeks before the two main Muslim festivals, Eid al-Fitr and Eid al-Adha. In Pakistan, Islamic-holiday regressors are significant in seasonal models of workers' remittances (Bokhari & Ansari, 2009). Official data show the same pattern in recent years. Bangladesh's highest monthly inflow on record, US\$3.30 billion in March 2025, came in the month of Eid al-Fitr (Bangladesh Bank, 2026). In Pakistan, inflows rose by 31% from February to March 2024, the month before Eid al-Fitr (State Bank of Pakistan, 2026).
+The amount of money migrants send home each month is not constant through the year. It increases in the weeks before the two main Muslim festivals, Eid al-Fitr and Eid al-Adha. In Pakistan, Islamic-holiday regressors are significant in seasonal models of Pakistan's remittances (Bokhari & Ansari, 2009). Official data show the same pattern in recent years. Bangladesh's highest monthly inflow on record, US\$3.30 billion in March 2025, came in the month of Eid al-Fitr (Bangladesh Bank, 2026). In Pakistan, inflows rose by 31% from February to March 2024, the month before Eid al-Fitr (State Bank of Pakistan, 2026).
 
 The timing of this increase is what makes it hard to forecast. The two Eids follow the lunar Hijri calendar, whose year is about 11 days shorter than the Gregorian year (Riazuddin, 2012; Grun Rehomme & Ben Rejeb, 2008). Each Eid falls about 11 days earlier every year and moves through every Gregorian month over roughly 33 years. So the extra transfers arrive in a different calendar month from year to year. Most forecasting models, including seasonal ARIMA models, treat seasonality as a fixed pattern by Gregorian month. They cannot follow a festival that moves in this way, and this is the problem the study addresses.
 
@@ -22,13 +22,13 @@ The study will address the following research questions.
 
 **RQ1 (effect estimation).**
 
-- Are Eid al-Fitr and Eid al-Adha associated with changes in monthly workers' remittances in Bangladesh and Pakistan?
+- Are Eid al-Fitr and Eid al-Adha associated with changes in monthly remittances in Bangladesh and Pakistan?
 
 - Do the size and direction of these effects differ between the two countries?
 
 **RQ2 (forecasting value).**
 
-- Do Eid regressors improve out-of-sample forecasts of monthly workers' remittances in each country?
+- Do Eid regressors improve out-of-sample forecasts of monthly remittances in each country?
 
 **Objectives.** The objectives of this study are to:
 
@@ -46,7 +46,7 @@ The study will address the following research questions.
 
 The study tests the following null hypotheses.
 
-- **H₀₁:** Eid al-Fitr and Eid al-Adha have no effect on monthly workers' remittances in Bangladesh or Pakistan.
+- **H₀₁:** Eid al-Fitr and Eid al-Adha have no effect on monthly remittances in Bangladesh or Pakistan.
 
 - **H₀₂:** The Eid effects on remittances are the same in Bangladesh and Pakistan.
 
@@ -149,7 +149,7 @@ Studies of Islamic-calendar effects show that lunar holidays shift monthly econo
 
 ## 3.1 Data Source and Description
 
-Monthly data on workers' remittances were collected from the central banks of the two countries. For Bangladesh, the data were compiled from the issues of *Monthly Economic Trends* published on the Bangladesh Bank website. For Pakistan, they were taken from the State Bank of Pakistan's workers' remittances release file and its monthly releases. Both countries are analysed with identical code and evaluated on the same target months. The data are summarised in Table 3.1.
+Monthly data on remittances were collected from the central banks of the two countries. Both banks publish the series as workers' remittances, meaning money sent home by migrants working abroad through formal channels; this thesis calls it remittances for short. For Bangladesh, the data were compiled from the issues of *Monthly Economic Trends* published on the Bangladesh Bank website. For Pakistan, they were taken from the State Bank of Pakistan's workers' remittances release file and its monthly releases. Both countries are analysed with identical code and evaluated on the same target months. The data are summarised in Table 3.1.
 
 Table: Table 3.1: Data sources
 
@@ -166,13 +166,13 @@ Each country's full span is used, and levels are never compared across countries
 
 ## 3.2 Study Variables
 
-The dependent variable is the natural log of monthly workers' remittances in US\$ million. The independent variables are the two Eid regressors and the intervention regressors (Table 3.2).
+The dependent variable is the natural log of monthly remittances in US\$ million. The independent variables are the two Eid regressors and the intervention regressors (Table 3.2).
 
 Table: Table 3.2: Study variables
 
 | Variable | Type | Definition |
 |:---|:---|:---|
-| log Y~t~ | Dependent | Natural log of monthly workers' remittances, US\$ million |
+| log Y~t~ | Dependent | Natural log of monthly remittances, US\$ million |
 | Fitr~t~ | Independent | Share of the 30-day window ending on Eid al-Fitr day that falls in month t (0 to 1) |
 | Adha~t~ | Independent | Share of the 30-day window ending on Eid al-Adha day that falls in month t (0 to 1) |
 | Z~t~ | Control | Intervention regressors (additive outlier, level shift or temporary change) selected by the rule in Section 3.4.3 |
@@ -307,7 +307,7 @@ Both Eids are associated with higher remittances in both countries, with no evid
 
 Both series grew strongly and are volatile from month to month (Table 4.1). Average monthly remittances are similar in the two countries, about US\$1.5–1.6 billion, but Pakistan's series starts four years earlier from a much lower level. Over their spans, annual totals rose about threefold in Bangladesh and ninefold in Pakistan (Appendix Table A.2). Month-on-month changes are volatile: the standard deviation of the monthly log change is about 13–14 percentage points.
 
-Table: Table 4.1: Descriptive statistics of monthly workers' remittances (US\$ million)
+Table: Table 4.1: Descriptive statistics of monthly remittances (US\$ million)
 
 | Statistic | Bangladesh | Pakistan |
 |:---|---:|---:|
@@ -323,7 +323,7 @@ Table: Table 4.1: Descriptive statistics of monthly workers' remittances (US\$ m
 
 Figure 4.1 plots both series and marks the months that contain at least half of a 30-day pre-Eid window. In most years these months are local peaks, and the peaks move earlier through the calendar as the Eids do. Both series also show a fall in early 2020 followed by a sharp rise from June 2020, and Bangladesh shows a further rise after August 2024.
 
-![Figure 4.1: Monthly workers' remittances with Eid months marked](fig/fig_series.png){width=6.2in}
+![Figure 4.1: Monthly remittances with Eid months marked](fig/fig_series.png){width=6.2in}
 
 Table 4.2 and Figure 4.2 compare each month with a centred 12-month moving average. Months containing at least half of a pre-Eid window lie about 9–10% above trend in both countries, and months containing none of it about 2% below. Months containing less than half of a window are close to trend (−1.9% and −0.5%), not above it as the window-share regressor implies. Such months usually contain Eid day and the days after it, so a fall in remittances after Eid may offset the pre-Eid rise; the model does not include a post-Eid term (Section 5.3).
 
@@ -490,7 +490,7 @@ The Eid associations are similar in size in the two countries. This fits the alt
 
 ## 5.1 Summary of Findings
 
-This study examined whether the two Eid festivals are associated with changes in monthly workers' remittances to Bangladesh and Pakistan, and whether accounting for them improves remittance forecasts. The main findings are as follows.
+This study examined whether the two Eid festivals are associated with changes in monthly remittances to Bangladesh and Pakistan, and whether accounting for them improves remittance forecasts. The main findings are as follows.
 
 - **Eid effects.** Both Eids are associated with higher remittances in both countries: about 15–21% more in a month containing the full pre-Eid period with the 30-day window, and 11–17% with a 21-day window.
 
