@@ -49,6 +49,8 @@ Grun Rehomme, M., & Ben Rejeb, A. (2008). Modelling moving feasts determined by 
 
 Harvey, D., Leybourne, S., & Newbold, P. (1997). Testing the equality of prediction mean squared errors. *International Journal of Forecasting, 13*(2), 281–291.
 
+Hendikawati, P., Subanar, Abdurakhman, & Tarno. (2022). Optimal adaptive neuro-fuzzy inference system architecture for time series forecasting with calendar effect. *Sains Malaysiana, 51*(3), 895–909. https://doi.org/10.17576/jsm-2022-5103-23
+
 Holm, S. (1979). A simple sequentially rejective multiple test procedure. *Scandinavian Journal of Statistics, 6*(2), 65–70.
 
 Hyndman, R. J., & Khandakar, Y. (2008). Automatic time series forecasting: The forecast package for R. *Journal of Statistical Software, 27*(3), 1–22.
