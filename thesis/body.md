@@ -157,7 +157,7 @@ Table: Table 3.1: Data sources
 |:---|:---|:---|
 | Source | Bangladesh Bank, *Monthly Economic Trends*, Table XVIII (Table XXI in earlier issues); each month taken from the latest issue that prints it | State Bank of Pakistan, workers' remittances; SBP release file to December 2024, SBP bulletins and press figures from January 2025 |
 | Series | US\$ million, not seasonally adjusted | US\$ million, original (not seasonally adjusted) series |
-| Span | July 2009 – June 2026 (204 months) | July 2005 – June 2026 (252 months) |
+| Span | July 2009 to June 2026 (204 months) | July 2005 to June 2026 (252 months) |
 | Transformation | Natural log | Natural log |
 
 Each country's full span is used, and levels are never compared across countries. For Bangladesh, each month's value is taken from the most recent issue that prints it, so revised figures replace first releases, and the issue used is recorded for every month. The August 2024 value equals Bangladesh Bank's first-released figure (US\$2.22 billion), and the FY2023-24 and FY2024-25 totals match the published figures. For Pakistan, values to December 2024 come from SBP's workers' remittances release file. Later months were not yet in that file, so they were collected from SBP monthly releases and from news reports quoting SBP, with the source of each month recorded.
@@ -228,21 +228,21 @@ Three standard intervention types are used (Chen & Liu, 1993). For an event in m
 
 ### 3.4.3 Intervention rule
 
-An intervention enters the model only if (1) it is on a candidate list of events with a dated external reason (Table 3.3), (2) it is detected statistically on the model with Eid regressors, and (3) at least 3 observations after its date lie in the training window. The selected set is used in both models of the pair. The two conditions together prevent dummies being added for every awkward month, while still allowing documented shocks to be modelled.
+An intervention enters the model only if (1) it is on a candidate list of events with a dated external reason (Table 3.3), (2) it is detected statistically on the model with Eid regressors, and (3) at least 3 observations after its date lie in the training window. The selected set is used in both models of the pair. Requiring both a documented reason and statistical evidence prevents a dummy being added for every unusual month, while still allowing documented shocks to be modelled.
 
 Table: Table 3.3: Candidate interventions
 
 | ID | Country | Window | External reason |
 |:---|:---|:---|:---|
 | B1 | Bangladesh | Jul 2019 | 2% cash incentive on formal-channel remittances |
-| B2 | Bangladesh | Mar – Jul 2020 | COVID-19: lockdowns, job losses, disruption of informal (hundi) channels |
+| B2 | Bangladesh | Mar to Jul 2020 | COVID-19: lockdowns, job losses, disruption of informal (hundi) channels |
 | B3 | Bangladesh | Jan 2022 | Incentive raised from 2% to 2.5% |
 | B4 | Bangladesh | Sep 2022 | Cap on the remittance exchange rate |
-| B5 | Bangladesh | Aug – Oct 2024 | Change of government; rise in formal-channel remittances |
-| P1 | Pakistan | Oct 2008 – Jan 2009 | Global financial crisis shock to Gulf labour markets |
-| P2 | Pakistan | Apr – Jun 2009 | Pakistan Remittance Initiative launched |
+| B5 | Bangladesh | Aug to Oct 2024 | Change of government; rise in formal-channel remittances |
+| P1 | Pakistan | Oct 2008 to Jan 2009 | Global financial crisis shock to Gulf labour markets |
+| P2 | Pakistan | Apr to Jun 2009 | Pakistan Remittance Initiative launched |
 | P3 | Pakistan | Jul 2016 | Contraction of the Gulf labour market |
-| P4 | Pakistan | Mar – Jul 2020 | COVID-19 |
+| P4 | Pakistan | Mar to Jul 2020 | COVID-19 |
 | P5 | Pakistan | Sep 2022 | Widening interbank–open-market exchange-rate gap |
 | P6 | Pakistan | Sep 2023 | Crackdown on currency smuggling and the kerb market |
 
@@ -262,7 +262,7 @@ $$z = \frac{\hat\beta_{BD} - \hat\beta_{PK}}{\sqrt{\mathrm{se}_{BD}^2 + \mathrm{
 
 ### 3.4.5 RQ2: forecast evaluation
 
-**Design.** Forecasts are evaluated with a rolling origin and an expanding training window (Tashman, 2000). The first origin is June 2017 for both countries, so both are evaluated on the same target months, July 2017 – June 2026. At each origin, interventions and orders are re-selected using only data available at that origin, both models are fitted, and forecasts are made for h = 1, …, 12 months ahead. The primary horizons are h = 1 and h = 3, which give 108 one-month-ahead and 106 three-month-ahead forecasts per country. Results at other horizons are reported without correction for multiple testing.
+**Design.** Forecasts are evaluated with a rolling origin and an expanding training window (Tashman, 2000). The first origin is June 2017 for both countries, so both are evaluated on the same target months, July 2017 to June 2026. At each origin, interventions and orders are re-selected using only data available at that origin, both models are fitted, and forecasts are made for h = 1, …, 12 months ahead. The primary horizons are h = 1 and h = 3, which give 108 one-month-ahead and 106 three-month-ahead forecasts per country. Results at other horizons are reported without correction for multiple testing.
 
 **Accuracy measures.** RMSE and mean error (bias) of the log forecasts, RMSE in US\$ million, and MAPE. The improvement from the Eid regressors is
 
@@ -311,7 +311,7 @@ Table: Table 4.1: Descriptive statistics of monthly workers' remittances (US\$ m
 
 | Statistic | Bangladesh | Pakistan |
 |:---|---:|---:|
-| Span | Jul 2009 – Jun 2026 | Jul 2005 – Jun 2026 |
+| Span | Jul 2009 to Jun 2026 | Jul 2005 to Jun 2026 |
 | Months (n) | 204 | 252 |
 | Mean | 1,539 | 1,621 |
 | Standard deviation | 592 | 889 |
@@ -366,7 +366,7 @@ Table: Table 4.4: Selected specifications (full sample, 30-day window)
 | Bangladesh | SARIMA(0,1,1)(0,0,1)~12~ | LS Mar 2020, LS Jun 2020 (B2) |
 | Pakistan | SARIMA(3,1,1)(1,0,0)~12~ + drift | AO Oct 2008 (P1), AO Jul 2016 (P3), LS Jun 2020 (P4) |
 
-Both Pakistan additive outliers fall in months that begin with Eid al-Fitr (1 October 2008 and 6 July 2016). They may partly capture a post-Eid fall rather than the listed external events. Candidate B5 (Bangladesh, August – October 2024) was not selected on the full sample or at any forecast origin; in the 21-day analysis its level-shift t-statistic was 2.72, below the critical value of 3.38. The rise after August 2024 was gradual rather than a single step.
+Both Pakistan additive outliers fall in months that begin with Eid al-Fitr (1 October 2008 and 6 July 2016). They may partly capture a post-Eid fall rather than the listed external events. Candidate B5 (Bangladesh, August to October 2024) was not selected on the full sample or at any forecast origin; in the 21-day analysis its level-shift t-statistic was 2.72, below the critical value of 3.38. The rise after August 2024 was gradual rather than a single step.
 
 ### 4.2.2 Eid effects (RQ1)
 
@@ -416,7 +416,7 @@ Note: All 95% confidence intervals in this table exclude zero.
 
 Adding the Eid regressors makes short-term forecasts more accurate in both countries. Table 4.8 reports the primary tests. All four Clark–West tests reject at 5% after the Holm correction, so H3 is rejected at the primary horizons: the Eid regressors have predictive content in both countries. The Diebold–Mariano tests, which compare realised accuracy, are also significant at 5%. One month ahead, RMSE is 9.8% lower in Bangladesh and 11.6% lower in Pakistan. Three months ahead the reduction is 2.1% in Bangladesh and 9.2% in Pakistan. In money terms, one-month-ahead forecasts are on average about US\$33 million closer to the actual value in Bangladesh (RMSE US\$263 million against US\$230 million) and about US\$37 million closer in Pakistan (Table 4.9).
 
-Table: Table 4.8: Primary forecast comparison (target months Jul 2017 – Jun 2026)
+Table: Table 4.8: Primary forecast comparison (target months Jul 2017 to Jun 2026)
 
 | Country, horizon | n | Clark–West t | Holm-adjusted p | Diebold–Mariano p | RMSE improvement (%) |
 |:---|---:|---:|---:|---:|---:|
