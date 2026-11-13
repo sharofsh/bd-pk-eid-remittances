@@ -512,15 +512,15 @@ This study examined whether the two Eid festivals are associated with changes in
 
 - **Post-Eid effects.** The model has only a pre-Eid window. Months holding less than half of the window are close to trend, and both Pakistan additive outliers fall in post-Eid months. Both point to a post-Eid fall that the model does not capture.
 
-- **Residual autocorrelation for Pakistan.** The Pakistan model fails the Ljung–Box test at lag 24. Robust standard errors and alternative error specifications leave the conclusions unchanged, but the model does not capture all of Pakistan's dynamics.
+- **Pakistan model fit.** The Pakistan model leaves some pattern in its errors: a standard check (the Ljung–Box test at lag 24) shows they are not purely random. The main results did not change when this was allowed for in other ways (Appendix D), but the model does not explain everything that drives Pakistan's remittances.
 
-- **Trend in Bangladesh.** The Bangladesh model has no drift term, and its forecasts under-predict increasingly at long horizons during a period of strong growth.
+- **Growth in Bangladesh.** The Bangladesh model has no term for steady growth. Remittances grew strongly towards the end of the sample, so its forecasts become increasingly too low as the horizon lengthens. This is why the forecast gain from Eid fades after about three months for Bangladesh.
 
-- **Calendar coverage.** Over the sample, Eid al-Fitr moved through about half the calendar, from late September to late March. The data never observe Eid in every month.
+- **Seasons covered.** Over the sample, Eid fell in only some parts of the year; for example, Eid al-Fitr fell between March and November. The study cannot tell whether the Eid effect would differ if Eid fell in a different season, and it assumes the effect is the same throughout.
 
 - **Data.** Pakistan's figures from January 2025 come from SBP bulletins and press releases rather than the consolidated release file. Recorded remittances exclude informal transfers, and part of the measured changes after 2019 may reflect shifts between informal and formal channels.
 
-- **Power and multiple testing.** The cross-country test cannot detect differences smaller than about 8 percentage points, and results beyond the primary horizons are not corrected for multiple testing. The theory behind the Clark–West test covers direct multi-step forecasts, whereas the ARIMA forecasts here are iterated, so multi-step p-values are approximate.
+- **Size of the tests.** The finding of no difference between the two countries does not mean the Eid effects are identical. The data could not detect a difference smaller than about 8 percentage points. Results for forecast horizons other than one and three months are given for completeness only, and their p-values are not adjusted for testing many horizons.
 
 ## 5.4 Future Research Directions
 
