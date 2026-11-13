@@ -11,7 +11,7 @@ box(0.2,2.4,2.6,1.2,"Trend and Gregorian\nseasonality\n(SARIMA errors)","#eeeeee
 box(0.2,0.4,2.6,1.2,"Documented shocks\n(COVID-19, policy, crises)\nAO / LS / TC","#f6e3d4")
 box(3.6,4.4,2.4,1.2,"Eid regressors\nshare of 30-day\npre-Eid window","#dbe9f6")
 box(3.6,0.4,2.4,1.2,"Intervention rule\nlisted reason +\nstatistical test","#f6e3d4")
-box(6.8,2.4,3.0,1.2,"log monthly workers'\nremittances\n(RegARIMA)","#d9f0d3")
+box(6.8,2.4,3.0,1.2,"log monthly\nremittances\n(RegARIMA)","#d9f0d3")
 box(6.8,4.5,3.0,1.0,"RQ1: Eid effects (%)\nBD vs PK z-test","#fff2cc")
 box(6.8,0.5,3.0,1.0,"RQ2: forecasts with vs\nwithout Eid (Clark-West, DM)","#fff2cc")
 arr(2.8,5.0,3.6,5.0); arr(2.8,1.0,3.6,1.0); arr(2.8,3.0,6.8,3.0)
