@@ -111,6 +111,8 @@ Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: An analysis 
 
 Tasnim, N., & Khanam, M. (2026). A comparison of the VAR model, ARIMA model and Holt's exponential smoothing approach in forecasting remittance and GDP for Bangladesh. *Dhaka University Journal of Science, 74*(2), 243–256. https://doi.org/10.3329/dujs.v74i2.84254
 
+Tsay, R. S. (1988). Outliers, level shifts, and variance changes in time series. *Journal of Forecasting, 7*(1), 1–20. https://doi.org/10.1002/for.3980070102
+
 Wang, X., Smith, K., & Hyndman, R. (2006). Characteristic-based clustering for time series data. *Data Mining and Knowledge Discovery, 13*(3), 335–364. https://doi.org/10.1007/s10618-005-0039-x
 
 World Bank. (2026). *Personal remittances, received (% of GDP)* [Data set]. World Development Indicators. https://data.worldbank.org/indicator/BX.TRF.PWKR.DT.GD.ZS
