@@ -118,24 +118,9 @@ World Bank. (2026). *Personal remittances, received (% of GDP)* [Data set]. Worl
 
 # Appendices
 
-## Appendix A: Data Dictionary
+## Appendix A: Fiscal-Year Totals
 
-Table: Table A.1: Data dictionary
-
-| File | Variable | Description |
-|:---|:---|:---|
-| bd_remittances_monthly.csv | calendar_date | First day of the month |
-| | remittances_usd_mn | Workers' remittances, US\$ million, from Bangladesh Bank *Monthly Economic Trends* |
-| | source_issue, source_sheet | Issue and table from which the value was taken (latest issue printing the month) |
-| pk_remittances_monthly.csv | date | First day of the month |
-| | remittances_usd_mn | Workers' remittances, US\$ million, State Bank of Pakistan |
-| | source | SBP release file, bulletin or press figure |
-| eid_dates.csv | country, event, eid_date | National Eid al-Fitr and Eid al-Adha dates |
-| | status, source | Sourced from a national announcement, or Umm al-Qura fallback |
-| eid_exposure_monthly.csv | fitr_w30, adha_w30 | Share of the 30-day pre-Eid window in the month (main regressors) |
-| | fitr_w21, adha_w21, fitr_w45, adha_w45 | Regressors for the 21-day and 45-day sensitivity windows |
-
-Table: Table A.2: Fiscal-year totals of workers' remittances (US\$ million; fiscal year ending June)
+Table: Table A.1: Fiscal-year totals of workers' remittances (US\$ million; fiscal year ending June)
 
 | Fiscal year | Bangladesh | Pakistan |
 |:---|---:|---:|
@@ -164,14 +149,14 @@ Table: Table A.2: Fiscal-year totals of workers' remittances (US\$ million; fisc
 
 ## Appendix B: Eid Dates
 
-Table: Table B.1: National Eid dates used (in-sample; * = Umm al-Qura fallback date)
+Table: Table B.1: National Eid dates used (* = Umm al-Qura fallback date; n/a = before the Bangladesh sample begins in July 2009)
 
 | Hijri year | BD Eid al-Fitr | BD Eid al-Adha | PK Eid al-Fitr | PK Eid al-Adha |
 |:---|:---|:---|:---|:---|
-| 1426 | 2005-11-03* | 2006-01-11 | 2005-11-03* | 2006-01-10* |
-| 1427 | 2006-10-25 | 2007-01-01 | 2006-10-25 | 2006-12-31* |
-| 1428 | 2007-10-14 | 2007-12-20* | 2007-10-13* | 2007-12-20* |
-| 1429 | 2008-10-02 | 2008-12-08* | 2008-10-01* | 2008-12-08* |
+| 1426 | n/a | n/a | 2005-11-03* | 2006-01-10* |
+| 1427 | n/a | n/a | 2006-10-25 | 2006-12-31* |
+| 1428 | n/a | n/a | 2007-10-13* | 2007-12-20* |
+| 1429 | n/a | n/a | 2008-10-01* | 2008-12-08* |
 | 1430 | 2009-09-20* | 2009-11-28 | 2009-09-20* | 2009-11-28 |
 | 1431 | 2010-09-11 | 2010-11-17 | 2010-09-11 | 2010-11-17 |
 | 1432 | 2011-08-31 | 2011-11-07 | 2011-08-31 | 2011-11-06* |
@@ -203,13 +188,13 @@ Table: Table C.1: Forecast comparison by horizon (main specification)
 | Bangladesh | 3 | 106 | 2.09 | 0.0184 | 0.035 | 2.1 |
 | Bangladesh | 4 | 105 | 1.56 | 0.0595 | 0.171 | 0.7 |
 | Bangladesh | 5 | 104 | 1.42 | 0.0775 | 0.322 | 0.3 |
-| Bangladesh | 6 | 103 | 1.18 | 0.1198 | 0.702 | -0.4 |
-| Bangladesh | 7 | 102 | 1.45 | 0.0740 | 0.759 | -0.0 |
-| Bangladesh | 8 | 101 | 1.15 | 0.1256 | 0.657 | -0.4 |
-| Bangladesh | 9 | 100 | 0.46 | 0.3227 | 0.976 | -1.9 |
-| Bangladesh | 10 | 99 | 0.31 | 0.3785 | 0.854 | -2.3 |
-| Bangladesh | 11 | 98 | 0.30 | 0.3836 | 0.953 | -1.3 |
-| Bangladesh | 12 | 97 | 0.19 | 0.4239 | 0.592 | -1.4 |
+| Bangladesh | 6 | 103 | 1.18 | 0.1198 | 0.702 | −0.4 |
+| Bangladesh | 7 | 102 | 1.45 | 0.0740 | 0.759 | 0.0 |
+| Bangladesh | 8 | 101 | 1.15 | 0.1256 | 0.657 | −0.4 |
+| Bangladesh | 9 | 100 | 0.46 | 0.3227 | 0.976 | −1.9 |
+| Bangladesh | 10 | 99 | 0.31 | 0.3785 | 0.854 | −2.3 |
+| Bangladesh | 11 | 98 | 0.30 | 0.3836 | 0.953 | −1.3 |
+| Bangladesh | 12 | 97 | 0.19 | 0.4239 | 0.592 | −1.4 |
 | Pakistan | 1 | 108 | 3.66 | 0.0001 | 0.007 | 11.6 |
 | Pakistan | 2 | 107 | 3.24 | 0.0006 | 0.100 | 8.3 |
 | Pakistan | 3 | 106 | 3.66 | 0.0001 | 0.040 | 9.2 |
@@ -217,8 +202,8 @@ Table: Table C.1: Forecast comparison by horizon (main specification)
 | Pakistan | 5 | 104 | 3.22 | 0.0006 | 0.067 | 6.9 |
 | Pakistan | 6 | 103 | 3.50 | 0.0002 | 0.112 | 7.0 |
 | Pakistan | 7 | 102 | 3.29 | 0.0005 | 0.022 | 5.3 |
-| Pakistan | 8 | 101 | 4.30 | 0.0000 | 0.001 | 5.2 |
-| Pakistan | 9 | 100 | 3.93 | 0.0000 | 0.042 | 3.4 |
+| Pakistan | 8 | 101 | 4.30 | <0.0001 | 0.001 | 5.2 |
+| Pakistan | 9 | 100 | 3.93 | <0.0001 | 0.042 | 3.4 |
 | Pakistan | 10 | 99 | 3.25 | 0.0006 | 0.144 | 2.4 |
 | Pakistan | 11 | 98 | 2.64 | 0.0041 | 0.110 | 2.5 |
 | Pakistan | 12 | 97 | 2.58 | 0.0050 | 0.067 | 2.3 |
@@ -254,19 +239,4 @@ Note: AICc values are for each specification fitted with its own selected interv
 
 ## Appendix E: Code and Reproducibility
 
-All code and data are available at github.com/sharofsh/bd-pk-eid-remittances. The analysis is run in the following order.
-
-Table: Table E.1: Analysis scripts
-
-| Script | Purpose |
-|:---|:---|
-| 00_build_eid_dates.py | Compile national Eid dates with sources and Umm al-Qura fallbacks |
-| 01_eid_exposure.R | Build the monthly Eid regressors for each window length |
-| 02_identify_sarima_benchmark.R | Identify the Box–Jenkins benchmark from ACF/PACF on data to June 2017 |
-| 03_rq1_estimation.R | Full-sample estimation, cross-country test, diagnostics, window comparison |
-| 04_forecast_run.R | Rolling-origin forecasts for all models and specifications |
-| 05_evaluate.R | Accuracy measures, Clark–West and Diebold–Mariano tests, Holm correction |
-| 07_pk_inference.R | HAC and bootstrap standard errors; alternative error specifications |
-| lib_model.R, lib_outliers.R | Model fitting and Chen–Liu intervention detection |
-| 10_window_training.R | Window-length choice on data up to June 2017 |
-| run_analysis.R | Runner (set WINDOW = "30" for the main results) |
+All data and code are available at github.com/sharofsh/bd-pk-eid-remittances. The repository README describes the data files and lists the scripts in the order in which they are run.

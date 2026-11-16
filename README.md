@@ -60,6 +60,10 @@ Rscript scripts/04_forecast_run.R X_B5_LS BD; Rscript scripts/04_forecast_run.R 
 Rscript scripts/05_evaluate.R
 Rscript scripts/06_bd_2024_break.R; Rscript scripts/07_pk_inference.R
 Rscript scripts/08_forecast_inference_checks.R; Rscript scripts/09_bd_b5_forecast_compare.R
+Rscript scripts/10_window_training.R          # window choice on data to June 2017
+Rscript scripts/11_stationarity_tests.R        # KPSS, ADF, PP, seasonal strength, OCSB, Canova-Hansen
+Rscript scripts/12_month_length_check.R        # post hoc: month-length regressor
+EID_WINDOW=30 Rscript scripts/04_forecast_run.R X_drift BD   # post hoc: drift forced (Bangladesh)
 ```
 
 On Windows, `mclapply` runs on one core: expect a few hours.

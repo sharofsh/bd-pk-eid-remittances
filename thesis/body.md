@@ -305,11 +305,11 @@ All analysis was done in R 4.3.3 (R Core Team, 2024). Models were fitted with th
 
 # Chapter 4`<w:r><w:br/></w:r>`{=openxml}Results and Discussion
 
-Both Eids are associated with higher remittances in both countries, with no evidence of a difference between the two countries. Including Eid regressors improves 1- and 3-month-ahead forecasts in both countries; at longer horizons the evidence is weaker.
+This chapter applies the methods of Chapter 3. Section 4.1 describes the two series, Section 4.2 reports the models for RQ1 and RQ2, and Section 4.3 compares the results with the studies reviewed in Chapter 2.
 
 ## 4.1 Descriptive Statistics
 
-Both series grew strongly and are volatile from month to month (Table 4.1). Average monthly remittances are similar in the two countries, about US\$1.5–1.6 billion, but Pakistan's series starts four years earlier from a much lower level. Over their spans, annual totals rose about threefold in Bangladesh and ninefold in Pakistan (Appendix Table A.2). Month-on-month changes are volatile: the standard deviation of the monthly log change is about 13–14 percentage points.
+Both series grew strongly over the sample (Table 4.1). Average monthly remittances are similar in the two countries, about US\$1.5–1.6 billion, but Pakistan's series starts four years earlier from a much lower level. Over their spans, annual totals rose about threefold in Bangladesh and ninefold in Pakistan (Appendix Table A.1). Month-on-month changes are volatile: the standard deviation of the monthly log change is about 13–14 percentage points.
 
 Table: Table 4.1: Descriptive statistics of monthly workers' remittances (US\$ million)
 
@@ -363,7 +363,7 @@ Table: Table 4.3: Stationarity and differencing tests on log monthly remittances
 
 Note: n = 204 (Bangladesh) and 252 (Pakistan). Augmented Dickey–Fuller p-values below 0.01 are shown as <0.01, the lower limit of the tabulated values.
 
-With d = 1 and D = 0 fixed, the window length was chosen next. A 30-day window fits the data best in both countries. Table 4.4 compares model fit across window lengths on data up to June 2017, before the forecast evaluation period. Adding Eid regressors of any length improves AICc. The 30-day window fits best in both countries: by 6.6 AICc points over the 21-day window for Bangladesh and by 5.8 for Pakistan. The 45-day window is close in Bangladesh (0.7 points) and further behind in Pakistan (2.5 points). Under the rule in Section 3.4.4, 30 days is used as the main window. This means the extra money sent for Eid is spread over roughly the month before the festival, about the length of Ramadan. It is neither concentrated in the last three weeks nor spread over two months. On the full sample the ranking is the same, with 30 days ahead of 21 days by 12.0 points (Bangladesh) and 20.1 points (Pakistan).
+With d = 1 and D = 0 fixed, the window length was chosen next. A 30-day window fits the data best in both countries. Table 4.4 compares model fit across window lengths on data up to June 2017, before the forecast evaluation period. Adding Eid regressors of any length improves AICc, and the 45-day window is close to the 30-day window for Bangladesh. Under the rule in Section 3.4.4, 30 days is used as the main window. This means the extra money sent for Eid is spread over roughly the month before the festival, about the length of Ramadan. It is neither concentrated in the last three weeks nor spread over two months.
 
 Table: Table 4.4: Model fit (AICc) by Eid window length, data up to June 2017 (lower is better)
 
@@ -386,11 +386,11 @@ Table: Table 4.5: Selected specifications (full sample, 30-day window)
 | Bangladesh | SARIMA(0,1,1)(0,0,1)~12~ | LS Mar 2020, LS Jun 2020 (B2) |
 | Pakistan | SARIMA(3,1,1)(1,0,0)~12~ + drift | AO Oct 2008 (P1), AO Jul 2016 (P3), LS Jun 2020 (P4) |
 
-Both Pakistan additive outliers fall in months that begin with Eid al-Fitr (1 October 2008 and 6 July 2016). They may partly capture a post-Eid fall rather than the listed external events. Candidate B5 (Bangladesh, August to October 2024) was not selected on the full sample or at any forecast origin; in the 21-day analysis its level-shift t-statistic was 2.72, below the critical value of 3.38. The rise after August 2024 was gradual rather than a single step.
+Both Pakistan additive outliers fall in months that begin with Eid al-Fitr (1 October 2008 and 6 July 2016). They may partly capture a post-Eid fall rather than the listed external events. Candidate B5 (Bangladesh, August to October 2024) was not selected on the full sample or at any forecast origin. The rise after August 2024 was gradual rather than a single step.
 
 ### 4.2.2 Eid effects (RQ1)
 
-Both Eids are associated with higher remittances in both countries (Table 4.6). With the 30-day window, a month containing the full window before Eid al-Fitr has about 19.6% higher remittances than a month containing none of it, in both countries. The Eid al-Adha association is 20.5% in Bangladesh and 14.9% in Pakistan. All four coefficients are significant at p < 0.001, so H1 is rejected for every country and Eid.
+Both Eids are associated with higher remittances in both countries (Table 4.6). With the 30-day window, a month containing the full window before Eid al-Fitr has about 19.6% higher remittances than a month containing none of it, in both countries. The Eid al-Adha association is 20.5% in Bangladesh and 14.9% in Pakistan. All four coefficients are significant at p < 0.001, so H₀₁ is rejected for every country and Eid.
 
 Table: Table 4.6: Estimated Eid effects (% change for a month containing the full 30-day window; 95% confidence interval)
 
@@ -399,11 +399,11 @@ Table: Table 4.6: Estimated Eid effects (% change for a month containing the ful
 | Bangladesh (n = 204) | 19.6 [12.4, 27.2] | 20.5 [13.3, 28.1] |
 | Pakistan (n = 252) | 19.6 [14.3, 25.2] | 14.9 [9.8, 20.3] |
 
-For a typical Bangladesh month of US\$2.5 billion, a 19.6% difference is roughly US\$490 million. When the window is split, the effect is divided in proportion. For an Eid al-Fitr on 10 April, March holds 0.67 of the window and is predicted about 0.67 × 0.179 = 0.12 log points higher (about +12.7%), and April, holding 0.33, about +6.2%.
+For a typical Bangladesh month of US\$2.5 billion, a 19.6% difference is roughly US\$490 million. When the window is split between two months, the effect is divided in proportion: if Eid al-Fitr falls on 10 April, two-thirds of the window is in March and one-third in April, so March is predicted about 12.7% higher and April about 6.2% higher.
 
 ### 4.2.3 Cross-country comparison
 
-The data give no evidence that the Eid effects differ between the two countries (Table 4.7), so H2 is not rejected. The Eid al-Fitr coefficients are almost identical; the Eid al-Adha coefficient is 0.047 log points larger in Bangladesh, within sampling error. With standard errors of about 0.039, the test could not detect differences smaller than roughly 0.08 log points (about 8 percentage points), so the result does not show that the effects are equal.
+The data give no evidence that the Eid effects differ between the two countries (Table 4.7), so H₀₂ is not rejected. The Eid al-Fitr coefficients are almost identical; the Eid al-Adha coefficient is 0.047 log points larger in Bangladesh, within sampling error. With standard errors of about 0.039, the test could not detect differences smaller than roughly 0.08 log points (about 8 percentage points), so the result does not show that the effects are equal.
 
 Table: Table 4.7: Cross-country difference in Eid effects (Bangladesh − Pakistan, log points)
 
@@ -434,7 +434,7 @@ Note: All 95% confidence intervals in this table exclude zero.
 
 ### 4.2.6 Forecast accuracy (RQ2)
 
-Adding the Eid regressors makes short-term forecasts more accurate in both countries. Table 4.9 reports the primary tests. All four Clark–West tests reject at 5% after the Holm correction, so H3 is rejected at the primary horizons: the Eid regressors have predictive content in both countries. The Diebold–Mariano tests, which compare realised accuracy, are also significant at 5%. One month ahead, RMSE is 9.8% lower in Bangladesh and 11.6% lower in Pakistan. Three months ahead the reduction is 2.1% in Bangladesh and 9.2% in Pakistan. In money terms, one-month-ahead forecasts are on average about US\$33 million closer to the actual value in Bangladesh (RMSE US\$263 million against US\$230 million) and about US\$37 million closer in Pakistan (Table 4.10).
+Adding the Eid regressors makes short-term forecasts more accurate in both countries. Table 4.9 reports the primary tests. All four Clark–West tests reject at 5% after the Holm correction, so H₀₃ is rejected at the primary horizons: the Eid regressors have predictive content in both countries. The Diebold–Mariano tests, which compare realised accuracy, are also significant at 5%. One month ahead, RMSE is 9.8% lower in Bangladesh and 11.6% lower in Pakistan. Three months ahead the reduction is 2.1% in Bangladesh and 9.2% in Pakistan. In money terms, one-month-ahead forecasts are on average about US\$33 million closer to the actual value in Bangladesh (RMSE US\$263 million against US\$230 million) and about US\$37 million closer in Pakistan (Table 4.10).
 
 Table: Table 4.9: Primary forecast comparison (target months Jul 2017 to Jun 2026)
 
@@ -445,13 +445,13 @@ Table: Table 4.9: Primary forecast comparison (target months Jul 2017 to Jun 202
 | Pakistan, h = 1 | 108 | 3.66 | 0.0005 | 0.007 | 11.6 |
 | Pakistan, h = 3 | 106 | 3.66 | 0.0005 | 0.040 | 9.2 |
 
-Figure 4.3 shows the RMSE change at every horizon. For Pakistan, RMSE is lower at every horizon and the unadjusted Clark–West p-value is below 0.05 at each. For Bangladesh, the improvement shrinks to about zero by h = 6 and is slightly negative at long horizons (−1.4% at h = 12), although the Clark–West statistic stays positive. This is possible because the test concerns predictive content in population rather than realised accuracy. These longer-horizon results are not corrected for multiple testing (Appendix C).
+Figure 4.3 shows the RMSE change at every horizon. For Pakistan, RMSE is lower at every horizon and the unadjusted Clark–West p-value is below 0.05 at each. For Bangladesh, the improvement shrinks to about zero by h = 6 and is slightly negative at long horizons (−1.4% at h = 12), although the Clark–West statistic stays positive. The two tests measure different things; Appendix C gives both. These longer-horizon results are not corrected for multiple testing (Appendix C).
 
 Bangladesh forecasts under-predict increasingly with horizon: the mean log error of the model with Eid regressors is +0.014 at h = 1, +0.049 at h = 6 and +0.086 at h = 12. The Bangladesh model has no drift term, while remittances grew steadily over the evaluation period, especially after August 2024. In the post hoc check with drift forced into both Bangladesh models (Section 3.4.6), the mean error at h = 12 falls from +0.086 to +0.053. The long-horizon gain does not return, however: the RMSE change at h = 12 is −2.1%, and the gain at h = 3 is slightly smaller (1.3%). Missing trend growth therefore explains part of the bias, but not why the Eid gain fades. In Pakistan, whose model includes drift, the mean error stays close to zero.
 
 ![Figure 4.3: RMSE improvement from the Eid regressors by forecast horizon](fig/fig_rmse_h.png){width=6.2in}
 
-**Benchmarks.** At h = 1 and 3, the model with Eid regressors has the lowest RMSE of the four models in both countries, and the lowest MAPE at h = 1 (Table 4.10). In Pakistan the Box–Jenkins model is slightly more accurate than the baseline at h = 1 (RMSE 0.101 against 0.106), so the gain over the best model without Eid regressors is smaller, about 8%. This difference was not tested formally. For a forecaster, this means the Eid regressors improve on the usual seasonal models, not only on the baseline. At h = 12 the Box–Jenkins model is more accurate than the model with Eid regressors for Bangladesh (Appendix C).
+**Benchmarks.** At h = 1 and 3, the model with Eid regressors has the lowest RMSE of the four models in both countries, and the lowest MAPE at h = 1 (Table 4.10). In Pakistan the Box–Jenkins model is slightly more accurate than the baseline at h = 1 (RMSE 0.101 against 0.106), so the gain over the best model without Eid regressors is smaller, about 8%. This difference was not tested formally. For a forecaster, this means the Eid regressors improve on the usual seasonal models, not only on the baseline.
 
 Table: Table 4.10: Forecast accuracy against benchmarks (RMSE of log forecasts; MAPE and RMSE in US\$ million on levels)
 
