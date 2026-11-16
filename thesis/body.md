@@ -4,7 +4,7 @@
 
 Workers' remittances are one of the largest sources of foreign exchange for Bangladesh and Pakistan. In fiscal year 2024–25, Bangladesh received US\$30.3 billion and Pakistan US\$38.3 billion through formal channels (Bangladesh Bank, 2026; State Bank of Pakistan, 2026). In 2024, personal remittances were 6.1% of GDP in Bangladesh and 9.4% in Pakistan (World Bank, 2026). Remittances finance a large share of import payments and support foreign-exchange reserves (State Bank of Pakistan, 2024). Central banks and finance ministries need reliable short-term forecasts of monthly inflows.
 
-The amount of money migrants send home each month is not constant through the year. It increases in the weeks before the two main Muslim festivals, Eid al-Fitr and Eid al-Adha. In Pakistan, Islamic-holiday effects have been estimated in seasonal models of workers' remittances (Bokhari & Ansari, 2009). Official data show the same pattern in recent years. Bangladesh's highest monthly inflow on record, US\$3.30 billion in March 2025, came in the month of Eid al-Fitr (Bangladesh Bank, 2026). In Pakistan, inflows rose by 31% from February to March 2024, the month before Eid al-Fitr (State Bank of Pakistan, 2026).
+The amount of money migrants send home each month is not constant through the year. It is higher around the two main Muslim festivals, Eid al-Fitr and Eid al-Adha. Goswami et al. (2023) note this pattern in Bangladesh's monthly inflows, and in Pakistan Islamic-holiday effects have been estimated in seasonal models of workers' remittances (Bokhari & Ansari, 2009). Recent monthly data are consistent with it. Bangladesh's highest monthly inflow on record, US\$3.30 billion in March 2025, came in the month of Eid al-Fitr (Bangladesh Bank, 2026). In Pakistan, inflows rose by 31% from February to March 2024, the month before Eid al-Fitr (State Bank of Pakistan, 2026).
 
 The timing of this increase is what makes it hard to forecast. The two Eids follow the lunar Hijri calendar, whose year is about 11 days shorter than the Gregorian year (Riazuddin, 2012; Grun Rehomme & Ben Rejeb, 2008). Each Eid falls about 11 days earlier every year and moves through every Gregorian month over roughly 33 years. So the extra transfers arrive in a different calendar month from year to year. Holidays whose Gregorian date changes from year to year are known in time-series analysis as moving holidays (Bell & Hillmer, 1983). Easter and Chinese New Year are the best-known examples, and statistical agencies adjust monthly series for them routinely (Findley et al., 1998; Lin & Liu, 2002). Eid al-Fitr and Eid al-Adha are also moving holidays, but they follow a purely lunar calendar. Easter and Chinese New Year move only within a few weeks of the same season, whereas the two Eids move through the whole Gregorian year (Grun Rehomme & Ben Rejeb, 2008). Most forecasting models, including seasonal ARIMA models, treat seasonality as a fixed pattern by Gregorian month. They cannot follow a moving holiday of this kind, and this is the problem the study addresses.
 
@@ -36,21 +36,19 @@ The study addresses the following research questions.
 
 **Specific objectives:** The study seeks to:
 
-- construct monthly Eid regressors for each country from its own national Eid dates;
+- measure the effects of Eid al-Fitr and Eid al-Adha on monthly workers' remittances in each country;
 
-- estimate the effects of Eid al-Fitr and Eid al-Adha on log remittances with a regression model with SARIMA errors (RegARIMA);
+- compare these effects between Bangladesh and Pakistan;
 
-- test whether the Eid effects differ between Bangladesh and Pakistan;
+- assess whether accounting for Eid improves the accuracy of remittance forecasts from 1 to 12 months ahead; and
 
-- assess whether including Eid regressors improves the accuracy of remittance forecasts from 1 to 12 months ahead; and
-
-- compare the forecast accuracy of the model with Eid regressors with standard seasonal benchmarks (Box–Jenkins SARIMA and seasonal naive).
+- compare the accuracy of these forecasts with that of standard seasonal benchmarks.
 
 ## 1.4 Hypotheses
 
 The study tests the following null hypotheses.
 
-- **H₀₁:** Eid al-Fitr and Eid al-Adha have no effect on monthly workers' remittances in Bangladesh or Pakistan.
+- **H₀₁:** Eid al-Fitr and Eid al-Adha are not associated with changes in monthly workers' remittances in Bangladesh or Pakistan.
 
 - **H₀₂:** The Eid effects on remittances are the same in Bangladesh and Pakistan.
 
@@ -244,11 +242,11 @@ Interventions are selected in four steps, so that a dummy is added only for a do
 
 2. **Eligibility:** A month is eligible only if at least three observations follow it in the training data, so that a one-month spike can be told apart from a lasting shift.
 
-3. **Testing:** For each eligible month, an AO, a TC and an LS are added in turn to the model with Eid regressors, fitted with airline errors, SARIMA(0,1,1)(0,1,1)~12~, and the t-statistic of each is recorded. The Eid regressors are included so that a normal Eid peak is not mistaken for a shock.
+3. **Testing:** For each eligible month, an AO, a TC and an LS are added in turn to a model with the Eid regressors, and the t-statistic of each is recorded. This screening model uses airline errors, SARIMA(0,1,1)(0,1,1)~12~, because the final orders are not yet known. The Eid regressors are included so that a normal Eid peak is not mistaken for a shock.
 
 4. **Forward selection:** The candidate with the largest |t| is added if it exceeds the critical value, and the remaining candidates are then re-tested with it in the model. This is repeated until no candidate passes. The critical value is the tsoutliers default: 3 for n ≤ 50, 4 for n ≥ 450, and 3 + 0.0025(n − 50) in between, which gives about 3.38 for Bangladesh and 3.50 for Pakistan on the full samples. It is stricter than the usual 1.96 because many months are tested.
 
-The selected interventions enter both models of the pair. Each model is therefore built in the same order: interventions are selected as above; d and D are set by the differencing tests and the ARIMA orders and drift are chosen by AICc on the baseline (Section 3.4.4); and the Eid regressors are then added with everything else held fixed. In the rolling forecasts (Section 3.4.6), these steps are repeated at every origin using only the data available at that time.
+The selected interventions enter both models of the pair. Each model is built in the same order. First, interventions are selected as above. Next, the differencing, the ARIMA orders and drift are chosen on the baseline (Section 3.4.4). Last, the Eid regressors are added with everything else held fixed. In the rolling forecasts (Section 3.4.6), these steps are repeated at every origin using only the data available at that time.
 
 Table: Table 3.3: Candidate interventions
 
@@ -269,9 +267,13 @@ Table: Table 3.3: Candidate interventions
 
 ### 3.4.4 Differencing and order selection
 
-**Stationarity and differencing:** ARIMA errors must be stationary after differencing, so the orders of differencing, d and D, are settled before the other terms. The tests are applied to the log series, and a decision is accepted only when the tests agree. For regular differencing, the KPSS test (Kwiatkowski et al., 1992), whose null hypothesis is stationarity, is applied to the levels with a linear trend and to the first differences. The augmented Dickey–Fuller test (Dickey & Fuller, 1979) and the Phillips–Perron test (Phillips & Perron, 1988), whose null hypothesis is a unit root, are used as checks. For seasonal differencing, the seasonal-strength measure of Wang et al. (2006) indicates a seasonal difference when it exceeds 0.64; it is checked against the OCSB test (Osborn et al., 1988) and the Canova–Hansen test (Canova & Hansen, 1995). Because Eid moves through the calendar, part of the month-to-month pattern may not be fixed seasonality, so a seasonal difference is used only if these tests support it. The results are reported in Section 4.2.1.
+**Stationarity and differencing:** ARIMA errors must be stationary after differencing, so the orders of differencing, d and D, are settled before the other terms. All tests are applied to the log series.
 
-**Order selection:** Orders are chosen by auto.arima (Hyndman & Khandakar, 2008) on the baseline, given Z. The search is exhaustive over p, q ≤ 3 and P, Q ≤ 1, with AICc as the criterion. Within auto.arima, d is chosen by the KPSS test and D by the seasonal-strength measure, after allowing for the intervention regressors; in the rolling forecasts (Section 3.4.6) this choice is repeated at every origin. The same orders are used for the model with Eid regressors, so the two models differ only in the Eid regressors. With differenced errors, a drift term replaces the intercept and linear trend; it is considered when d + D = 1 and kept only if it lowers AICc.
+For regular differencing, d is chosen by the KPSS test (Kwiatkowski et al., 1992). Its null hypothesis is that the series is stationary. It is applied to the levels with a linear trend and to the first differences. Two tests with the opposite null hypothesis, a unit root, serve as checks: the augmented Dickey–Fuller test (Dickey & Fuller, 1979) and the Phillips–Perron test (Phillips & Perron, 1988).
+
+For seasonal differencing, D is chosen by the seasonal-strength measure of Wang et al. (2006). A value above 0.64 indicates that a seasonal difference is needed. The OCSB test (Osborn et al., 1988) and the Canova–Hansen test (Canova & Hansen, 1995) serve as checks. Because Eid moves through the calendar, part of the month-to-month pattern may not be fixed seasonality, so a seasonal difference is used only if the tests support it. The results are reported in Section 4.2.1.
+
+**Order selection:** Orders are chosen by auto.arima (Hyndman & Khandakar, 2008) on the baseline, with the intervention regressors included. The search covers every combination of p, q ≤ 3 and P, Q ≤ 1, and the model with the lowest AICc is kept. Within auto.arima, d and D are chosen by the KPSS test and the seasonal-strength measure, after allowing for the intervention regressors. In the rolling forecasts (Section 3.4.6) this choice is repeated at every origin. The same orders are used for the model with Eid regressors, so the two models differ only in the Eid regressors. With differenced errors, a drift term replaces the intercept and linear trend. It is considered when d + D = 1 and kept only if it lowers AICc.
 
 ### 3.4.5 RQ1: estimation and tests
 
@@ -293,7 +295,7 @@ $$z = \frac{\hat\beta_{BD} - \hat\beta_{PK}}{\sqrt{\mathrm{se}_{BD}^2 + \mathrm{
 
 ### 3.4.6 RQ2: forecast evaluation
 
-**Design:** Forecasts are evaluated with a rolling origin and an expanding training window (Tashman, 2000). The first origin is June 2017 for both countries, so both are evaluated on the same target months, July 2017 to June 2026. At each origin, interventions and orders are re-selected using only data available at that origin, both models are fitted, and forecasts are made for h = 1, …, 12 months ahead. The primary horizons, fixed in advance, are h = 1 and h = 3. They give 108 one-month-ahead and 106 three-month-ahead forecasts per country. Results at other horizons are reported without correction for multiple testing.
+**Design:** Forecasts are evaluated with a rolling origin and an expanding training window (Tashman, 2000). The first origin is June 2017 for both countries, so both are evaluated on the same target months, July 2017 to June 2026. At each origin, interventions and orders are re-selected using only data available at that origin, both models are fitted, and forecasts are made for h = 1, …, 12 months ahead. The primary horizons, fixed before the main analysis, are h = 1 and h = 3. They give 108 one-month-ahead and 106 three-month-ahead forecasts per country. Results at other horizons are reported without correction for multiple testing.
 
 **Accuracy measures:** Accuracy is measured by the RMSE and mean error (bias) of the log forecasts, and by the RMSE in US\$ million and the MAPE on the original scale. The improvement from the Eid regressors is
 
@@ -557,11 +559,13 @@ The Eid associations are similar in size in the two countries. This fits the alt
 
 This study examined whether the two Eid festivals are associated with changes in monthly workers' remittances to Bangladesh and Pakistan, and whether accounting for them improves remittance forecasts. The main findings are as follows.
 
-- **Eid effects:** Both Eids are associated with higher remittances in both countries: about 15–21% more in a month containing the full pre-Eid period with the 30-day window, and 11–17% with a 21-day window.
+- **Eid effects:** Both Eids are associated with higher remittances in both countries: about 15–21% more in a month containing the full 30-day pre-Eid period.
 
 - **Cross-country comparison:** There is no evidence that the effects differ between Bangladesh and Pakistan.
 
 - **Forecasting:** Forecasts that include Eid are more accurate one and three months ahead in both countries, mainly in Eid months. They are significantly more accurate than seasonal naive forecasts and have lower errors than a Box–Jenkins SARIMA model, although the latter differences are not significant. At longer horizons the gain continues in Pakistan but not in Bangladesh.
+
+In simple terms, migrants from both countries send about 15 to 20% more money home in the weeks before each Eid, and forecasts that allow for this are more accurate in the months around the festivals.
 
 ## 5.2 Policy and Practical Implications
 
@@ -573,7 +577,7 @@ The findings have four implications for the central banks and for analysts who u
 
 - **Seasonal adjustment:** Researchers at the State Bank of Pakistan have recommended Islamic-calendar regressors for monetary series (Riazuddin & Khan, 2005). The results suggest the same treatment for remittances in both countries, and Bangladesh Bank could adopt a similar approach for its own monthly series.
 
-- **Limits of the gain:** The improvement is modest, about 5–12% one month ahead, and depends on knowing the Eid dates correctly. The Eid regressors improve forecasts around the festivals but do not replace attention to policy shocks and structural change, which Eid regressors cannot anticipate.
+- **Limits of the gain:** The gain is modest. It is concentrated in the months around Eid, and for Bangladesh it does not extend beyond three months ahead. Eid regressors therefore help planning around the festivals, but they do not replace judgement about policy shocks and structural change, which they cannot anticipate. They also depend on correct Eid dates, which are set by national moon-sighting announcements (Section 3.1).
 
 ## 5.3 Limitations of the Study
 
@@ -601,4 +605,4 @@ The limitations above point to four directions for further work.
 
 ## 5.5 Conclusion
 
-This study shows that the two Eid festivals, as moving holidays, leave a predictable mark on monthly remittances to Bangladesh and Pakistan, and that standard seasonal models, which follow the Gregorian calendar, miss it. Because Eid dates are known years in advance, this pattern can be built into forecasts at almost no cost. For Bangladesh Bank and the State Bank of Pakistan, doing so would make short-term forecasts of foreign-exchange inflows more reliable around the festivals, when inflows are largest. It would also help analysts avoid reading an Eid-driven rise or fall as a change in the underlying trend. The results also support including Islamic-calendar regressors in the forecasting and seasonal adjustment of remittances and other monthly series in Muslim-majority economies.
+This study shows that the two Eid festivals, as moving holidays, leave a predictable mark on monthly remittances to Bangladesh and Pakistan, and that standard seasonal models, which follow the Gregorian calendar, miss it. Because Eid dates are known years in advance, this pattern can be built into forecasts at almost no cost. For Bangladesh Bank and the State Bank of Pakistan, doing so would make short-term forecasts of foreign-exchange inflows more reliable around the festivals, when inflows are largest. It would also help analysts avoid reading an Eid-driven rise or fall as a change in the underlying trend. The results also support including Islamic-calendar regressors in the forecasting and seasonal adjustment of remittances and other monthly series in Muslim-majority economies. To the author's knowledge, this is the first study to measure the Eid effect on Bangladesh's remittances and to show, with formal tests in two countries, that accounting for Eid improves remittance forecasts.
