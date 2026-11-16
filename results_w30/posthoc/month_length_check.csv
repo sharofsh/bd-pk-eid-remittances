@@ -1,0 +1,5 @@
+"country","model","aicc","fitr_pct","adha_pct","monthlen_coef","monthlen_p"
+"BD","base",-375.12,19.6,20.5,NA,NA
+"BD","monthlen",-388.71,18.7,20.6,0.938,2.03e-05
+"PK","base",-537.89,19.6,14.9,NA,NA
+"PK","monthlen",-549.64,19.4,14.5,0.774,0.000162
