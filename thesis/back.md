@@ -19,6 +19,8 @@ Box, G. E. P., & Tiao, G. C. (1975). Intervention analysis with applications to 
 
 Bukhari, S., Jalil, A., & Rao, N. H. (2011). *Detection and forecasting of Islamic calendar effects in time series data: Revisited* (SBP Working Paper No. 39). State Bank of Pakistan.
 
+Canova, F., & Hansen, B. E. (1995). Are seasonal patterns constant over time? A test for seasonal stability. *Journal of Business & Economic Statistics, 13*(3), 237–252. https://doi.org/10.1080/07350015.1995.10524598
+
 Chen, C., & Liu, L.-M. (1993). Joint estimation of model parameters and outlier effects in time series. *Journal of the American Statistical Association, 88*(421), 284–297.
 
 Clark, T. E., & West, K. D. (2007). Approximately normal tests for equal predictive accuracy in nested models. *Journal of Econometrics, 138*(1), 291–311.
@@ -26,6 +28,8 @@ Clark, T. E., & West, K. D. (2007). Approximately normal tests for equal predict
 de Padua, D., Lanzafame, M., Qureshi, I., & Taniguchi, K. (2024). *Understanding the drivers of remittances to Pakistan* (ADB Economics Working Paper No. 733). Asian Development Bank.
 
 Devkota, B. P., & Pokhrel, S. (2023). Forecasting remittance inflow in Nepal using the Box–Jenkins ARIMA model. *Kathford Journal of Engineering and Management, 3*(1), 72–86.
+
+Dickey, D. A., & Fuller, W. A. (1979). Distribution of the estimators for autoregressive time series with a unit root. *Journal of the American Statistical Association, 74*(366a), 427–431. https://doi.org/10.1080/01621459.1979.10482531
 
 Diebold, F. X. (2015). Comparing predictive accuracy, twenty years later: A personal perspective on the use and abuse of Diebold–Mariano tests. *Journal of Business & Economic Statistics, 33*(1), 1–9.
 
@@ -65,13 +69,19 @@ Khan, M. M., Khatun, R., Ahmed, A., & Das, S. R. (2022). Macroeconomic determina
 
 Kpodar, K., Mlachila, M., Quayyum, S., & Gammadigbe, V. (2023). Defying the odds: Remittances during the COVID-19 pandemic. *The Journal of Development Studies, 59*(5), 673–690. https://doi.org/10.1080/00220388.2022.2154150
 
+Kwiatkowski, D., Phillips, P. C. B., Schmidt, P., & Shin, Y. (1992). Testing the null hypothesis of stationarity against the alternative of a unit root. *Journal of Econometrics, 54*(1–3), 159–178. https://doi.org/10.1016/0304-4076(92)90104-Y
+
 Lin, J.-L., & Liu, T.-S. (2002). *Modeling lunar calendar holiday effects in Taiwan* [Working paper]. U.S. Census Bureau.
 
 Lucas, R. E. B., & Stark, O. (1985). Motivations to remit: Evidence from Botswana. *Journal of Political Economy, 93*(5), 901–918. https://doi.org/10.1086/261341
 
 Omer, M. (2025). Evaluating the impact of withdrawal of telegraphic transfer (TT) charges reimbursement on the remittances from the Kingdom of Saudi Arabia (KSA). *The Lahore Journal of Economics, 30*(2), 37–62. https://doi.org/10.35536/lje.2025.v30.i2.a2
 
+Osborn, D. R., Chui, A. P. L., Smith, J. P., & Birchenhall, C. R. (1988). Seasonality and the order of integration for consumption. *Oxford Bulletin of Economics and Statistics, 50*(4), 361–377. https://doi.org/10.1111/j.1468-0084.1988.mp50004002.x
+
 Paternoster, R., Brame, R., Mazerolle, P., & Piquero, A. (1998). Using the correct statistical test for the equality of regression coefficients. *Criminology, 36*(4), 859–866.
+
+Phillips, P. C. B., & Perron, P. (1988). Testing for a unit root in time series regression. *Biometrika, 75*(2), 335–346. https://doi.org/10.1093/biomet/75.2.335
 
 Qureshi, J. A. (2016). *The Pakistan Remittance Initiative and remittance flows to Pakistan* (PSSP Working Paper No. 35). International Food Policy Research Institute.
 
@@ -100,6 +110,8 @@ Suhartono, Rahayu, S. P., Prastyo, D. D., Wijayanti, D. G. P., & Juliyanto. (201
 Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: An analysis and review. *International Journal of Forecasting, 16*(4), 437–450.
 
 Tasnim, N., & Khanam, M. (2026). A comparison of the VAR model, ARIMA model and Holt's exponential smoothing approach in forecasting remittance and GDP for Bangladesh. *Dhaka University Journal of Science, 74*(2), 243–256. https://doi.org/10.3329/dujs.v74i2.84254
+
+Wang, X., Smith, K., & Hyndman, R. (2006). Characteristic-based clustering for time series data. *Data Mining and Knowledge Discovery, 13*(3), 335–364. https://doi.org/10.1007/s10618-005-0039-x
 
 World Bank. (2026). *Personal remittances, received (% of GDP)* [Data set]. World Development Indicators. https://data.worldbank.org/indicator/BX.TRF.PWKR.DT.GD.ZS
 :::
@@ -234,7 +246,7 @@ Table: Table D.2: Alternative error specifications for Pakistan
 | MA terms at lags 1, 13, 14 | −537.4 | 0.033 | 0.173 | 0.134 |
 | Airline (0,1,1)(0,1,1) | −497.0 | <0.001 | 0.147 | 0.140 |
 
-Note: AICc values are for each specification fitted with its own selected interventions and are not comparable with Table 4.3.
+Note: AICc values are for each specification fitted with its own selected interventions and are not comparable with Table 4.4.
 
 ![Figure D.1: Residual ACF and PACF, Bangladesh (main specification)](fig/rq1_residual_acf_BD.png){width=5.5in}
 
