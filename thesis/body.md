@@ -350,7 +350,7 @@ Following Section 3.4.1, the orders of differencing were settled first (Table 4.
 Table: Table 4.3: Stationarity and differencing tests on log monthly remittances (full samples)
 
 | Test | Null hypothesis | Bangladesh | Pakistan | Indicates |
-|------------------------------------|----------------|-----------|-----------|----------------|
+|---------------------------------|---------------|-------------|-------------|--------------|
 | KPSS, levels with trend (5% critical value 0.146) | Stationary | 0.419 | 0.728 | Difference needed |
 | KPSS, first differences (5% critical value 0.463) | Stationary | 0.028 | 0.109 | Stationary |
 | Augmented Dickey–Fuller p-value, levels / first differences | Unit root | 0.33 / <0.01 | 0.29 / <0.01 | d = 1 |
