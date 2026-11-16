@@ -23,6 +23,8 @@ CFG <- list(
                     force = data.frame(month = as.Date("2024-08-01"), type = "LS")),
   X_B5_AO_LS = list(win = Inf, variant = VMAIN,     rule = "cand", orders = "auto",
                     force = data.frame(month = as.Date(c("2024-07-01", "2024-08-01")), type = c("AO", "LS"))))
+# Post hoc (16 Nov 2026, not pre-specified): drift forced into both models (Bangladesh long-horizon bias check).
+CFG$X_drift <- list(win = Inf, variant = VMAIN, rule = "cand", orders = "auto", drift = TRUE)
 for (a in S1_ALT) CFG[[paste0("S1_", a)]] <- list(win = Inf, variant = a, rule = "cand", orders = "auto")
 cfg <- CFG[[config]]; stopifnot(!is.null(cfg))
 H <- 12
@@ -66,6 +68,7 @@ one_origin <- function(T) {
   zsig <- if (nrow(Z)) paste(paste0(Z$type, Z$label), collapse = "+") else "none"
   ord <- if (cfg$orders == "airline") AIRLINE else
     cached(paste0("ord_", tkey, "_", zsig), select_orders(y, Ztr, as.numeric(format(months[1], c("%Y", "%m")))))
+  if (isTRUE(cfg$drift) && sum(ord$order[2], ord$seasonal[2]) == 1) { ord$drift <- TRUE; ord$mean <- FALSE }
   yt <- ts(y, start = as.numeric(format(months[1], c("%Y", "%m"))), frequency = 12)
   fb <- safe_arima(yt, ord$order, ord$seasonal, Ztr, ord$drift, ord$mean)
   fe <- safe_arima(yt, ord$order, ord$seasonal, cbind(Ztr, E), ord$drift, ord$mean)
