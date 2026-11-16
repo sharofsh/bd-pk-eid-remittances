@@ -10,7 +10,7 @@ def md_entries():
             m = re.match(r'^(#{1,3}) (.*)$', line)
             if m:
                 t = m.group(2)
-                t = re.sub(r'`<w:r><w:br/></w:r>`\{=openxml\}', '  ', t).strip()
+                t = re.sub(r'`<w:r><w:br/></w:r>`\{=openxml\}', ': ', t).strip()
                 ents.append(('toc', len(m.group(1)), t))
             m = re.match(r'^Table: (Table [A-Z0-9.]+: .*)$', line)
             if m: ents.append(('tab', 1, m.group(1).strip()))
@@ -47,7 +47,7 @@ def pages(ents):
                 break
     return out
 
-def field(instr, paras):
+def field(instr, paras, bold1=False):
     """paras: list of (style, text, page)"""
     W = 8640
     xs = []
@@ -56,8 +56,9 @@ def field(instr, paras):
         if i == 0:
             runs += ('<w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> %s </w:instrText></w:r>'
                      '<w:r><w:fldChar w:fldCharType="separate"/></w:r>' % html.escape(instr, quote=False))
-        runs += '<w:r><w:t xml:space="preserve">%s</w:t></w:r>' % html.escape(text, quote=False)
-        runs += '<w:r><w:tab/></w:r><w:r><w:t>%s</w:t></w:r>' % (pg if pg is not None else '')
+        rpr = '<w:rPr><w:b/></w:rPr>' if (sty == 'TOC1' and bold1) else ''
+        runs += '<w:r>%s<w:t xml:space="preserve">%s</w:t></w:r>' % (rpr, html.escape(text, quote=False))
+        runs += '<w:r>%s<w:tab/></w:r><w:r>%s<w:t>%s</w:t></w:r>' % (rpr, rpr, pg if pg is not None else '')
         if i == len(paras) - 1:
             runs += '<w:r><w:fldChar w:fldCharType="end"/></w:r>'
         xs.append('<w:p><w:pPr><w:pStyle w:val="%s"/><w:tabs><w:tab w:val="right" w:leader="dot" w:pos="%d"/></w:tabs>'
@@ -70,7 +71,7 @@ toc = [('TOC%d' % lvl, clean(t), pg.get(k)) for k, (kind, lvl, t) in enumerate(e
 tab = [('TOC1', clean(t), pg.get(k)) for k, (kind, lvl, t) in enumerate(ents) if kind == 'tab']
 fig = [('TOC1', clean(t), pg.get(k)) for k, (kind, lvl, t) in enumerate(ents) if kind == 'fig']
 f = open('front.md').read()
-f = f.replace('TOCMAIN', field('TOC \\o "1-3" \\h \\z \\u', toc))
+f = f.replace('TOCMAIN', field('TOC \\o "1-3" \\h \\z \\u', toc, bold1=True))
 f = f.replace('TOCTAB', field('TOC \\h \\z \\t "Table Caption,1"', tab))
 f = f.replace('TOCFIG', field('TOC \\h \\z \\t "Image Caption,1"', fig))
 open('front_built.md', 'w').write(f)

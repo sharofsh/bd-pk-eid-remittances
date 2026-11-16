@@ -233,7 +233,7 @@ Table: Table D.2: Alternative error specifications for Pakistan
 | MA terms at lags 1, 13, 14 | −537.4 | 0.033 | 0.173 | 0.134 |
 | Airline (0,1,1)(0,1,1) | −497.0 | <0.001 | 0.147 | 0.140 |
 
-Note: AICc values are for each specification fitted with its own selected interventions and are not comparable with Table 4.4.
+*Note.* AICc values are for each specification fitted with its own selected interventions and are not comparable with Table 4.4.
 
 ![Figure D.1: Residual ACF and PACF, Bangladesh (main specification)](fig/rq1_residual_acf_BD.png){width=5.5in}
 

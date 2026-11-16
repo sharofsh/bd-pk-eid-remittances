@@ -45,23 +45,10 @@ Date: ____________________
 :::
 
 ::: {custom-style="FrontHeading"}
-Certificate of the Supervisor
-:::
-
-This is to certify that the thesis titled 'Moving Holidays and Remittance Forecasting: Comparative Evidence from Bangladesh and Pakistan' submitted by Sharof Shahrul Hoque for the degree of Weekend Master of Science in Applied Statistics and Data Science is based on the results of the candidate's own research work carried out under my supervision.
-
-::: {custom-style="SignBlock"}
-Signature of Supervisor\
-Name: Dr. Mohammed Nazmul Huq\
-Designation: Professor, Department of Statistics and Data Science, Jahangirnagar University\
-Date: ____________________
-:::
-
-::: {custom-style="FrontHeading"}
 Acknowledgements
 :::
 
-I am grateful to my supervisor, Professor Dr. Mohammed Nazmul Huq, for his guidance and support throughout this research. I thank the Department of Statistics and Data Science, Jahangirnagar University, for its support throughout the Weekend M.Sc. programme. I thank Olima Mim for her careful reading of and comments on earlier drafts. I also thank Bangladesh Bank and the State Bank of Pakistan for making their remittance data publicly available. Finally, I thank my family for their patience and support.
+I thank the Department of Statistics and Data Science, Jahangirnagar University, for its support throughout the Weekend M.Sc. programme. I thank Olima Mim for her careful reading of and comments on earlier drafts. I also thank Bangladesh Bank and the State Bank of Pakistan for making their remittance data publicly available. Finally, I thank my family for their patience and support.
 
 ::: {custom-style="FrontHeading"}
 Abstract

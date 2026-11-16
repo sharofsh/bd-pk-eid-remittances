@@ -63,7 +63,7 @@ fmt('Centered', 13, align=C, before=18, after=6, line=1.5, base='Normal')
 fmt('FrontHeading', 18, bold=True, align=C, before=0, after=18, pbb=True, keep=True, base='Normal')
 fmt('SignBlock', 12, align=L, before=48, after=6, line=1.5, base='Normal')
 fmt('Reference', 12, align=L, after=8, line=1.15, base='Normal', indent_left=Inches(0.5), first=Inches(-0.5))
-fmt('Table Caption', 11, bold=True, align=L, before=10, after=4, keep=True, base='Normal')
+fmt('Table Caption', 12, bold=False, align=L, before=10, after=4, keep=True, base='Normal')
 fmt('Image Caption', 11, bold=True, align=C, before=2, after=12, base='Normal')
 fmt('Captioned Figure', 12, align=C, before=8, after=0, keep=True, base='Normal')
 fmt('Figure', 12, align=C, before=8, after=0, keep=True, base='Normal')
@@ -79,11 +79,11 @@ xml = ('<w:style xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/200
        '<w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="21"/></w:rPr>'
        '<w:tblPr><w:tblBorders><w:top w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
        '<w:bottom w:val="single" w:sz="8" w:space="0" w:color="000000"/>'
-       '<w:insideH w:val="single" w:sz="2" w:space="0" w:color="BFBFBF"/></w:tblBorders>'
+       '</w:tblBorders>'
        '<w:tblCellMar><w:left w:w="80" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tblCellMar></w:tblPr>'
-       '<w:tblStylePr w:type="firstRow"><w:rPr><w:b/></w:rPr><w:tcPr><w:tcBorders>'
+       '<w:tblStylePr w:type="firstRow"><w:tcPr><w:tcBorders>'
        '<w:bottom w:val="single" w:sz="6" w:space="0" w:color="000000"/></w:tcBorders>'
-       '<w:shd w:val="clear" w:color="auto" w:fill="F2F2F2"/></w:tcPr></w:tblStylePr></w:style>')
+       '</w:tcPr></w:tblStylePr></w:style>')
 stl = S.element
 for e in stl.findall(qn('w:style')):
     if e.get(qn('w:styleId')) == 'Table':
