@@ -40,7 +40,7 @@ The study will address the following research questions.
 
 - assess whether including Eid regressors improves the accuracy of remittance forecasts from 1 to 12 months ahead; and
 
-- assess how forecasts that account for Eid perform against commonly used forecasting methods.
+- compare the forecast accuracy of the model with Eid regressors with standard seasonal benchmarks (Box–Jenkins SARIMA and seasonal naive).
 
 ## 1.4 Hypotheses
 
@@ -284,8 +284,9 @@ Table: Table 3.4: Forecast comparison tests
 |:---|:---|:---|
 | Clark–West | Primary (the models are nested) | Squared log error; one-sided; Newey–West variance with h − 1 lags; Holm correction over 4 tests (2 countries × h = 1, 3) at α = 0.05 |
 | Diebold–Mariano | Secondary | Absolute-error loss; Harvey–Leybourne–Newbold correction; two-sided |
+| Diebold–Mariano against benchmarks | Secondary (the models are not nested) | Squared log error; Harvey–Leybourne–Newbold correction; one-sided; Holm correction over 4 tests for each benchmark |
 
-**Benchmarks.** A seasonal naive forecast, and a Box–Jenkins SARIMA(0,1,1)(1,1,1)~12~ model identified once from ACF and PACF plots on data to June 2017, with coefficients re-estimated at every origin.
+**Benchmarks.** A seasonal naive forecast, and a Box–Jenkins SARIMA(0,1,1)(1,1,1)~12~ model identified once from ACF and PACF plots on data to June 2017, with coefficients re-estimated at every origin. The model with Eid regressors is compared with each benchmark by the Diebold–Mariano test, which suits this comparison because the models are not nested, with the Holm correction applied over the four tests for each benchmark (Table 3.4).
 
 ### 3.4.6 Sensitivity analyses
 
@@ -449,7 +450,7 @@ Bangladesh forecasts under-predict increasingly with horizon: the mean log error
 
 ![Figure 4.3: RMSE improvement from the Eid regressors by forecast horizon](fig/fig_rmse_h.png){width=6.2in}
 
-**Benchmarks.** At h = 1 and 3, the model with Eid regressors has the lowest RMSE of the four models in both countries, and the lowest MAPE at h = 1 (Table 4.10). In Pakistan the Box–Jenkins model is slightly more accurate than the baseline at h = 1 (RMSE 0.101 against 0.106), so the gain over the best model without Eid regressors is smaller, about 8%. This difference was not tested formally. For a forecaster, this means the Eid regressors improve on the usual seasonal models, not only on the baseline.
+**Benchmarks.** At h = 1 and 3, the model with Eid regressors has the lowest RMSE of the four models in both countries, and the lowest MAPE at h = 1 (Table 4.10). In Pakistan the Box–Jenkins model is slightly more accurate than the baseline at h = 1 (RMSE 0.101 against 0.106), so the gain over the best model without Eid regressors is smaller, about 8%. Table 4.11 tests the differences. The model with Eid regressors is significantly more accurate than the seasonal naive forecast at both horizons in both countries. It also has lower RMSE than the Box–Jenkins model in all four cases, but these differences are not significant after the Holm correction.
 
 Table: Table 4.10: Forecast accuracy against benchmarks (RMSE of log forecasts; MAPE and RMSE in US\$ million on levels)
 
@@ -460,9 +461,20 @@ Table: Table 4.10: Forecast accuracy against benchmarks (RMSE of log forecasts; 
 | Box–Jenkins SARIMA | 0.137 | 10.5 | 264 | 0.166 | 0.101 | 8.1 | 240 | 0.116 |
 | Seasonal naive | 0.219 | 16.8 | 413 | 0.221 | 0.182 | 13.9 | 439 | 0.183 |
 
-**Eid months and other months.** Most of the improvement comes in Eid months (Table 4.11). One month ahead, RMSE falls by about 20% in target months with a non-zero Eid regressor and by 2–4% in other months. This descriptive comparison indicates that the gain is linked to the Eid regressors rather than to a general improvement in fit.
+Table: Table 4.11: Diebold–Mariano tests against the benchmarks
 
-Table: Table 4.11: RMSE improvement at h = 1 by type of target month
+| Country, horizon | vs Box–Jenkins: RMSE improvement (%) | Holm-adjusted p | vs seasonal naive: RMSE improvement (%) | Holm-adjusted p |
+|:---|---:|---:|---:|---:|
+| Bangladesh, h = 1 | 8.6 | 0.17 | 43.0 | <0.001 |
+| Bangladesh, h = 3 | 3.3 | 0.32 | 27.3 | 0.011 |
+| Pakistan, h = 1 | 8.0 | 0.17 | 48.6 | <0.001 |
+| Pakistan, h = 3 | 7.0 | 0.17 | 41.0 | 0.002 |
+
+Note: Squared log error; one-sided tests that the model with Eid regressors is more accurate. RMSE improvements are computed from unrounded values and may differ slightly from those implied by Table 4.10.
+
+**Eid months and other months.** Most of the improvement comes in Eid months (Table 4.12). One month ahead, RMSE falls by about 20% in target months with a non-zero Eid regressor and by 2–4% in other months. This descriptive comparison indicates that the gain is linked to the Eid regressors rather than to a general improvement in fit.
+
+Table: Table 4.12: RMSE improvement at h = 1 by type of target month
 
 | Target months | Bangladesh (%) | Pakistan (%) |
 |:---|---:|---:|
@@ -471,9 +483,9 @@ Table: Table 4.11: RMSE improvement at h = 1 by type of target month
 
 Note: For Bangladesh, 37 of the 108 target months have a non-zero Eid regressor.
 
-**Examples.** Table 4.12 shows three one-month-ahead forecasts. In March 2025, when the whole Eid al-Fitr window fell in March, the Eid regressors reduced Bangladesh's forecast error by about US\$340 million, although both models under-predicted a record month. In June 2024, with 57% of the Eid al-Adha window in June, the model with Eid regressors was US\$66 million closer for Pakistan. It does not improve every Eid month: for Bangladesh in June 2024 the two forecasts were practically the same.
+**Examples.** Table 4.13 shows three one-month-ahead forecasts. In March 2025, when the whole Eid al-Fitr window fell in March, the Eid regressors reduced Bangladesh's forecast error by about US\$340 million, although both models under-predicted a record month. In June 2024, with 57% of the Eid al-Adha window in June, the model with Eid regressors was US\$66 million closer for Pakistan. It does not improve every Eid month: for Bangladesh in June 2024 the two forecasts were practically the same.
 
-Table: Table 4.12: Examples of one-month-ahead forecasts (US\$ million)
+Table: Table 4.13: Examples of one-month-ahead forecasts (US\$ million)
 
 | Target month | Eid | Actual | Baseline forecast | Forecast with Eid regressors | Error reduction |
 |:---|:---|---:|---:|---:|---:|
@@ -483,9 +495,9 @@ Table: Table 4.12: Examples of one-month-ahead forecasts (US\$ million)
 
 ### 4.2.7 Sensitivity of the forecast results
 
-The forecast gains do not depend on the particular specification. With the 21-day window, all four primary Clark–West tests still reject after the Holm correction (Table 4.13). The RMSE improvements are smaller than with the 30-day window except for Bangladesh at h = 3 (4.4% against 2.1%). At h = 1 the improvement holds when the orders are fixed (S2) and when interventions are dropped (S3). At h = 3, the Clark–West t falls below 1.645 only for Bangladesh without interventions, where the RMSE change is about zero.
+The forecast gains do not depend on the particular specification. With the 21-day window, all four primary Clark–West tests still reject after the Holm correction (Table 4.14). The RMSE improvements are smaller than with the 30-day window except for Bangladesh at h = 3 (4.4% against 2.1%). At h = 1 the improvement holds when the orders are fixed (S2) and when interventions are dropped (S3). At h = 3, the Clark–West t falls below 1.645 only for Bangladesh without interventions, where the RMSE change is about zero.
 
-Table: Table 4.13: Sensitivity of the forecast comparison (Clark–West t / RMSE improvement %)
+Table: Table 4.14: Sensitivity of the forecast comparison (Clark–West t / RMSE improvement %)
 
 | Specification | BD h = 1 | BD h = 3 | PK h = 1 | PK h = 3 |
 |:---|:---|:---|:---|:---|
@@ -514,7 +526,7 @@ This study examined whether the two Eid festivals are associated with changes in
 
 - **Cross-country comparison.** There is no evidence that the effects differ between Bangladesh and Pakistan.
 
-- **Forecasting.** Forecasts that include Eid are more accurate one and three months ahead in both countries, mainly in Eid months. At longer horizons the gain continues in Pakistan but not in Bangladesh.
+- **Forecasting.** Forecasts that include Eid are more accurate one and three months ahead in both countries, mainly in Eid months. They are significantly more accurate than seasonal naive forecasts and have lower errors than a Box–Jenkins SARIMA model, although the latter differences are not significant. At longer horizons the gain continues in Pakistan but not in Bangladesh.
 
 ## 5.2 Policy and Practical Implications
 
