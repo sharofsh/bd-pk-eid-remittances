@@ -1,5 +1,5 @@
 ::: {custom-style="TitlePageTitle"}
-Eid Effects and Remittance Forecasting: Comparative Evidence from Bangladesh and Pakistan
+Moving Holidays and Remittance Forecasting: Comparative Evidence from Bangladesh and Pakistan
 :::
 
 ::: {custom-style="Centered"}
@@ -48,7 +48,7 @@ Date: ____________________
 Certificate of the Supervisor
 :::
 
-This is to certify that the thesis titled 'Eid Effects and Remittance Forecasting: Comparative Evidence from Bangladesh and Pakistan' submitted by Sharof Shahrul Hoque for the degree of Weekend Master of Science in Applied Statistics and Data Science is based on the results of the candidate's own research work carried out under my supervision.
+This is to certify that the thesis titled 'Moving Holidays and Remittance Forecasting: Comparative Evidence from Bangladesh and Pakistan' submitted by Sharof Shahrul Hoque for the degree of Weekend Master of Science in Applied Statistics and Data Science is based on the results of the candidate's own research work carried out under my supervision.
 
 ::: {custom-style="SignBlock"}
 Signature of Supervisor\
