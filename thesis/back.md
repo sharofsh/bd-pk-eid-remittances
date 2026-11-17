@@ -1,105 +1,105 @@
 # References
 
 ::: {custom-style="Reference"}
-Akter, J. (2022). The impact of COVID-19 on the remittance inflows in Bangladesh: An ARDL approach. *International Journal of Asian Social Science, 12*(5), 147–157. https://doi.org/10.55493/5007.v12i5.4486
+Akter, J. (2022). The impact of COVID-19 on the remittance inflows in Bangladesh: An ARDL approach. *International Journal of Asian Social Science, 12*(5), 147-157. https://doi.org/10.55493/5007.v12i5.4486
 
-Aruoba, S. B., & Alper, C. E. (2004). Moving holidays and seasonal adjustment: The case of Turkey. *Review of Middle East Economics and Finance, 2*(3), 203–209. https://doi.org/10.2202/1475-3693.1047
+Aruoba, S. B., & Alper, C. E. (2004). Moving holidays and seasonal adjustment: The case of Turkey. *Review of Middle East Economics and Finance, 2*(3), 203-209. https://doi.org/10.2202/1475-3693.1047
 
 Australian Bureau of Statistics. (2005). Estimating and removing the effects of Chinese New Year and Ramadan to improve the seasonal adjustment process. *Australian Economic Indicators* (Cat. No. 1350.0), Technical Note, November 2005.
 
 Badan Pusat Statistik. (2019). *Seasonal adjustment of Ramadan effect in GDP by expenditures*. BPS-Statistics Indonesia.
 
-Bangladesh Bank. (2026). *Monthly economic trends* (various issues, 2009–2026). Bangladesh Bank. https://www.bb.org.bd
+Bangladesh Bank. (2026). *Monthly economic trends* (various issues, 2009-2026). Bangladesh Bank. https://www.bb.org.bd
 
-Bell, W. R., & Hillmer, S. C. (1983). Modeling time series with calendar variation. *Journal of the American Statistical Association, 78*(383), 526–534.
+Bell, W. R., & Hillmer, S. C. (1983). Modeling time series with calendar variation. *Journal of the American Statistical Association, 78*(383), 526-534.
 
-Bokhari, S. M. H., & Ansari, I. A. (2009). Seasonal adjustment of some financial indicators of Pakistan. *IBT Journal of Business Studies, 5*(2), 107–123.
+Bokhari, S. M. H., & Ansari, I. A. (2009). Seasonal adjustment of some financial indicators of Pakistan. *IBT Journal of Business Studies, 5*(2), 107-123.
 
-Box, G. E. P., & Tiao, G. C. (1975). Intervention analysis with applications to economic and environmental problems. *Journal of the American Statistical Association, 70*(349), 70–79.
+Box, G. E. P., & Tiao, G. C. (1975). Intervention analysis with applications to economic and environmental problems. *Journal of the American Statistical Association, 70*(349), 70-79.
 
 Bukhari, S., Jalil, A., & Rao, N. H. (2011). *Detection and forecasting of Islamic calendar effects in time series data: Revisited* (SBP Working Paper No. 39). State Bank of Pakistan.
 
-Canova, F., & Hansen, B. E. (1995). Are seasonal patterns constant over time? A test for seasonal stability. *Journal of Business & Economic Statistics, 13*(3), 237–252. https://doi.org/10.1080/07350015.1995.10524598
+Canova, F., & Hansen, B. E. (1995). Are seasonal patterns constant over time? A test for seasonal stability. *Journal of Business & Economic Statistics, 13*(3), 237-252. https://doi.org/10.1080/07350015.1995.10524598
 
-Chen, C., & Liu, L.-M. (1993). Joint estimation of model parameters and outlier effects in time series. *Journal of the American Statistical Association, 88*(421), 284–297.
+Chen, C., & Liu, L.-M. (1993). Joint estimation of model parameters and outlier effects in time series. *Journal of the American Statistical Association, 88*(421), 284-297.
 
-Clark, T. E., & West, K. D. (2007). Approximately normal tests for equal predictive accuracy in nested models. *Journal of Econometrics, 138*(1), 291–311.
+Clark, T. E., & West, K. D. (2007). Approximately normal tests for equal predictive accuracy in nested models. *Journal of Econometrics, 138*(1), 291-311.
 
 de Padua, D., Lanzafame, M., Qureshi, I., & Taniguchi, K. (2024). *Understanding the drivers of remittances to Pakistan* (ADB Economics Working Paper No. 733). Asian Development Bank.
 
-Devkota, B. P., & Pokhrel, S. (2023). Forecasting remittance inflow in Nepal using the Box–Jenkins ARIMA model. *Kathford Journal of Engineering and Management, 3*(1), 72–86.
+Devkota, B. P., & Pokhrel, S. (2023). Forecasting remittance inflow in Nepal using the Box-Jenkins ARIMA model. *Kathford Journal of Engineering and Management, 3*(1), 72-86.
 
-Dickey, D. A., & Fuller, W. A. (1979). Distribution of the estimators for autoregressive time series with a unit root. *Journal of the American Statistical Association, 74*(366a), 427–431. https://doi.org/10.1080/01621459.1979.10482531
+Dickey, D. A., & Fuller, W. A. (1979). Distribution of the estimators for autoregressive time series with a unit root. *Journal of the American Statistical Association, 74*(366a), 427-431. https://doi.org/10.1080/01621459.1979.10482531
 
-Diebold, F. X. (2015). Comparing predictive accuracy, twenty years later: A personal perspective on the use and abuse of Diebold–Mariano tests. *Journal of Business & Economic Statistics, 33*(1), 1–9.
+Diebold, F. X. (2015). Comparing predictive accuracy, twenty years later: A personal perspective on the use and abuse of Diebold-Mariano tests. *Journal of Business & Economic Statistics, 33*(1), 1-9.
 
-Diebold, F. X., & Mariano, R. S. (1995). Comparing predictive accuracy. *Journal of Business & Economic Statistics, 13*(3), 253–263.
+Diebold, F. X., & Mariano, R. S. (1995). Comparing predictive accuracy. *Journal of Business & Economic Statistics, 13*(3), 253-263.
 
-Eyerci, C., Toprak, A. Ö., & Demir, Ö. (2021). Ramadan effect on prices and production: Case of Turkey. *Statistika: Statistics and Economy Journal, 101*(2), 159–186.
+Eyerci, C., Toprak, A. Ö., & Demir, Ö. (2021). Ramadan effect on prices and production: Case of Turkey. *Statistika: Statistics and Economy Journal, 101*(2), 159-186.
 
 Farabi, M. N. S., Al Mobin, M., & Khan, A. N. (2025). Assessing the efficacy of cash incentive policies in enhancing remittance inflows: Evidence from Bangladesh. *PLOS ONE, 20*(2), e0318342. https://doi.org/10.1371/journal.pone.0318342
 
-Faruq, M. O. (2025). Determinants and sustainability of remittances in Bangladesh: Do skilled or unskilled labor migrants matter? *Finance & Economics Review, 7*(1), 82–100. https://doi.org/10.38157/fer.v7i1.704
+Faruq, M. O. (2025). Determinants and sustainability of remittances in Bangladesh: Do skilled or unskilled labor migrants matter? *Finance & Economics Review, 7*(1), 82-100. https://doi.org/10.38157/fer.v7i1.704
 
-Findley, D. F., Monsell, B. C., Bell, W. R., Otto, M. C., & Chen, B.-C. (1998). New capabilities and methods of the X-12-ARIMA seasonal-adjustment program. *Journal of Business & Economic Statistics, 16*(2), 127–152.
+Findley, D. F., Monsell, B. C., Bell, W. R., Otto, M. C., & Chen, B.-C. (1998). New capabilities and methods of the X-12-ARIMA seasonal-adjustment program. *Journal of Business & Economic Statistics, 16*(2), 127-152.
 
 Findley, D. F., Wills, K. C., & Monsell, B. C. (2005). *Issues in estimating Easter regressors using RegARIMA models with X-12-ARIMA* [Research report]. U.S. Census Bureau.
 
-Ghimire, B. N. (2026). Machine learning for remittance forecasting and macroeconomic dynamics in Nepal: An integrated analytical framework. *NPRC Journal of Multidisciplinary Research, 3*(2), 164–179. https://doi.org/10.3126/nprcjmr.v3i2.91275
+Ghimire, B. N. (2026). Machine learning for remittance forecasting and macroeconomic dynamics in Nepal: An integrated analytical framework. *NPRC Journal of Multidisciplinary Research, 3*(2), 164-179. https://doi.org/10.3126/nprcjmr.v3i2.91275
 
 Goswami, G. G., Barai, M. K., Atique, M. A., & Rahman, M. (2023). Did remittance inflow in Bangladesh follow the gravity path during COVID-19? *Economies, 11*(11), 285. https://doi.org/10.3390/economies11110285
 
-Grun Rehomme, M., & Ben Rejeb, A. (2008). Modelling moving feasts determined by the Islamic calendar: Application to macroeconomic Tunisian time series. *Metodološki zvezki, 5*(2), 173–211.
+Grun Rehomme, M., & Ben Rejeb, A. (2008). Modelling moving feasts determined by the Islamic calendar: Application to macroeconomic Tunisian time series. *Metodološki zvezki, 5*(2), 173-211.
 
-Harvey, D., Leybourne, S., & Newbold, P. (1997). Testing the equality of prediction mean squared errors. *International Journal of Forecasting, 13*(2), 281–291.
+Harvey, D., Leybourne, S., & Newbold, P. (1997). Testing the equality of prediction mean squared errors. *International Journal of Forecasting, 13*(2), 281-291.
 
-Hendikawati, P., Subanar, Abdurakhman, & Tarno. (2022). Optimal adaptive neuro-fuzzy inference system architecture for time series forecasting with calendar effect. *Sains Malaysiana, 51*(3), 895–909. https://doi.org/10.17576/jsm-2022-5103-23
+Hendikawati, P., Subanar, Abdurakhman, & Tarno. (2022). Optimal adaptive neuro-fuzzy inference system architecture for time series forecasting with calendar effect. *Sains Malaysiana, 51*(3), 895-909. https://doi.org/10.17576/jsm-2022-5103-23
 
-Holm, S. (1979). A simple sequentially rejective multiple test procedure. *Scandinavian Journal of Statistics, 6*(2), 65–70.
+Holm, S. (1979). A simple sequentially rejective multiple test procedure. *Scandinavian Journal of Statistics, 6*(2), 65-70.
 
-Hyndman, R. J., & Khandakar, Y. (2008). Automatic time series forecasting: The forecast package for R. *Journal of Statistical Software, 27*(3), 1–22.
+Hyndman, R. J., & Khandakar, Y. (2008). Automatic time series forecasting: The forecast package for R. *Journal of Statistical Software, 27*(3), 1-22.
 
-Hyndman, R. J., & Koehler, A. B. (2006). Another look at measures of forecast accuracy. *International Journal of Forecasting, 22*(4), 679–688.
+Hyndman, R. J., & Koehler, A. B. (2006). Another look at measures of forecast accuracy. *International Journal of Forecasting, 22*(4), 679-688.
 
-Islam, T., Mohib, A. A., & Haque, S. Z. (2018). Econometric models for forecasting remittances of Bangladesh. *Business and Management Studies, 4*(1), 1–9.
+Islam, T., Mohib, A. A., & Haque, S. Z. (2018). Econometric models for forecasting remittances of Bangladesh. *Business and Management Studies, 4*(1), 1-9.
 
-Khan, I., & Gunwant, D. F. (2024). Application of ARIMA model in forecasting remittance inflows: Evidence from Yemen. *International Journal of Economic Policy Studies, 18*(1), 283–303. https://doi.org/10.1007/s42495-023-00128-6
+Khan, I., & Gunwant, D. F. (2024). Application of ARIMA model in forecasting remittance inflows: Evidence from Yemen. *International Journal of Economic Policy Studies, 18*(1), 283-303. https://doi.org/10.1007/s42495-023-00128-6
 
-Khan, M. M., Khatun, R., Ahmed, A., & Das, S. R. (2022). Macroeconomic determinants of remittance for Bangladesh: A gravity model approach. *International Journal of Research and Innovation in Social Science, 6*(11), 140–147.
+Khan, M. M., Khatun, R., Ahmed, A., & Das, S. R. (2022). Macroeconomic determinants of remittance for Bangladesh: A gravity model approach. *International Journal of Research and Innovation in Social Science, 6*(11), 140-147.
 
-Kpodar, K., Mlachila, M., Quayyum, S., & Gammadigbe, V. (2023). Defying the odds: Remittances during the COVID-19 pandemic. *The Journal of Development Studies, 59*(5), 673–690. https://doi.org/10.1080/00220388.2022.2154150
+Kpodar, K., Mlachila, M., Quayyum, S., & Gammadigbe, V. (2023). Defying the odds: Remittances during the COVID-19 pandemic. *The Journal of Development Studies, 59*(5), 673-690. https://doi.org/10.1080/00220388.2022.2154150
 
-Kwiatkowski, D., Phillips, P. C. B., Schmidt, P., & Shin, Y. (1992). Testing the null hypothesis of stationarity against the alternative of a unit root. *Journal of Econometrics, 54*(1–3), 159–178. https://doi.org/10.1016/0304-4076(92)90104-Y
+Kwiatkowski, D., Phillips, P. C. B., Schmidt, P., & Shin, Y. (1992). Testing the null hypothesis of stationarity against the alternative of a unit root. *Journal of Econometrics, 54*(1-3), 159-178. https://doi.org/10.1016/0304-4076(92)90104-Y
 
 Lin, J.-L., & Liu, T.-S. (2002). *Modeling lunar calendar holiday effects in Taiwan* [Working paper]. U.S. Census Bureau.
 
-Lucas, R. E. B., & Stark, O. (1985). Motivations to remit: Evidence from Botswana. *Journal of Political Economy, 93*(5), 901–918. https://doi.org/10.1086/261341
+Lucas, R. E. B., & Stark, O. (1985). Motivations to remit: Evidence from Botswana. *Journal of Political Economy, 93*(5), 901-918. https://doi.org/10.1086/261341
 
-Omer, M. (2025). Evaluating the impact of withdrawal of telegraphic transfer (TT) charges reimbursement on the remittances from the Kingdom of Saudi Arabia (KSA). *The Lahore Journal of Economics, 30*(2), 37–62. https://doi.org/10.35536/lje.2025.v30.i2.a2
+Omer, M. (2025). Evaluating the impact of withdrawal of telegraphic transfer (TT) charges reimbursement on the remittances from the Kingdom of Saudi Arabia (KSA). *The Lahore Journal of Economics, 30*(2), 37-62. https://doi.org/10.35536/lje.2025.v30.i2.a2
 
-Osborn, D. R., Chui, A. P. L., Smith, J. P., & Birchenhall, C. R. (1988). Seasonality and the order of integration for consumption. *Oxford Bulletin of Economics and Statistics, 50*(4), 361–377. https://doi.org/10.1111/j.1468-0084.1988.mp50004002.x
+Osborn, D. R., Chui, A. P. L., Smith, J. P., & Birchenhall, C. R. (1988). Seasonality and the order of integration for consumption. *Oxford Bulletin of Economics and Statistics, 50*(4), 361-377. https://doi.org/10.1111/j.1468-0084.1988.mp50004002.x
 
-Paternoster, R., Brame, R., Mazerolle, P., & Piquero, A. (1998). Using the correct statistical test for the equality of regression coefficients. *Criminology, 36*(4), 859–866.
+Paternoster, R., Brame, R., Mazerolle, P., & Piquero, A. (1998). Using the correct statistical test for the equality of regression coefficients. *Criminology, 36*(4), 859-866.
 
-Phillips, P. C. B., & Perron, P. (1988). Testing for a unit root in time series regression. *Biometrika, 75*(2), 335–346. https://doi.org/10.1093/biomet/75.2.335
+Phillips, P. C. B., & Perron, P. (1988). Testing for a unit root in time series regression. *Biometrika, 75*(2), 335-346. https://doi.org/10.1093/biomet/75.2.335
 
 Qureshi, J. A. (2016). *The Pakistan Remittance Initiative and remittance flows to Pakistan* (PSSP Working Paper No. 35). International Food Policy Research Institute.
 
 R Core Team. (2024). *R: A language and environment for statistical computing* (Version 4.3.3). R Foundation for Statistical Computing. https://www.R-project.org/
 
-Rapoport, H., & Docquier, F. (2006). The economics of migrants' remittances. In S.-C. Kolm & J. Mercier Ythier (Eds.), *Handbook of the economics of giving, altruism and reciprocity* (Vol. 2, pp. 1135–1198). Elsevier.
+Rapoport, H., & Docquier, F. (2006). The economics of migrants' remittances. In S.-C. Kolm & J. Mercier Ythier (Eds.), *Handbook of the economics of giving, altruism and reciprocity* (Vol. 2, pp. 1135-1198). Elsevier.
 
-Ratha, D., De, S., Kim, E. J., Plaza, S., Seshan, G., & Yameogo, N. D. (2020). *Phase II: COVID-19 crisis through a migration lens* (Migration and Development Brief No. 33). KNOMAD–World Bank.
+Ratha, D., De, S., Kim, E. J., Plaza, S., Seshan, G., & Yameogo, N. D. (2020). *Phase II: COVID-19 crisis through a migration lens* (Migration and Development Brief No. 33). KNOMAD-World Bank.
 
 Riazuddin, R. (2012). *Construction and seasonal patterns of Islamic Hijri calendar monthly time series: An application to CPI in Pakistan* (SBP Working Paper No. 50). State Bank of Pakistan.
 
-Riazuddin, R., & Khan, M. H. (2005). Detection and forecasting of Islamic calendar effects in time series data. *SBP Research Bulletin, 1*(1), 25–34.
+Riazuddin, R., & Khan, M. H. (2005). Detection and forecasting of Islamic calendar effects in time series data. *SBP Research Bulletin, 1*(1), 25-34.
 
-Saha, A., & Khanam, M. (2022). Forecasting the growth rate of GDP and its indicators remittance and labor force participation of Bangladesh using VECM and ARIMA models. *Dhaka University Journal of Science, 70*(2), 42–47.
+Saha, A., & Khanam, M. (2022). Forecasting the growth rate of GDP and its indicators remittance and labor force participation of Bangladesh using VECM and ARIMA models. *Dhaka University Journal of Science, 70*(2), 42-47.
 
-Saleh, S., Wardani, D. T. K., & Ivantri, M. A. (2019). Ramadhan, Eid ul Fitr, and inflation: Lesson from Indonesian subnational data. *Jurnal Ekonomi & Studi Pembangunan, 20*(2), 135–150.
+Saleh, S., Wardani, D. T. K., & Ivantri, M. A. (2019). Ramadhan, Eid ul Fitr, and inflation: Lesson from Indonesian subnational data. *Jurnal Ekonomi & Studi Pembangunan, 20*(2), 135-150.
 
-Stark, O., & Lucas, R. E. B. (1988). Migration, remittances, and the family. *Economic Development and Cultural Change, 36*(3), 465–481. https://doi.org/10.1086/451670
+Stark, O., & Lucas, R. E. B. (1988). Migration, remittances, and the family. *Economic Development and Cultural Change, 36*(3), 465-481. https://doi.org/10.1086/451670
 
 State Bank of Pakistan. (2024). External sector. In *Annual report FY24: The state of Pakistan's economy* (Chapter 6). State Bank of Pakistan.
 
@@ -107,13 +107,13 @@ State Bank of Pakistan. (2026). *Workers' remittances* [Data set and monthly rel
 
 Suhartono, Rahayu, S. P., Prastyo, D. D., Wijayanti, D. G. P., & Juliyanto. (2017). Hybrid model for forecasting time series with trend, seasonal and calendar variation patterns. *Journal of Physics: Conference Series, 890*, 012160. https://doi.org/10.1088/1742-6596/890/1/012160
 
-Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: An analysis and review. *International Journal of Forecasting, 16*(4), 437–450.
+Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: An analysis and review. *International Journal of Forecasting, 16*(4), 437-450.
 
-Tasnim, N., & Khanam, M. (2026). A comparison of the VAR model, ARIMA model and Holt's exponential smoothing approach in forecasting remittance and GDP for Bangladesh. *Dhaka University Journal of Science, 74*(2), 243–256. https://doi.org/10.3329/dujs.v74i2.84254
+Tasnim, N., & Khanam, M. (2026). A comparison of the VAR model, ARIMA model and Holt's exponential smoothing approach in forecasting remittance and GDP for Bangladesh. *Dhaka University Journal of Science, 74*(2), 243-256. https://doi.org/10.3329/dujs.v74i2.84254
 
-Tsay, R. S. (1988). Outliers, level shifts, and variance changes in time series. *Journal of Forecasting, 7*(1), 1–20. https://doi.org/10.1002/for.3980070102
+Tsay, R. S. (1988). Outliers, level shifts, and variance changes in time series. *Journal of Forecasting, 7*(1), 1-20. https://doi.org/10.1002/for.3980070102
 
-Wang, X., Smith, K., & Hyndman, R. (2006). Characteristic-based clustering for time series data. *Data Mining and Knowledge Discovery, 13*(3), 335–364. https://doi.org/10.1007/s10618-005-0039-x
+Wang, X., Smith, K., & Hyndman, R. (2006). Characteristic-based clustering for time series data. *Data Mining and Knowledge Discovery, 13*(3), 335-364. https://doi.org/10.1007/s10618-005-0039-x
 
 World Bank. (2026). *Personal remittances, received (% of GDP)* [Data set]. World Development Indicators. https://data.worldbank.org/indicator/BX.TRF.PWKR.DT.GD.ZS
 :::
@@ -183,7 +183,7 @@ Table: Table B.1: National Eid dates used (* = Umm al-Qura fallback date; n/a = 
 
 Table: Table C.1: Forecast comparison by horizon (main specification)
 
-| Country | h | n | Clark–West t | Clark–West p (one-sided) | Diebold–Mariano p | RMSE improvement (%) |
+| Country | h | n | Clark-West t | Clark-West p (one-sided) | Diebold-Mariano p | RMSE improvement (%) |
 |:---|---:|---:|---:|---:|---:|---:|
 | Bangladesh | 1 | 108 | 3.30 | 0.0005 | 0.014 | 9.8 |
 | Bangladesh | 2 | 107 | 2.21 | 0.0135 | 0.023 | 2.8 |
@@ -219,12 +219,12 @@ Table: Table D.1: Standard errors of the Eid coefficients under alternative meth
 |:---|---:|---:|---:|---:|
 | Model-based (maximum likelihood) | 0.031 | 0.031 | 0.023 | 0.023 |
 | HAC, Andrews quadratic spectral (used in text) | 0.028 | 0.030 | 0.027 | 0.025 |
-| HAC, Newey–West, prewhitened | 0.029 | 0.026 | 0.028 | 0.025 |
+| HAC, Newey-West, prewhitened | 0.029 | 0.026 | 0.028 | 0.025 |
 | Moving-block bootstrap (block length 24, 999 replications) | 0.034 | 0.032 | 0.022 | 0.023 |
 
 Table: Table D.2: Alternative error specifications for Pakistan
 
-| Error specification | AICc | Ljung–Box(24) p | β Fitr | β Adha |
+| Error specification | AICc | Ljung-Box(24) p | β Fitr | β Adha |
 |:---|---:|---:|---:|---:|
 | Selected: (3,1,1)(1,0,0) + drift | −537.9 | 0.014 | 0.179 | 0.139 |
 | (0,1,1)(1,0,1) + drift | −533.7 | <0.001 | 0.152 | 0.144 |

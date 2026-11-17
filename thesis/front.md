@@ -56,13 +56,13 @@ Abstract
 
 Workers' remittances are a major source of foreign exchange for Bangladesh and Pakistan. Each month, migrants send more money home in the weeks before the two Eid festivals. The Eids follow the lunar calendar and fall about 11 days earlier each year, so this increase arrives in a different month from year to year. Standard forecasting models, which assume the same seasonal pattern every year, cannot capture it. This study asks whether Eid al-Fitr and Eid al-Adha are associated with changes in monthly remittances, whether the effects differ between the two countries, and whether accounting for Eid improves forecasts.
 
-Monthly data from Bangladesh Bank (July 2009 to June 2026) and the State Bank of Pakistan (July 2005 to June 2026) were analysed with a regression model with seasonal ARIMA errors (RegARIMA). Eid regressors measure the share of a 30-day pre-Eid period falling in each month. Forecasts with and without the Eid regressors were compared for July 2017 to June 2026 using the Clark–West and Diebold–Mariano tests.
+Monthly data from Bangladesh Bank (July 2009 to June 2026) and the State Bank of Pakistan (July 2005 to June 2026) were analysed with a regression model with seasonal ARIMA errors (RegARIMA). Eid regressors measure the share of a 30-day pre-Eid period falling in each month. Forecasts with and without the Eid regressors were compared for July 2017 to June 2026 using the Clark-West and Diebold-Mariano tests.
 
-A month containing the full pre-Eid period has about 15–21% higher remittances in both countries, and the effects do not differ significantly between them. Including Eid reduces one-month-ahead forecast errors by 9.8% in Bangladesh and 11.6% in Pakistan, and by about 20% in Eid months. The model with Eid is also significantly more accurate than a seasonal naive forecast, and has lower errors than a standard Box–Jenkins SARIMA model, although these differences are not significant. In simple terms, migrants from both countries send about a fifth more money before each Eid, and forecasts that allow for this are more accurate in the months around the festivals.
+A month containing the full pre-Eid period has about 15-21% higher remittances in both countries, and the effects do not differ significantly between them. Including Eid reduces one-month-ahead forecast errors by 9.8% in Bangladesh and 11.6% in Pakistan, and by about 20% in Eid months. The model with Eid is also significantly more accurate than a seasonal naive forecast, and has lower errors than a standard Box-Jenkins SARIMA model, although these differences are not significant. In simple terms, migrants from both countries send about a fifth more money before each Eid, and forecasts that allow for this are more accurate in the months around the festivals.
 
 This is one of the first studies to measure the Eid effect on remittances to Bangladesh and Pakistan and to show that it can be used to improve remittance forecasts in both countries.
 
-**Keywords:** remittances, Eid, moving holidays, RegARIMA, forecast evaluation, Clark–West test, Bangladesh, Pakistan
+**Keywords:** remittances, Eid, moving holidays, RegARIMA, forecast evaluation, Clark-West test, Bangladesh, Pakistan
 
 ::: {custom-style="FrontHeading"}
 Table of Contents
@@ -106,12 +106,12 @@ List of Abbreviations
 | GLS | Generalised least squares |
 | HAC | Heteroskedasticity- and autocorrelation-consistent |
 | IMF | International Monetary Fund |
-| KPSS | Kwiatkowski–Phillips–Schmidt–Shin test |
+| KPSS | Kwiatkowski-Phillips-Schmidt-Shin test |
 | LS | Level shift |
 | LSTM | Long short-term memory (neural network) |
 | MAE | Mean absolute error |
 | MAPE | Mean absolute percentage error |
-| OCSB | Osborn–Chui–Smith–Birchenhall test |
+| OCSB | Osborn-Chui-Smith-Birchenhall test |
 | PK | Pakistan |
 | RegARIMA | Regression model with ARIMA errors |
 | RMSE | Root mean squared error |
