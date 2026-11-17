@@ -84,7 +84,7 @@ dev.off()
 # ---------- Figure: Eid al-Fitr date drift ----------
 ed <- read.csv(file.path(repo, "data/eid_dates.csv"))
 ed$eid_date <- as.Date(ed$eid_date)
-e1 <- subset(ed, country == "BD" & eid_date >= as.Date("2005-07-01") & eid_date <= as.Date("2026-06-30"))
+e1 <- subset(ed, country == "BD" & eid_date >= as.Date("2009-07-01") & eid_date <= as.Date("2026-06-30"))
 png(file.path(out, "fig_eid_dates.png"), width = 2000, height = 900, res = 220)
 par(mar = c(4, 4.5, 1, 1), cex = 0.85)
 doy <- as.integer(format(e1$eid_date, "%j"))

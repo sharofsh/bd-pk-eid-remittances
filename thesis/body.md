@@ -176,7 +176,7 @@ Table: Table 3.1: Data sources
 
 Each country's full span is used, and levels are never compared across countries. For Bangladesh, each month's value is taken from the most recent issue that prints it, so revised figures replace first releases, and the issue used is recorded for every month. The August 2024 value equals Bangladesh Bank's first-released figure (US\$2.22 billion), and the FY2023-24 and FY2024-25 totals match the published figures. For Pakistan, values to December 2024 come from SBP's workers' remittances release file. Later months were not yet in that file, so they were collected from SBP monthly releases and from news reports quoting SBP, with the source of each month recorded.
 
-**Eid dates:** Each country's national Eid dates were taken from news reports of the national moon-sighting announcements, with a source recorded for each event. Where no date could be sourced, the Umm al-Qura calendar date was used and flagged; this applied to 2 of 36 in-sample events for Bangladesh and 10 of 44 for Pakistan. National dates matter because Bangladesh and Pakistan often celebrate Eid one day after Saudi Arabia, and a one-day shift moves part of the window between months.
+**Eid dates:** Each country's national Eid dates were taken from news reports of the national moon-sighting announcements, with a source recorded for each event (Appendix B). Where no date could be sourced, the Umm al-Qura calendar date was used and flagged; this applied to 2 of 36 in-sample events for Bangladesh and 10 of 44 for Pakistan. National dates matter because Bangladesh and Pakistan often celebrate Eid one day after Saudi Arabia, and a one-day shift moves part of the window between months.
 
 ## 3.2 Study Variables
 
@@ -200,7 +200,7 @@ where n~t~ is the number of the w days from D − w + 1 to D (inclusive) that fa
 
 A window entirely inside one month gives 1 in that month; a window split across two months is divided between them. For example, if Eid falls on 10 April, the 30-day window runs from 12 March to 10 April. March contains 20 of the 30 days, so March = 20/30 = 0.67; April contains 10 days, so April = 0.33; every other month is 0. The window length w is chosen by model fit (Section 3.4.5); the chosen length, 30 days, is roughly the length of Ramadan. The regressors are the raw window shares, not centred on their long-run monthly means as in X-13ARIMA-SEATS, because the aim here is forecasting and effect estimation rather than seasonal adjustment. Figure 3.1 shows how the Eid dates move through the calendar over the sample.
 
-![Figure 3.1: National Eid dates in Bangladesh, 2005–2026, by calendar month](fig/fig_eid_dates.png){width=6in}
+![Figure 3.1: National Eid dates in Bangladesh, July 2009 to June 2026, by calendar month](fig/fig_eid_dates.png){width=6in}
 
 ## 3.3 Conceptual Framework
 
@@ -359,7 +359,7 @@ Table: Table 4.1: Descriptive statistics of monthly workers' remittances (US\$ m
 
 Figure 4.1 plots both series and marks the months that contain at least half of a 30-day pre-Eid window. In most years these months are local peaks, and the peaks move earlier through the calendar as the Eids do. Both series also show a fall in early 2020 followed by a sharp rise from June 2020, and Bangladesh shows a further rise after August 2024.
 
-![Figure 4.1: Monthly workers' remittances with Eid months marked](fig/fig_series.png){width=6.2in}
+![Figure 4.1: Monthly workers' remittances with Eid months marked](fig/fig_series.png){width=6in}
 
 Table 4.2 and Figure 4.2 compare each month with a centred 12-month moving average. Months containing at least half of a pre-Eid window lie about 9–10% above trend in both countries, and months containing none of it about 2% below. Months containing less than half of a window are close to trend (−1.9% and −0.5%), not above it as the window-share regressor implies. Such months usually contain Eid day and the days after it, so a fall in remittances after Eid may offset the pre-Eid rise; the model does not include a post-Eid term (Section 5.3).
 
@@ -371,7 +371,7 @@ Table: Table 4.2: Mean percentage deviation from a centred 12-month moving avera
 | Under half | 30 | −1.9 | 38 | −0.5 |
 | None | 130 | −2.3 | 162 | −2.2 |
 
-![Figure 4.2: Deviation from trend by share of the pre-Eid window in the month](fig/fig_ratio.png){width=6.2in}
+![Figure 4.2: Deviation from trend by share of the pre-Eid window in the month](fig/fig_ratio.png){width=6in}
 
 ## 4.2 Model Estimation Results and Interpretations
 
@@ -446,7 +446,7 @@ Table: Table 4.7: Cross-country difference in Eid effects (Bangladesh − Pakist
 
 ### 4.2.4 Diagnostics and robustness of inference
 
-Bangladesh's residuals pass both diagnostic tests: Ljung–Box(24) p = 0.17 and Jarque–Bera p = 0.80. Pakistan's residuals are consistent with normality (Jarque–Bera p = 0.43) but fail the Ljung–Box test at lag 24 (p = 0.014). The test passes at lag 12 (p = 0.22), and the remaining autocorrelation is at lags 13, 14 and 35 (Appendix D). With HAC standard errors (Andrews quadratic spectral kernel), the Pakistan standard errors rise from 0.023 to 0.027 (Eid al-Fitr) and 0.025 (Eid al-Adha), and all four Eid effects remain significant at p < 0.001. Other robust methods give similar results (Appendix Table D.1). The leftover pattern in Pakistan's residuals makes the estimates slightly less precise but does not change any conclusion. Five alternative error specifications for Pakistan also failed the Ljung–Box test and had higher AICc, with Eid coefficients of 0.15–0.18 (Eid al-Fitr) and 0.13–0.15 (Eid al-Adha) (Appendix Table D.2).
+Bangladesh's residuals pass both diagnostic tests: Ljung–Box(24) p = 0.17 and Jarque–Bera p = 0.80. Pakistan's residuals are consistent with normality (Jarque–Bera p = 0.43) but fail the Ljung–Box test at lag 24 (p = 0.014). The test passes at lag 12 (p = 0.22), and the remaining autocorrelation is at lags 13, 14 and 35 (Appendix D). With HAC standard errors (Andrews quadratic spectral kernel), the Pakistan standard errors rise from 0.023 to 0.027 (Eid al-Fitr) and 0.025 (Eid al-Adha), and all four Eid effects remain significant at p < 0.001. Other robust methods give similar results (Appendix Table D.1). The leftover pattern in Pakistan's residuals makes the estimates slightly less precise but does not change any conclusion. Five alternative error specifications for Pakistan also failed the Ljung–Box test and had higher AICc, with Eid coefficients of 0.15–0.18 (Eid al-Fitr) and 0.13–0.15 (Eid al-Adha) (Appendix Table D.2). The residual ACF and PACF are shown in Figures D.1 and D.2.
 
 ### 4.2.5 Sensitivity of the Eid effects
 
@@ -481,7 +481,7 @@ Figure 4.3 shows the RMSE change at every horizon. For Pakistan, RMSE is lower a
 
 Bangladesh forecasts under-predict increasingly with horizon: the mean log error of the model with Eid regressors is +0.014 at h = 1, +0.049 at h = 6 and +0.086 at h = 12. The Bangladesh model has no drift term, while remittances grew steadily over the evaluation period, especially after August 2024. The growing bias likely reflects, at least in part, trend growth that the model does not capture. In Pakistan, whose model includes drift, the mean error stays close to zero.
 
-![Figure 4.3: RMSE improvement from the Eid regressors by forecast horizon](fig/fig_rmse_h.png){width=6.2in}
+![Figure 4.3: RMSE improvement from the Eid regressors by forecast horizon](fig/fig_rmse_h.png){width=6in}
 
 **Benchmarks:** At h = 1 and 3, the model with Eid regressors has the lowest RMSE of the four models in both countries, and the lowest MAPE at h = 1 (Table 4.10). In Pakistan the Box–Jenkins model is slightly more accurate than the baseline at h = 1 (RMSE 0.101 against 0.106), so the gain over the best model without Eid regressors is smaller, about 8%. Table 4.11 tests the differences. The model with Eid regressors is significantly more accurate than the seasonal naive forecast at both horizons in both countries. It also has lower RMSE than the Box–Jenkins model in all four cases, but these differences are not significant after the Holm correction.
 

@@ -97,19 +97,21 @@ List of Abbreviations
 | ACF / PACF | Autocorrelation function / partial autocorrelation function |
 | AICc | Akaike information criterion, corrected for small samples |
 | AO | Additive outlier |
+| ARDL | Autoregressive distributed lag |
 | ARIMA | Autoregressive integrated moving average |
-| BB | Bangladesh Bank |
 | BD | Bangladesh |
-| CW | Clark–West test |
-| DM | Diebold–Mariano test |
 | FY | Fiscal year (July to June) |
+| GARCH | Generalised autoregressive conditional heteroskedasticity |
+| GDP | Gross domestic product |
 | GLS | Generalised least squares |
 | HAC | Heteroskedasticity- and autocorrelation-consistent |
-| HLN | Harvey–Leybourne–Newbold correction |
+| IMF | International Monetary Fund |
 | KPSS | Kwiatkowski–Phillips–Schmidt–Shin test |
 | LS | Level shift |
+| LSTM | Long short-term memory (neural network) |
+| MAE | Mean absolute error |
 | MAPE | Mean absolute percentage error |
-| ME | Mean error |
+| OCSB | Osborn–Chui–Smith–Birchenhall test |
 | PK | Pakistan |
 | RegARIMA | Regression model with ARIMA errors |
 | RMSE | Root mean squared error |
@@ -118,6 +120,8 @@ List of Abbreviations
 | SE | Standard error |
 | TC | Temporary change |
 | US\$ | United States dollar |
+| VAR | Vector autoregression |
+| VECM | Vector error correction model |
 
 ```{=openxml}
 <w:p><w:pPr><w:sectPr/></w:pPr></w:p>
