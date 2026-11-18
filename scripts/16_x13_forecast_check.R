@@ -17,10 +17,10 @@ H <- c(1, 3)
 
 fit_fc <- function(y, xreg) {
   args <- list(x = y, transform.function = "log", regression.aictest = "td",
-               outlier.types = c("ao", "ls", "tc"), forecast.maxlead = max(H), forecast.save = "fct", x11 = NULL)
+               outlier.types = c("ao", "ls", "tc"), forecast.maxlead = max(H), forecast.save = "fct", x11 = "")
   if (!is.null(xreg)) { args$xreg <- xreg; args$regression.usertype <- "holiday" }
   m <- try(do.call(seas, args), silent = TRUE)
-  if (inherits(m, "try-error")) return(rep(NA, max(H)))
+  if (inherits(m, "try-error")) { message(substr(m, 1, 200)); return(rep(NA, max(H))) }
   fc <- m$series$fct
   if (is.null(fc)) return(rep(NA, max(H)))
   log(as.numeric(fc[1:max(H), 1]))
