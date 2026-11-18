@@ -516,7 +516,7 @@ Table: Table 4.12: RMSE improvement at h = 1 by type of target month
 
 *Note.* For Bangladesh, 37 of the 108 target months have a non-zero Eid regressor.
 
-**Examples:** Table 4.13 shows three one-month-ahead forecasts. In March 2025, when the whole Eid al-Fitr window fell in March, the Eid regressors reduced Bangladesh's forecast error by about US\$340 million, although both models under-predicted a record month. In June 2024, with 57% of the Eid al-Adha window in June, the model with Eid regressors was US\$66 million closer for Pakistan. It does not improve every Eid month: for Bangladesh in June 2024 the two forecasts were practically the same.
+**Examples:** Table 4.13 shows three one-month-ahead forecasts. In March 2025, when the whole Eid al-Fitr window fell in March, the Eid regressors reduced Bangladesh's forecast error by about US\$340 million, although both models under-predicted what was then a record month. In June 2024, with 57% of the Eid al-Adha window in June, the model with Eid regressors was US\$66 million closer for Pakistan. It does not improve every Eid month: for Bangladesh in June 2024 the two forecasts were practically the same.
 
 Table: Table 4.13: Examples of one-month-ahead forecasts (US\$ million)
 
@@ -524,7 +524,7 @@ Table: Table 4.13: Examples of one-month-ahead forecasts (US\$ million)
 |:---|:---|---:|---:|---:|---:|
 | Bangladesh, Mar 2025 | Eid al-Fitr, 31 Mar (100% in March) | 3,296 | 2,327 | 2,668 | 341 |
 | Pakistan, Jun 2024 | Eid al-Adha, 17 Jun (57% in June) | 3,158 | 2,832 | 2,898 | 66 |
-| Bangladesh, Jun 2024 | Eid al-Adha, 17 Jun | 2,539 | 2,322 | 2,317 | −5 |
+| Bangladesh, Jun 2024 | Eid al-Adha, 17 Jun (57% in June) | 2,539 | 2,322 | 2,317 | −5 |
 
 ### 4.2.7 Sensitivity of the forecast results
 
@@ -549,7 +549,7 @@ The estimates are in line with the few earlier studies of Islamic holidays in re
 
 State Bank of Pakistan studies found that Islamic-calendar effects bias forecasts of money and prices (Riazuddin & Khan, 2005; Bukhari et al., 2011), and Lin and Liu (2002) found that holiday regressors improve the seasonal decomposition of series affected by Chinese New Year. Hendikawati et al. (2022) found lower out-of-sample errors when an Eid al-Fitr term was added to forecasts of port passenger numbers in Indonesia. The forecasting results here extend these findings to remittances, with formal out-of-sample tests. Unlike earlier Bangladesh forecasting studies, which used annual data or Gregorian seasonality (Islam et al., 2018; Saha & Khanam, 2022), this study shows a statistically significant forecast gain from a moving-holiday regressor. The differencing tests also found the fixed seasonal pattern too weak to need a seasonal difference (Table 4.3), which is consistent with much of the within-year pattern moving with Eid rather than staying in the same calendar months.
 
-Farabi et al. (2025) estimated a 6.68% rise after the July 2019 incentive. That incentive (B1) was not selected here, and the June 2020 level shift may absorb part of the move to formal channels.
+Farabi et al. (2025) estimated a 6.68% rise in Bangladesh after the July 2019 incentive. That incentive (B1) was not selected here, and the June 2020 level shift may absorb part of the move to formal channels.
 
 The Eid associations are similar in size in the two countries. This fits the altruistic and family-contract motives for remitting (Lucas & Stark, 1985), since migrants from both countries face similar festival spending at home. The smaller Eid al-Adha estimate for Pakistan may reflect differences in how the sacrifice is financed, but the difference is not significant. The forecast gain is concentrated at short horizons for Bangladesh and is more persistent for Pakistan. More generally, a Box-Jenkins model with Gregorian seasonality performed little better than the baseline, while the two Eid regressors gave the largest short-horizon gain. This supports the view in the Islamic-calendar literature that fixed monthly seasonality is not enough for series driven by lunar holidays. Chapter 5 summarises these findings and their implications.
 
@@ -565,7 +565,7 @@ This study examined whether the two Eid festivals are associated with changes in
 
 - **Forecasting:** Forecasts that include Eid are more accurate one and three months ahead in both countries, mainly in Eid months. They are significantly more accurate than seasonal naive forecasts and have lower errors than a Box-Jenkins SARIMA model, although the latter differences are not significant. At longer horizons the gain continues in Pakistan but not in Bangladesh.
 
-In simple terms, migrants from both countries send about 15 to 21% more money home in the weeks before each Eid, and forecasts that allow for this are more accurate in the months around the festivals.
+In simple terms, migrants from both countries send about 15 to 21% more money home in the weeks before each Eid, and forecasts that allow for this are more accurate one and three months ahead, mainly in the months before the festivals.
 
 ## 5.2 Policy and Practical Implications
 
