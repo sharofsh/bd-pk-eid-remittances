@@ -48,7 +48,7 @@ Date: ____________________
 Acknowledgements
 :::
 
-I thank the Department of Statistics and Data Science, Jahangirnagar University, for its support throughout the Weekend M.Sc. programme. I thank Olima Mim for her careful reading of and comments on earlier drafts. I also thank Bangladesh Bank and the State Bank of Pakistan for making their remittance data publicly available. Finally, I thank my family for their patience and support.
+I thank the Department of Statistics and Data Science, Jahangirnagar University, for its support throughout the Weekend M.Sc. programme. I thank Olima Akter Mim for her careful reading of and comments on earlier drafts. I also thank Bangladesh Bank and the State Bank of Pakistan for making their remittance data publicly available. I used Claude LLM for coding assistance and language refinement of this thesis; I reviewed all code and text and take full responsibility for the content. Finally, I thank my family for their patience and support.
 
 ::: {custom-style="FrontHeading"}
 Abstract
