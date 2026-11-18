@@ -64,7 +64,7 @@ fmt('FrontHeading', 18, bold=True, align=C, before=0, after=18, pbb=True, keep=T
 fmt('SignBlock', 12, align=L, before=48, after=6, line=1.5, base='Normal')
 fmt('Reference', 12, align=L, after=8, line=1.15, base='Normal', indent_left=Inches(0.5), first=Inches(-0.5))
 fmt('Table Caption', 12, bold=False, align=L, before=10, after=4, keep=True, base='Normal')
-fmt('Image Caption', 11, bold=True, align=C, before=2, after=12, base='Normal')
+fmt('Image Caption', 12, bold=True, align=C, before=2, after=12, base='Normal')
 fmt('Captioned Figure', 12, align=C, before=8, after=0, keep=True, base='Normal')
 fmt('Figure', 12, align=C, before=8, after=0, keep=True, base='Normal')
 for i in (1, 2, 3):

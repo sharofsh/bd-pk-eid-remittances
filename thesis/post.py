@@ -82,3 +82,38 @@ for i in range(0, len(parts), 2):
     parts[i] = re.sub(r'<w:pStyle w:val="Compact" ?/>(<w:numPr>)', r'\1', parts[i])
 open(p, 'w').write(''.join(parts))
 print('list compact fixed')
+
+# ---- keep lead-in lines (ending with ':') with what follows; space after tables ----
+d = open(p).read()
+parts = re.split(r'(<w:tbl>.*?</w:tbl>)', d, flags=re.S)
+def keep_colon(m):
+    para = m.group(0)
+    txt = ''.join(re.findall(r'<w:t[^>]*>([^<]*)</w:t>', para)).rstrip()
+    if txt.endswith(':') and 'keepNext' not in para:
+        if '<w:pPr>' in para: para = para.replace('<w:pPr>', '<w:pPr><w:keepNext/>', 1)
+        else: para = re.sub(r'^(<w:p(?: [^>]*)?>)', r'\1<w:pPr><w:keepNext/></w:pPr>', para)
+    return para
+for i in range(0, len(parts), 2):
+    parts[i] = re.sub(r'<w:p(?: [^>]*)?>.*?</w:p>', keep_colon, parts[i], flags=re.S)
+    if i > 0:  # paragraph right after a table: add space before unless it is a table note
+        m = re.match(r'\s*(<w:p(?: [^>]*)?>)(.*?)</w:p>', parts[i], re.S)
+        if m and 'Note.' not in ''.join(re.findall(r'<w:t[^>]*>([^<]*)</w:t>', m.group(2)))[:8]:
+            para = m.group(0)
+            if '<w:pPr>' in para: new = para.replace('<w:pPr>', '<w:pPr><w:spacing w:before="240"/>', 1)
+            else: new = para.replace(m.group(1), m.group(1) + '<w:pPr><w:spacing w:before="240"/></w:pPr>', 1)
+            parts[i] = parts[i].replace(para, new, 1)
+open(p, 'w').write(''.join(parts))
+print('keep/space ok')
+
+# ---- keep the paragraph before a display equation with it ----
+d = open(p).read()
+paras = list(re.finditer(r'<w:p(?: [^>]*)?>.*?</w:p>', d, flags=re.S))
+out, last = [], 0
+for a, b in zip(paras, paras[1:]):
+    if '<m:oMathPara>' in b.group(0) and 'keepNext' not in a.group(0) and '<w:tbl>' not in d[a.end():b.start()]:
+        para = a.group(0)
+        para = para.replace('<w:pPr>', '<w:pPr><w:keepNext/>', 1) if '<w:pPr>' in para else re.sub(r'^(<w:p(?: [^>]*)?>)', r'\1<w:pPr><w:keepNext/></w:pPr>', para)
+        out.append(d[last:a.start()]); out.append(para); last = a.end()
+out.append(d[last:]); d = ''.join(out)
+open(p, 'w').write(d)
+print('eq keep ok')
