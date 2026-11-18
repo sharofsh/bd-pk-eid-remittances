@@ -73,3 +73,12 @@ def fix_cap(m):
 d = re.sub(r'<w:p><w:pPr><w:pStyle w:val="TableCaption" ?/></w:pPr>.*?</w:p>', fix_cap, d, flags=re.S)
 open(p, 'w').write(d)
 print('apa tables ok')
+
+# ---- list items outside tables: drop the small 'Compact' style (used for table cells) ----
+d = open(p).read()
+parts = re.split(r'(<w:tbl>.*?</w:tbl>)', d, flags=re.S)
+for i in range(0, len(parts), 2):
+    parts[i] = re.sub(r'(<w:numPr>.*?</w:numPr>)<w:pStyle w:val="Compact" ?/>', r'\1', parts[i], flags=re.S)
+    parts[i] = re.sub(r'<w:pStyle w:val="Compact" ?/>(<w:numPr>)', r'\1', parts[i])
+open(p, 'w').write(''.join(parts))
+print('list compact fixed')
