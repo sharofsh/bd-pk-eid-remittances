@@ -435,7 +435,7 @@ For a typical Bangladesh month of US\$2.5 billion, a 19.6% difference is roughly
 
 ### 4.2.3 Cross-country comparison
 
-The data give no evidence that the Eid effects differ between the two countries (Table 4.7), so H₀₂ is not rejected. The Eid al-Fitr coefficients are almost identical; the Eid al-Adha coefficient is 0.047 log points larger in Bangladesh, within sampling error. With standard errors of about 0.039, the test could not detect differences smaller than roughly 0.08 log points (about 8 percentage points), so the result does not show that the effects are equal.
+The data give no evidence that the Eid effects differ between the two countries (Table 4.7), so H₀₂ is not rejected. The Eid al-Fitr coefficients are almost identical; the Eid al-Adha coefficient is 0.047 log points larger in Bangladesh, within sampling error. With standard errors of the differences of about 0.039, the test could not detect differences smaller than roughly 0.08 log points (about 8 percentage points), so the result does not show that the effects are equal.
 
 Table: Table 4.7: Cross-country difference in Eid effects (Bangladesh − Pakistan, log points)
 
