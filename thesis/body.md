@@ -20,7 +20,7 @@ Pakistan is included as a comparison for four reasons. First, a second country t
 
 ## 1.3 Research Questions and Objectives
 
-The study addresses the following research questions.
+To address these gaps, the study asks two research questions.
 
 **RQ1 (effect estimation):**
 
@@ -46,7 +46,7 @@ The study addresses the following research questions.
 
 ## 1.4 Hypotheses
 
-The study tests the following null hypotheses.
+Each research question leads to null hypotheses that can be tested.
 
 - **H₀₁:** Eid al-Fitr and Eid al-Adha are not associated with changes in monthly workers' remittances in Bangladesh or Pakistan.
 
@@ -58,7 +58,7 @@ The alternative hypotheses are that Eid is associated with a change in remittanc
 
 ## 1.5 Significance of the Study
 
-The study is significant for research and for practice in both countries.
+Answering these questions matters for research and for practice in both countries.
 
 For research, it is one of the first studies to measure how much Eid al-Fitr and Eid al-Adha raise monthly remittances to Bangladesh and Pakistan, and to compare the two countries. It also applies formal forecast-comparison tests to remittance forecasting. Earlier remittance forecasting studies for Bangladesh compared models by error measures alone, without testing whether one model's forecasts were significantly more accurate than another's.
 
@@ -361,7 +361,7 @@ Figure 4.1 plots both series and marks the months that contain at least half of 
 
 ![Figure 4.1: Monthly workers' remittances, with months containing at least half of a pre-Eid window marked](fig/fig_series.png){width=6in}
 
-Table 4.2 and Figure 4.2 compare each month with a centred 12-month moving average. Months containing at least half of a pre-Eid window lie about 9-10% above trend in both countries, and months containing none of it about 2% below. Months containing less than half of a window are close to trend (−1.9% for Bangladesh and −0.5% for Pakistan), not above it as the Eid regressor implies. Such months usually contain Eid day and the days after it, so a fall in remittances after Eid may offset the pre-Eid rise; the model does not include a post-Eid regressor (Section 5.3).
+Table 4.2 and Figure 4.2 compare each month with a centred 12-month moving average. Months containing at least half of a pre-Eid window lie about 9-10% above trend in both countries, and months containing none of it about 2% below. Months containing less than half of a window are close to trend (−1.9% for Bangladesh and −0.5% for Pakistan), not above it as the Eid regressor implies. Such months usually contain Eid day and the days after it, so a fall in remittances after Eid may offset the pre-Eid rise; the model does not include a post-Eid regressor.
 
 Table: Table 4.2: Mean percentage deviation from a centred 12-month moving average, by share of the pre-Eid window in the month
 
