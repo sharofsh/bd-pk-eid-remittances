@@ -359,7 +359,7 @@ Table: Table 4.1: Descriptive statistics of monthly workers' remittances (US\$ m
 
 Figure 4.1 plots both series and marks the months that contain at least half of a 30-day pre-Eid window. In most years these months are local peaks, and the peaks move earlier through the calendar as the Eids do. Both series also show a fall in early 2020 followed by a sharp rise from June 2020, and Bangladesh shows a further rise after August 2024.
 
-![Figure 4.1: Monthly workers' remittances with Eid months marked](fig/fig_series.png){width=6in}
+![Figure 4.1: Monthly workers' remittances, with months containing at least half of a pre-Eid window marked](fig/fig_series.png){width=6in}
 
 Table 4.2 and Figure 4.2 compare each month with a centred 12-month moving average. Months containing at least half of a pre-Eid window lie about 9-10% above trend in both countries, and months containing none of it about 2% below. Months containing less than half of a window are close to trend (−1.9% and −0.5%), not above it as the Eid regressor implies. Such months usually contain Eid day and the days after it, so a fall in remittances after Eid may offset the pre-Eid rise; the model does not include a post-Eid regressor (Section 5.3).
 
@@ -543,7 +543,7 @@ Table: Table 4.14: Sensitivity of the forecast comparison (Clark-West t / RMSE i
 
 ## 4.3 Discussion and Comparison with Previous Studies
 
-Put simply, the results show three things. First, remittances to both countries rise by roughly a fifth in the month before each Eid, so migrants send extra money for the festivals. Second, migrants from Bangladesh and Pakistan respond to Eid in a similar way. Third, a forecast that allows for Eid is more accurate one to three months ahead, especially for the months around the festivals.
+Put simply, the results show three things. First, remittances to both countries are about 15 to 21% higher in a month containing the whole 30-day window before each Eid, which is consistent with migrants sending extra money for the festivals. Second, migrants from Bangladesh and Pakistan respond to Eid in a similar way. Third, a forecast that allows for Eid is more accurate one to three months ahead, especially for the months around the festivals.
 
 The estimates are in line with the few earlier studies of Islamic holidays in remittances and related series. Bokhari and Ansari (2009) found a Dul-Haj effect of about +13.8% in Pakistan's remittances using X-12-ARIMA. The Pakistan Eid al-Adha effect here, +14.9% with a 30-day window, is close to it despite the different method and sample. This agreement suggests that the method recovers holiday effects reliably, which supports the Bangladesh estimates, for which no earlier benchmark exists. Grun Rehomme and Ben Rejeb (2008) found pre-Eid windows of 7 to 41 days for Tunisian series. The 30-day window chosen here lies within that range, and window length appears to be series-specific.
 
@@ -565,7 +565,7 @@ This study examined whether the two Eid festivals are associated with changes in
 
 - **Forecasting:** Forecasts that include Eid are more accurate one and three months ahead in both countries, mainly in Eid months. They are significantly more accurate than seasonal naive forecasts and have lower errors than a Box-Jenkins SARIMA model, although the latter differences are not significant. At longer horizons the gain continues in Pakistan but not in Bangladesh.
 
-In simple terms, migrants from both countries send about 15 to 20% more money home in the weeks before each Eid, and forecasts that allow for this are more accurate in the months around the festivals.
+In simple terms, migrants from both countries send about 15 to 21% more money home in the weeks before each Eid, and forecasts that allow for this are more accurate in the months around the festivals.
 
 ## 5.2 Policy and Practical Implications
 
