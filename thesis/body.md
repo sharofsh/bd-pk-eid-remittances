@@ -361,7 +361,7 @@ Figure 4.1 plots both series and marks the months that contain at least half of 
 
 ![Figure 4.1: Monthly workers' remittances, with months containing at least half of a pre-Eid window marked](fig/fig_series.png){width=6in}
 
-Table 4.2 and Figure 4.2 compare each month with a centred 12-month moving average. Months containing at least half of a pre-Eid window lie about 9-10% above trend in both countries, and months containing none of it about 2% below. Months containing less than half of a window are close to trend (−1.9% and −0.5%), not above it as the Eid regressor implies. Such months usually contain Eid day and the days after it, so a fall in remittances after Eid may offset the pre-Eid rise; the model does not include a post-Eid regressor (Section 5.3).
+Table 4.2 and Figure 4.2 compare each month with a centred 12-month moving average. Months containing at least half of a pre-Eid window lie about 9-10% above trend in both countries, and months containing none of it about 2% below. Months containing less than half of a window are close to trend (−1.9% for Bangladesh and −0.5% for Pakistan), not above it as the Eid regressor implies. Such months usually contain Eid day and the days after it, so a fall in remittances after Eid may offset the pre-Eid rise; the model does not include a post-Eid regressor (Section 5.3).
 
 Table: Table 4.2: Mean percentage deviation from a centred 12-month moving average, by share of the pre-Eid window in the month
 
@@ -431,7 +431,7 @@ Table: Table 4.6: Estimated Eid effects (% change for a month containing the ful
 | Bangladesh (n = 204) | 19.6 [12.4, 27.2] | 20.5 [13.3, 28.1] |
 | Pakistan (n = 252) | 19.6 [14.3, 25.2] | 14.9 [9.8, 20.3] |
 
-For a typical Bangladesh month of US\$2.5 billion, a 19.6% difference is roughly US\$490 million. When the window is split between two months, the effect is divided in proportion: if Eid al-Fitr falls on 10 April, two-thirds of the window is in March and one-third in April, so March is predicted about 12.7% higher and April about 6.2% higher.
+For a typical Bangladesh month of US\$2.5 billion, a 19.6% difference is roughly US\$490 million. When the window is split between two months, the effect is divided in proportion. In either country, if Eid al-Fitr falls on 10 April, two-thirds of the window is in March and one-third in April, so March is predicted about 12.7% higher and April about 6.2% higher.
 
 ### 4.2.3 Cross-country comparison
 
@@ -466,7 +466,7 @@ Table: Table 4.8: Sensitivity of the Eid effects (Eid al-Fitr % / Eid al-Adha %)
 
 ### 4.2.6 Forecast accuracy (RQ2)
 
-Adding the Eid regressors makes short-term forecasts more accurate in both countries. Table 4.9 reports the primary tests. All four Clark-West tests reject at 5% after the Holm correction, so H₀₃ is rejected at the primary horizons: the Eid regressors have predictive content in both countries. The Diebold-Mariano tests, which compare realised accuracy, are also significant at 5%. One month ahead, RMSE is 9.8% lower in Bangladesh and 11.6% lower in Pakistan. Three months ahead the reduction is 2.1% in Bangladesh and 9.2% in Pakistan. In money terms, one-month-ahead forecasts are on average about US\$33 million closer to the actual value in Bangladesh (RMSE US\$263 million against US\$230 million) and about US\$37 million closer in Pakistan (Table 4.10).
+Adding the Eid regressors makes short-term forecasts more accurate in both countries. Table 4.9 reports the primary tests. All four Clark-West tests reject at 5% after the Holm correction, so H₀₃ is rejected at the primary horizons: the Eid regressors have predictive content in both countries. The Diebold-Mariano tests, which compare realised accuracy, are also significant at 5% in all four cases. One month ahead, RMSE is 9.8% lower in Bangladesh and 11.6% lower in Pakistan. Three months ahead the reduction is 2.1% in Bangladesh and 9.2% in Pakistan. In money terms, one-month-ahead forecasts are on average about US\$33 million closer to the actual value in Bangladesh (RMSE US\$263 million against US\$230 million) and about US\$37 million closer in Pakistan (Table 4.10).
 
 Table: Table 4.9: Primary forecast comparison (target months Jul 2017 to Jun 2026)
 
@@ -505,7 +505,7 @@ Table: Table 4.11: Diebold-Mariano tests against the benchmarks
 
 *Note.* Squared log error; one-sided tests that the model with Eid regressors is more accurate. RMSE improvements are computed from unrounded values and may differ slightly from those implied by Table 4.10.
 
-**Eid months and other months:** Most of the improvement comes in Eid months (Table 4.12). One month ahead, RMSE falls by about 20% in target months with a non-zero Eid regressor and by 2-4% in other months. This descriptive comparison indicates that the gain is linked to the Eid regressors rather than to a general improvement in fit.
+**Eid months and other months:** Most of the improvement comes in Eid months (Table 4.12). One month ahead, RMSE falls by about 20% in both countries in target months with a non-zero Eid regressor, and by 2-4% in other months. This descriptive comparison indicates that the gain is linked to the Eid regressors rather than to a general improvement in fit.
 
 Table: Table 4.12: RMSE improvement at h = 1 by type of target month
 
